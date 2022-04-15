@@ -1,0 +1,48 @@
+/*
+
+
+body > header {
+
+    padding: 1em;
+  }
+  
+
+body > header #signup a:first-child {
+    border-right: 1px solid white;
+  }
+  
+body > header #signup {
+    margin-top: 1em;
+    padding: 1em;
+
+  }
+  
+body > header #signup a {
+    padding: 0 1em;
+  }
+  
+body > header #signup a:first-child {
+    padding-left: 0;
+  }
+
+
+  body > footer {
+    background-color: #2a2f33;
+    color: white;
+  
+    padding: 1em;
+  
+    height: 1em;
+  }
+  
+  body > footer p {
+    margin: 0;
+  }
+  
+
+
+  @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
+
+body {
+  font-family: "Poppins", sans-serif;
+}
