@@ -1,0 +1,283 @@
+/*-------------------------------------Main theme-----------------------------------------------*/
+body {
+   
+    --background-color: #F3F3F3;
+    --main-color: #946B6B;
+    --darker-color:#745A5A;
+    --sideBar-color: #C4B1B1;
+    background-color: var(--background-color);
+    max-width: 100%;
+    margin: 0;
+   
+}
+
+body > header {
+
+display: flex;
+align-items:  center;
+width: 100%;
+
+}
+profile {
+float: right;
+padding: 2em 6em;
+margin-right: 3em;
+background-color: var(--main-color); 
+display: flex;
+flex-direction: column; 
+gap: 20px;
+align-items: center;
+}
+
+profile a{
+    text-decoration: none;
+    color: #F3F3F3;
+}
+
+profile #name {
+    font-size: x-large;
+}
+
+searchBar {
+    margin: 0 auto;   
+}
+
+searchBar input {
+    height: 3em;
+    width: 40em;
+    border-color: var(--main-color);
+}
+
+footer{
+    display: flex;
+    width: 100%;
+    background-color: var(--darker-color);
+}
+
+footer brand {
+    margin: 2em 0;
+    padding: 1em 2em 0 20em ;
+    border-right: solid black 4px;
+  
+}
+
+footer links {
+    margin: 2em 0;
+    padding: 1em 2em 0 5em ;
+}
+
+footer links > h4 {
+    font-size: 2em;
+    margin: 0;
+}
+footer links  a {
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+}
+
+sidebar{
+    visibility: hidden; 
+    float: right;
+    background-color: var(--main-color);
+}
+
+/*-------------------------------------------------Restaurant--------------------------------------------------------*/
+
+body > RestaurantPageHeader {
+    width: 100%;
+}
+
+body > RestaurantPageHeader > sideBar {
+    float: right;
+    padding: 3em;
+}
+restaurantInfo {
+    display: flex;
+    align-items: center;
+    border-bottom: #745A5A solid 6px;
+}
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 0;
+    margin-right: 40px;
+    margin-left: 1em;
+    font-size: 5em;
+    font-weight: 300;
+}
+restaurantInfo > h3 {
+    align-self:flex-end;
+    margin-bottom: 1;
+    margin-right: 40px;
+}
+
+restaurantInfo > h4 {
+    align-self:flex-end;
+    margin-bottom: 1;
+    max-width: 30em;
+}
+
+/*---------------Restaurant Page Content (Client)----------------------------------------*/
+
+restaurantTopPage {
+    display: flex;
+    margin: 2em 20em 2em 16em ;
+}
+
+restaurantTopPage select{
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    align-self: center;
+    border-radius: 22px;
+}
+
+restaurantTopPage a {
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    border-radius: 22px;
+    font-weight: 200;
+    text-decoration: none;
+    color: black;
+}
+restaurantTopPage > a:nth-child(1){
+    margin-right: 2em;
+}
+restaurantTopPage > a:nth-child(2) {
+    margin: 0 auto 0 0;
+}
+
+#dishes{
+    display: flex;
+    gap: 1em;
+    margin: 0 auto;
+    max-width: 75%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+dish{
+    display: flex;
+    width: 32em;
+    height: 16em;
+    gap: 25px;
+    background-color: white;
+    padding: 1em;
+    border: var(--main-color) solid 5px;
+    border-radius: 22px;
+}
+
+
+dish information name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+dish information price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/*---------------------------------------------Reviews------------------------------------------------*/
+#reviews {
+    margin: 0 auto;
+    max-width: 75%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+reviewBox{
+    align-self: center;
+    width: 75%;
+    height: auto;
+    gap: 25px;
+    background-color: white;
+    padding: 1em;
+    border: var(--main-color) solid 5px;
+    border-radius: 22px;
+}
+review{
+    display: flex;
+    border-bottom: solid var(--main-color) 2px;
+}
+
+#reviewBody {
+    margin-left: 1em;
+    flex: auto;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+/*---------------------------------------------Past Orders Page------------------------------------------------*/
+
+body > PastOrdersHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: #745A5A solid 6px;
+}
+
+pastOrders {
+    margin: 5em auto 3em auto ;
+    max-width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+pastOrder{
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 25px;
+    background-color: white;
+    padding: 2em 4em;
+    border: var(--main-color) solid 5px;
+    border-radius: 90px;
+}
+
+pastOrder > information {
+    margin: 0 auto;
+}
+
+pastOrder img {
+    filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+pastOrder > container {
+    position: relative;
+    text-align: center;
+  
+}
+
+pastOrder > container > p {
+    text-shadow: 2px 2px 5px whitesmoke;
+    font-weight: 300;
+    font-size: 2em;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+pastOrder > information > container {
+    display: flex;
+    gap: 2em; 
+    
+}
+
+pastOrder > information > container > i {
+    align-self: center;
+    vertical-align: bottom;
+}
+
+information #name {
+    margin: 0 auto;
+    font-size: 3em;
+    font-weight: 300;
+}
