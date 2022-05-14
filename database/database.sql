@@ -243,15 +243,7 @@ INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,12);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(13,13);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,14);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,15);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(16,1);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(17,2);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(18,3);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(19,4);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(20,5);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(21,6);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(22,7);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(23,8);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(24,9);
+
 
 
 INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (1,1);
@@ -269,15 +261,7 @@ INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (8,12);
 INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (8,13);
 INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (9,14);
 INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (10,15);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (10,16);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (11,17);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (11,18);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (12,19);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (13,20);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (14,21);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (14,22);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (14,23);
-INSERT INTO RestaurantOwner(RestaurantOwnerId,RestaurantId) VALUES (14,24);
+
 
 
 
@@ -296,7 +280,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-543',
 				'+351 987987555',
-				5.0);
+				3.5);
 
 
 INSERT INTO Restaurant(RestaurantId,
@@ -314,7 +298,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-786',
 				'+351 987000000',
-				3.4);
+				1);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -346,7 +330,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-453',
 				'+351 963852025',
-				2.5);
+				4.5);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -362,7 +346,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-678',
 				'+351 963014785'
-				,3.5);
+				,2);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -378,7 +362,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-776',
 				'+351 965823147',
-				4.5);
+				3.5);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -394,7 +378,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-344',
 				'+351 96325840',
-				3.75);
+				4.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -410,7 +394,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-233',
 				'+351 968574301',
-				3.5);
+				5.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -442,7 +426,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-222',
 				'+351 987654789',
-				4.75);
+				4.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -458,7 +442,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-999',
 				'+351 902365874',
-				5.0);
+				3.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -474,7 +458,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-888',
 				'+351 97541236',
-				1.5);
+				2.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -490,7 +474,7 @@ INSERT INTO Restaurant(RestaurantId,
 				'Portugal',
 				'1800-777',
 				'+351 963524178',
-				2.5);
+				4.0);
 INSERT INTO Restaurant(RestaurantId,
 			RestaurantName,
 			RestaurantAddress,
@@ -523,150 +507,6 @@ INSERT INTO Restaurant(RestaurantId,
 				'1800-987',
 				'+351 987987987',
 				3.0);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (16,
-				'Sweet 16',
-				'Rua da Bandeira',
-				'Porto',
-				'Portugal',
-				'1800-778',
-				'+351 987525252',
-				1.75);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (17,
-				'On Fire',
-				'Rua Almeida',
-				'Porto',
-				'Portugal',
-				'1800-779',
-				'+351 963859565',
-				1);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (18,
-				'PLus',
-				'Rua António Gigante',
-				'Porto',
-				'Portugal',
-				'1800-446',
-				'+351 942563214',
-				3.5);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (19,
-				'Restaurante 19',
-				'Rua Pedro Sousa',
-				'Porto',
-				'Portugal',
-				'1800-444',
-				'+351 952552631',
-				4.5);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (20,
-				'Binte',
-				'Rua da Circunvalação',
-				'Porto',
-				'Portugal',
-				'1800-447',
-				'+351 967156230',
-				4.5);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (21,
-				'221',
-				'Rua 221',
-				'Porto',
-				'Portugal',
-				'1800-221',
-				'+351 96532164',
-				4.5);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (22,
-				'TS',
-				'Rua Lopes',
-				'Porto',
-				'Portugal',
-				'1800-797',
-				'+351 95656489',
-				5.0);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (23,
-				'Alamedas',
-				'Rua Alameda',
-				'Porto',
-				'Portugal',
-				'1800-458',
-				'+351 945165978',
-				1.0);
-INSERT INTO Restaurant(RestaurantId,
-			RestaurantName,
-			RestaurantAddress,
-			RestaurantCity,
-			RestaurantCountry,
-			RestaurantPostalCode,
-			RestaurantPhone,
-			Rating) 
-			VALUES (24,
-				'4',
-				'Rua Quadrante',
-				'Porto',
-				'Portugal',
-				'1800-111',
-				'+351 946585212',
-				4.5);
 
 
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(1,'Massa com Atum',9.15,1);
@@ -819,96 +659,7 @@ INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(147,'Empanada',0
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(148,'Espeto de Roj├úo',6.35,15);
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(149,'Massa com Atum',105,15);
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(150,'Sopa de Pedra',8.65,15);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(151,'Bitoque',4.65,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(152,'Bifinhos de Frango',0.35,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(153,'Francesinha',1.65,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(154,'Pimentos',3.95,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(155,'Gelado',7.95,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(156,'Bolo',2.95,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(157,'Coca-Cola',7.15,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(158,'Cachorro Quente',2.55,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(159,'Lasanha',9.75,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(160,'Hambúrguer',9.65,16);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(161,'Arroz com pequi',4.65,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(162,'Polvo à Lagareiro',4.45,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(163,'Leitão à Bairrada',9.45,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(164,'Cataplana de Mariscos',2.75,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(165,'Arroz de Polvo',8.45,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(166,'Arroz de Pato',9.85,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(167,'Tripas à Moda do Porto',3.75,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(168,'Curry massaman',5.45,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(169,'Pizza napolitana',0.75,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(170,'Pato à pequim',1.45,17);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(171,'Frango Piri-piri',1.65,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(172,'Lagosta',15,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(173,'Kebab',95,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(174,'Lasanha',1.65,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(175,'Caranguejo com manteiga de alho',4.35,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(176,'Fajitas',9.15,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(177,'Fish and chips',9.95,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(178,'Caranguejo com pimenta malagueta',7.15,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(179,'Frango ├á parmegiana',2.95,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(180,'Tacos',7.95,18);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(181,'Arroz de frango',8.95,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(182,'Paella de frutos do mar',9.15,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(183,'Empadão ',1.25,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(184,'Empanada',2.65,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(185,'Espeto de Roj├úo',7.15,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(186,'Massa com Atum',9.75,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(187,'Sopa de Pedra',55,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(188,'Bitoque',9.95,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(189,'Bifinhos de Frango',3.55,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(190,'Francesinha',5.15,19);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(191,'Pimentos',85,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(192,'Gelado',9.45,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(193,'Bolo',3.85,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(194,'Coca-Cola',4.55,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(195,'Cachorro Quente',3.45,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(196,'Lasanha',0.75,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(197,'Hambúrguer',5.45,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(198,'Arroz com pequi',5.35,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(199,'Polvo à Lagareiro',2.65,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(200,'Leitão à Bairrada',6.55,20);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(201,'Cataplana de Mariscos',8.85,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(202,'Arroz de Polvo',5.15,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(203,'Arroz de Pato',9.25,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(204,'Tripas à Moda do Porto',2.85,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(205,'Curry massaman',5.25,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(206,'Pizza napolitana',9.15,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(207,'Pato à pequim',9.55,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(208,'Frango Piri-piri',4.85,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(209,'Lagosta',05,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(210,'Kebab',4.75,21);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(211,'Lasanha',05,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(212,'Caranguejo com manteiga de alho',8.75,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(213,'Fajitas',3.25,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(214,'Fish and chips',1.45,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(215,'Caranguejo com pimenta malagueta',0.15,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(216,'Frango ├á parmegiana',0.95,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(217,'Tacos',5.35,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(218,'Arroz de frango',7.75,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(219,'Paella de frutos do mar',1.55,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(220,'Empadão ',2.15,22);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(221,'Empanada',0.25,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(222,'Espeto de Roj├úo',3.65,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(223,'Massa com Atum',4.35,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(224,'Sopa de Pedra',8.55,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(225,'Bitoque',3.85,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(226,'Bifinhos de Frango',0.25,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(227,'Francesinha',8.55,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(228,'Pimentos',95,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(229,'Gelado',9.15,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(230,'Bolo',4.75,23);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(231,'Coca-Cola',2.15,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(232,'Cachorro Quente',8.95,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(233,'Lasanha',7.55,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(234,'Hambúrguer',1.95,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(235,'Arroz com pequi',6.15,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(236,'Polvo à Lagareiro',9.35,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(237,'Leitão à Bairrada',6.15,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(238,'Cataplana de Mariscos',2.75,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(239,'Arroz de Polvo',4.35,24);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId) VALUES(240,'Arroz de Pato',3.15,24);
+
 
 
 
@@ -961,6 +712,17 @@ INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(44,
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(45,6,13,'delivered');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(46,14,7,'delivered');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(47,14,8,'delivered');
+
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(48,1,3,'delivered');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(49,3,6,'delivered');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(50,4,1,'delivered');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(51,5,2,'delivered');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(52,6,3,'delivered');
+
+
+
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(53,11,7,'delivered');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState) VALUES(54,11,8,'delivered');
 
 INSERT INTO DishOrder(OrderId,DishId) VALUES(1,2);
 INSERT INTO DishOrder(OrderId,DishId) VALUES(1,4);
@@ -1118,11 +880,150 @@ INSERT INTO DishOrder(OrderId,DishId) VALUES(47,132);
 INSERT INTO DishOrder(OrderId,DishId) VALUES(47,140);
 INSERT INTO DishOrder(OrderId,DishId) VALUES(47,140);
 
+INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
+
+INSERT INTO DishOrder(OrderId,DishId) VALUES(49,23);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(50,34);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(51,45);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(51,48);
+INSERT INTO DishOrder(OrderId,DishId) VALUES(52,57);
+
+
+
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (1,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (5,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (8,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (9,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (10,1);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (11,2);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (13,3);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (14,4);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (17,5);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (19,6);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (20,6);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (21,6);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (22,7);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (25,7);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (26,7);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (27,8);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (28,8);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (30,8);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (31,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (33,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (36,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (38,10);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (39,10);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (41,10);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (42,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (44,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (48,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (49,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (50,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (51,12);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (53,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (67,15);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (67,1);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (68,2);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (80,3);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (90,14);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (101,13);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (103,13);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (105,14);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (110,1);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (115,6);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (118,6);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (120,7);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (123,8);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (125,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (127,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (128,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (129,9);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (130,4);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (132,3);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (133,2);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (135,1);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (137,3);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (138,5);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (139,7);
+INSERT INTO DishFavorite(DishId,CustomerId) VALUES (147,9);
+
+
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,2);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,3);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,4);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(2,11);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(2,13);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(2,11);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(3,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(3,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(4,4);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(4,3);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(5,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(6,3);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(7,4);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(8,5);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(9,7);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(10,7);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(11,9);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(11,3);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(11,2);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(11,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(12,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(12,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(13,13);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(13,11);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(13,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(13,4);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(14,15);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(14,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(14,2);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(15,4);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(15,8);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(15,9);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(15,1);
+INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(15,2);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(1,2,1,'Adorei!!',5);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(18,3,1,'Comida fantástica! Mas encontrei cabelo no meu prato',2);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(2,16,2,'Comida boa mas chegou fria. :',1);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(3,1,3,'Horrivel. Não recomendo.',2);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(19,6,3,'Não vale a pena ir',3);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(4,11,4,'Fantástico',5);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(20,1,4,'Podia ser melhor mas mesmo assim a comida está boa',4);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(5,12,5,'Ótimo ambiente para comer uma francesinha e tomar umas cervejas com amigos.',3);
-INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(6,13,6,'Well, se querem apanhar uma farda já sabem onde vão...',4);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(21,2,5,'Pior comida que comi na vida',1);
+
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(6,13,6,'Muito bom. Vou voltar!',4);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(22,3,6,'Comida Mediana',3);
+
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(7,20,7,'Comida lamentável e nojenta.',4);
 INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(8,4,8,'Comecei a ser fã do restaurante!!',5);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(9,5,9,'A comida era razoável',4);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(10,3,9,'Adorei!!',5);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(11,6,10,'Podia ser melhor a comida.',4);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(12,1,11,'Sabia muito a óleo a comida mas tirando isso estava bom',3);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(13,2,12,'Horrivel',2);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(14,7,14,'Não recomdo a ninguém',1);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(15,8,14,'Adorei!!',5);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(16,11,13,'Adorei tudo, vou continuar a mandar vir deste restaurante',4);
+INSERT INTO ReviewRestaurant(ReviewId,CustomerId,RestaurantId,reviewText,ReviewRating) VALUES(17,22,15,'Comida básica e barata',3);
+
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(1,1,'Muito obrigado <3');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(2,2,'A culpa não é nossa.');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(3,3,'Pedimos desculpa se não gostou do serviço');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(5,5,'Obrigado eheheh');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(7,7,'Então porque é que deu 4 na review? Foi erro?');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(9,9,'Iremos fazer o nosso melhor para melhorar a comida');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(10,9,'Muito obrigado! Agradecemos.');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(11,10,'Ok vamos ter isso em consideração');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(14,14,':(');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(15,14,'Muito obrigado. Ficamos felizes que gostou');
+INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(18,15,'Obrigado ;)');

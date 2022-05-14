@@ -5,59 +5,34 @@
     public int $reviewId;
     public int $restaurantOwnerId;
     public string $reviewText;
-    public int $reviewRating;
     
 
-    public function __construct(int $reviewId, int $restaurantOwnerId, string $reviewText, int $reviewRating)
+    public function __construct(int $reviewId, int $restaurantOwnerId, string $reviewText)
     {
       $this->reviewId = $reviewId;
       $this->restaurantOwnerId = $restaurantOwnerId;
       $this->reviewText = $reviewText;
-      $this->reviewRating = $reviewRating;
+  
     }
 
-    static function getReviewResponse(PDO $db, int $reviewId) : array {
+    static function getReviewResponse(PDO $db, int $reviewId) : ReviewResponse {
       $stmt = $db->prepare('
-        SELECT ReviewId, RestaurantOwnerId, ReviewResponse.reviewText, ReviewRating
+        SELECT ReviewResponse.ReviewId, ReviewResponse.RestaurantOwnerId, ReviewResponse.reviewText
         FROM ReviewRestaurant JOIN ReviewResponse USING (ReviewId) 
-        WHERE ReviewId = ?
-        GROUP BY RestaurantOwnerId
-      ');
-      $stmt->execute(array($restaurantId));
-  
-      $reviewResponse = array();
-  
-      while ($reviewRestaurant = $stmt->fetch()) {
-        $reviews[] = new ReviewRestaurant(
-          intval($reviewRestaurant['ReviewId']), 
-          intval($reviewRestaurant['RestaurantOwnerId']), 
-          strvalue($reviewRestaurant['reviewText']),
-          intval($reviewRestaurant['ReviewRating'])
-        );
-      }
-      return $reviewResponse;
-    }
-
-
-    /*
-    static function getReview(PDO $db, int $reviewId) : Dish {
-      $stmt = $db->prepare('
-        SELECT ReviewId, CustomerId, RestaurantID, ReviewText, ReviewRating
-        FROM Review
-        WHERE ReviewId = ?
+        WHERE ReviewResponse.ReviewId = ?
+        GROUP BY ReviewResponse.RestaurantOwnerId
       ');
       $stmt->execute(array($reviewId));
   
-      $reviewRestaurant = $stmt->fetch();
-  
-      return new ReviewRestaurant(
-        intval($reviewRestaurant['ReviewId']), 
-          intval($reviewRestaurant['CustomerId']), 
-          intval($reviewRestaurant['RestaurantId']), 
-          $reviewRestaurant['ReviewText'],
-          intval($reviewRestaurant['ReviewRating'])
-      );
-    }*/
-  
+      $reviewResponse = $stmt->fetch();
+
+      return new ReviewResponse(
+          intval($reviewResponse['ReviewId']), 
+          intval($reviewResponse['RestaurantOwnerId']), 
+          strval($reviewResponse['reviewText']),
+        );
+    }
+
   }
 ?>
+

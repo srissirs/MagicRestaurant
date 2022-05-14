@@ -44,11 +44,13 @@ function drawRestaurantReview(Restaurant $restaurant, array $reviews) { $db = ge
       </form>
     </restaurantTopPage>
   <section id="reviews">
-    <?php foreach ($reviews as $review) { ?>
+    <?php foreach ($reviews as $review) {
+      $response = ReviewResponse::getReviewResponse($db, intval($review->reviewId));
+       ?>
         <reviewBox>
                 <review>
                     <info>
-                        <p id="name"> User Name </p>
+                        <p id="name"> <?=ReviewRestaurant::getReviewerName($db, intval($review->customerId))?>  </p>
                         <h3> 
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
@@ -58,7 +60,8 @@ function drawRestaurantReview(Restaurant $restaurant, array $reviews) { $db = ge
                         </h3> 
                     </info>
                     <p id="reviewBody"> <?=$review->reviewText?>  </p>
-                </review>                <p id="response"> <?= ReviewResponse::getReviewResponse($db, intval($review->reviewId))->reviewText?> </p>
+                </review>                
+                <p id="response"> Resposta: <?= $response->reviewText?> </p>
 
             </reviewBox>
 </restaurant>

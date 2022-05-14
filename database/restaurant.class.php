@@ -20,12 +20,11 @@
       $this->restaurantCountry = $restaurantCountry;
       $this->restaurantPostalCode = $restaurantPostalCode;
       $this->restaurantPhone = $restaurantPhone;
-      $this->category = $category;
       $this->rating = $rating;
     }
 
     static function getRestaurants(PDO $db, int $count) : array {
-      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Category, Rating  FROM Restaurant');
+      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant');
       $stmt->execute(array($count));
   
       $restaurants = array();
