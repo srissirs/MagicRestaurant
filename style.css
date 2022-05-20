@@ -140,6 +140,11 @@ restaurantTopPage select {
     border-radius: 22px;
 }
 
+restaurantTopPage > a.selected{
+    background-color: #745A5A;
+    color: #F3F3F3;
+}
+
 restaurantTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
