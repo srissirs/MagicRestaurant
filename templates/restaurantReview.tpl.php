@@ -5,36 +5,19 @@
   require_once('database/review.class.php');
   require_once('database/reviewResponse.class.php');
   require_once('database/connection.database.php');
-
-
-
   
 ?>
 
 
 <?php
 
-function drawRestaurantReview(Restaurant $restaurant, array $reviews) { $db = getDatabaseConnection();?>
-  
-  <restaurantHeader>
-      <restaurantInfo>
-  <h2><?=$restaurant->restaurantName?></h2>
-  <h3> 
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-        </h3> 
-        <h4> <?=$restaurant->restaurantAddress?> </h4> 
-  </restaurantInfo>
-</restaurantHeader>
-
+function drawRestaurantReview(Restaurant $restaurant, array $reviews) { 
+  $db = getDatabaseConnection();?>
 <restaurant>
   <restaurantTopPage>
       
-        <a href="restaurantDishes.html"> Dishes </a>
-        <a href="restaurantReviews.html"> Reviews </a>
+        <a href="restaurant.php?id= <?=$restaurant->restaurantId?>" > Dishes </a>
+        <a href="restaurantReviews.php?id= <?=$restaurant->restaurantId?>"> Reviews </a>
       
       <form action="#">
         <select name="languages" id="lang" onchange="this.form.submit();">

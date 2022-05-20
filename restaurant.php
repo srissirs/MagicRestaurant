@@ -13,12 +13,13 @@
 
   $db = getDatabaseConnection();
 
-    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+  $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
   $dishes = Dish::getRestaurantDishes($db, intval($_GET['id']));
 
 
-
+ 
   drawHeader();
+  drawRestaurantHeader($restaurant);
   drawRestaurant($restaurant, $dishes);
   drawFooter();
 ?>

@@ -15,7 +15,7 @@
   </section>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes) { ?>
+<?php function drawRestaurantHeader(Restaurant $restaurant) { ?>
   <restaurantHeader>
       <restaurantInfo>
   <h2><?=$restaurant->restaurantName?></h2>
@@ -29,12 +29,15 @@
         <h4> <?=$restaurant->restaurantAddress?> </h4> 
   </restaurantInfo>
 </restaurantHeader>
+<?php } ?>
+
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes) { ?>
 
 <restaurant>
   <restaurantTopPage>
       
-        <a href="restaurantDishes.html"> Dishes </a>
-        <a href="restaurantReviews.html"> Reviews </a>
+        <a href="restaurant.php?id= <?=$restaurant->restaurantId?>" > Dishes </a>
+        <a href="restaurantReviews.php?id= <?=$restaurant->restaurantId?>"> Reviews </a>
       
       <form action="#">
         <select name="languages" id="lang" onchange="this.form.submit();">
@@ -54,10 +57,9 @@
                     <p id="name"> <?=$dish->dishName?> </p>
                     <i class="fa-regular fa-star"></i>
                   </name>
-                                      <p id="category"> <?=$dish->dishCategory?> </p>
 
                   <price>
-                                      <p id="price"> <?=$dish->dishPrice?> </p>
+                      <p id="price"> <?=$dish->dishPrice?> </p>
 
                     <i class="fa-solid fa-cart-shopping"></i>
                   </price>
