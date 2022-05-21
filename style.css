@@ -16,20 +16,21 @@ body>header {
     display: flex;
     align-items: center;
     width: 100%;
-
 }
 
-header> h1 {
+header>h1 {
     margin: 0 2em;
+}
+
+header i {
+    margin: 0 auto;
+    align-self: center;
+
 }
 
 profile {
     float: right;
-    padding: 2em 6em;
-    margin-right: 3em;
-    background-color: var(--main-color);
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
     gap: 20px;
     align-items: center;
 }
@@ -37,14 +38,17 @@ profile {
 profile a {
     text-decoration: none;
     color: #F3F3F3;
+ 
 }
 
 profile #name {
     font-size: x-large;
+    margin: 0 1em;
 }
 
 searchBar {
-    margin: 0 auto;
+    align-content: center;
+    margin: 0 2em 0 auto;
 }
 
 searchBar input {
@@ -87,6 +91,8 @@ sidebar {
     float: right;
     background-color: var(--main-color);
 }
+
+/*----------------------------------------*/
 
 /*-------------------------------------------------Restaurant--------------------------------------------------------*/
 
@@ -140,11 +146,6 @@ restaurantTopPage select {
     border-radius: 22px;
 }
 
-restaurantTopPage > a.selected{
-    background-color: #745A5A;
-    color: #F3F3F3;
-}
-
 restaurantTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
@@ -152,6 +153,11 @@ restaurantTopPage a {
     font-weight: 200;
     text-decoration: none;
     color: black;
+}
+
+restaurantTopPage > a.selected{
+    background-color: var(--main-color);
+    color: #F3F3F3;
 }
 
 restaurantTopPage>a:nth-child(1) {
@@ -171,18 +177,21 @@ restaurantTopPage>a:nth-child(2) {
     font-size: 20px;
     border-radius: 0 5px 5px 0;
     text-align: right;
-  }
-  
-#mySidenav a:hover {
-left: 0;
 }
-#cart{
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#cart {
     display: flex;
 }
-#cart p{
+
+#cart p {
     margin: 0 auto;
 }
-#cart i{
+
+#cart i {
     margin: 0 auto;
 }
 
@@ -262,8 +271,8 @@ PastOrdersHeader {
     border-bottom: var(--main-color) solid 6px;
 }
 
-pastOrders month{
-    margin: 5em auto 3em auto;
+pastOrders month {
+    margin: 0 auto 3em auto;
     max-width: 50%;
     align-items: center;
     display: flex;
@@ -271,7 +280,7 @@ pastOrders month{
     gap: 2em;
 }
 
-pastOrderBox{
+pastOrderBox {
     width: 100%;
     height: auto;
     gap: 25px;
@@ -285,7 +294,7 @@ pastOrder {
     display: flex;
 }
 
-pastOrder information{
+pastOrder information {
     margin-left: 2em;
 }
 
@@ -337,13 +346,13 @@ pastOrder img {
     max-height: 200px;
 }
 
-.review-popup{
+.review-popup {
     margin-top: 2em;
-    border-top: var(--main-color) solid 2px ;
+    border-top: var(--main-color) solid 2px;
     padding-top: 1em;
 }
 
-month > h3 {
+month>h3 {
     font-size: 3em;
     width: 50%;
     text-align: center;
@@ -389,26 +398,23 @@ a {
     padding-left: 3em;
 }
 
-mainPage img {
-    margin-top: 4em;
-    width: 100%;
-    height: 50em;
+.mainPage {
+    background-image: url("images/main.jpg");
+    background-color: whitesmoke;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
-    text-align: center;
 }
 
-
-mainPage>p {
-    text-shadow: 2px 2px 3px var(--darker-color);
-    font-weight: 300;
-    font-size: 10em;
-    color: whitesmoke;
-    margin: 0 auto;
+.mainPageText {
+    align-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-80%, -50%);
-    max-width: fit-content;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 
 /*----------------------------------------Sign In Page-----------------------------------*/
@@ -417,7 +423,7 @@ mainPage>p {
 #loginPage {
     width: 100%;
     object-fit: contain;
-    background-image: url("login.jpg");
+    background-image: url("images/login.jpg");
 
 }
 

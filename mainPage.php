@@ -17,17 +17,16 @@
   </head>
   <body>
     <mainPageHeader>
-        <a href="mainPage.php" id="brandMain">Magic Restaurant</a>
-        <a href="login.html" id="signIn">Sign in</a>
-        <a href="signUp.html" id="signUp">Sign up</a> 
+        <a href="mainpage.php" id="brandMain">Magic Restaurant</a>
+        <a href="signin.php" id="signIn">Sign in</a>
+        <a href="signup.php" id="signUp">Sign up</a> 
     </mainPageHeader> 
     </header>
-    <mainPage>
-        <img src="images/main.jpg" alt="Dish Photo">
-        <p> We give food to the hungry</p>
-    </mainPage>
-  </body>
-</html>
+    <div class="mainPage">
+      <div class="mainPageText">
+        <p style="font-size:65px">We give food to the hungry</p>
+      </div>
+    </div>
 
 <?php
   drawFooter();
