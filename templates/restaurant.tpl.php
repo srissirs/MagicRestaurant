@@ -49,7 +49,7 @@ require_once('database/reviewResponse.class.php');
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
-       
+
         <total class="totalSum" id="totalSum">Total : </total>
       </div>
 
@@ -72,17 +72,14 @@ require_once('database/reviewResponse.class.php');
         <dish>
 
           <img src="https://picsum.photos/200?1" alt="Dish Photo">
-
           <information>
             <name>
               <p id="name"> <?= $dish->dishName ?> </p>
               <i class="fa-regular fa-star"></i>
             </name>
-            <p id="price"> <?= $dish->dishPrice ?> </p>
             <price>
-              <label for="quantity">Quantity:</label>
-              <input type="number" id="quantity" name="quantity" min="1" max="20">
-              <button class="fa-solid fa-cart-shopping button" onclick="addToCart(),openNav()"></button>
+              <p id="price"> <?= $dish->dishPrice ?> </p>
+              <button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>
             </price>
           </information>
         </dish>

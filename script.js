@@ -46,7 +46,7 @@ function removeDish() {
   dish.remove();
   showTotals();
 }
-
+/*
 function updateQuantity(quantity, name, price) {
   const divs = document.querySelectorAll("cartDiv");
   for (d of divs) {
@@ -58,52 +58,71 @@ function updateQuantity(quantity, name, price) {
     }
   }
 }
-
+*/
 function addToCart() {
-
   let name = event.target.parentElement.parentElement.children[0].children[0].textContent;
-  let price = event.target.parentElement.parentElement.children[1].textContent;
-  let quantity = event.target.parentElement.children[1].value;
+  let price = event.target.parentElement.children[0].textContent;
 
   if (document.getElementById('mySidebar').textContent.includes(name)) {
-    updateQuantity(quantity, name, price);
     return;
   }
+  const cartItem = document.createElement('cartDiv');
+  const nameNode = document.createElement("p");
+  const Name = document.createTextNode(name);
+  nameNode.appendChild(Name);
+  const priceNode = document.createElement("p");
+  const Price = document.createTextNode(price);
+  priceNode.appendChild(Price);
 
-  if (quantity >= 1) {
-    const cartItem = document.createElement('cartDiv');
-    const nameNode = document.createElement("p");
-    const Name = document.createTextNode(name);
-    nameNode.appendChild(Name);
-    const priceNode = document.createElement("p");
-    const Price = document.createTextNode(price);
-    priceNode.appendChild(Price);
-    const quantityNode = document.createElement("p");
-    const Quantity = document.createTextNode(quantity);
-    quantityNode.appendChild(Quantity);
-    const html = '<a href="javascript:void(0)" class="removeDish" onclick="removeDish()">&times;</a>';
-    cartItem.insertAdjacentHTML('afterbegin', html);
-    cartItem.appendChild(nameNode);
-    cartItem.appendChild(priceNode);
-    cartItem.appendChild(quantityNode);
-    const cart = document.getElementById('mySidebar');
-    const total = document.getElementById('totalSum');
-    cart.insertBefore(cartItem, total);
-    showTotals();
-  }
+  const quantityNode = document.createElement("p");
+  const Quantity = document.createTextNode("1");
+  quantityNode.appendChild(Quantity);
+  const closeBtn = '<a href="javascript:void(0)" class="removeDish" onclick="removeDish()">&times;</a>';
+  const inc = '<button onclick="increment()">+</button>';
+  const dec = '<button onclick="decrement()">-</button>';
+  cartItem.insertAdjacentHTML('afterbegin', closeBtn);
+  cartItem.appendChild(nameNode);
+  cartItem.appendChild(priceNode);
+  const div = document.createElement("quantity");
+  div.insertAdjacentHTML('afterbegin', dec);
+  div.appendChild(quantityNode);
+  quantityNode.insertAdjacentHTML('afterend', inc);
+  cartItem.appendChild(div);
+  const cart = document.getElementById('mySidebar');
+  const total = document.getElementById('totalSum');
+  cart.insertBefore(cartItem, total);
+  showTotals();
 }
 
-
-function showTotals(){
+function increment() {
+  let quantity = event.target.parentElement.children[1].textContent;
+  quantity++;
+  if (quantity > 20) return;
+  else {
+    event.target.parentElement.children[1].textContent = quantity
+    showTotals();
+  };
+}
+function decrement() {
+  let quantity = event.target.parentElement.children[1].textContent;
+  quantity--;
+  if (quantity == 0) {
+    let dish = event.target.parentElement.parentElement;
+    dish.remove();
+  }
+  else event.target.parentElement.children[1].textContent = quantity;
+  showTotals();
+}
+function showTotals() {
   let total = 0;
   let quantity, price;
   const divs = document.querySelectorAll("cartDiv");
   for (d of divs) {
-    quantity = parseInt(d.children[3].textContent);
+    quantity = parseInt(d.children[3].children[1].textContent);
     price = parseFloat(d.children[2].textContent);
-    total += parseFloat(quantity*price,2);
-    
+    total += quantity * price;
   }
+  //parseFloat(total,2);
   const cart = document.getElementById('totalSum');
-  cart.textContent="Total: "+total;
+  cart.textContent = "Total: " + total;
 }
