@@ -126,6 +126,18 @@ restaurantInfo>h4 {
     max-width: 30em;
 }
 
+#rating{
+    visibility: hidden;
+}
+
+h3 .checked{
+    color: #ddd;
+}
+
+h3 > .full{
+    color:#745A5A;
+}
+
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
 
 restaurantTopPage {

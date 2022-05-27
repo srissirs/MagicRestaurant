@@ -61,7 +61,8 @@
           intval($reviewRestaurant['CustomerId']), 
           intval($reviewRestaurant['RestaurantId']), 
           strval($reviewRestaurant['ReviewText']),
-          intval($reviewRestaurant['ReviewRating'])
+          intval($reviewRestaurant['ReviewRating']),
+          ""
       );
     }
 

@@ -21,11 +21,11 @@
   $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
   $dishes = Dish::getRestaurantDishes($db, intval($_GET['id']));
   $reviews = ReviewRestaurant::getRestaurantReviews($db, intval($_GET['id']));
-
+  $categories = Restaurant::getCategories($db,intval($_GET['id']));
 
  
   drawHeader();
   drawRestaurantHeader($restaurant);
-  drawRestaurant($restaurant, $dishes, $reviews);
+  drawRestaurant($restaurant, $dishes, $reviews,$categories);
   drawFooter();
 ?>
