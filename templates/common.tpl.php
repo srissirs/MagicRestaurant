@@ -12,7 +12,6 @@ declare(strict_types=1); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <link href="layout.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
   </head>
@@ -34,7 +33,7 @@ declare(strict_types=1); ?>
       </div>
       <h1> Magic Restaurant</h1>
       <div class="searchBar">
-        <input type="text" placeholder="Search for a restaurant...">
+        <input id="searchRestaurant" type="text" placeholder="Search for a restaurant...">
       </div>
       <i class="fa-solid fa-cart-shopping"></i>
       <div class="profile">

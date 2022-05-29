@@ -44,20 +44,20 @@
       return $restaurants;
     }
 
-    static function searchRestaurants(PDO $db, string $search, int $count) : array {
-      $stmt = $db->prepare('SELECT *  FROM Restaurant ');
-      $stmt->execute(array($search . '%', $count));
+    static function searchRestaurants(PDO $db, string $search) : array {
+      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ?');
+      $stmt->execute(array($search . '%'));
   
       $restaurants = array();
         while ($restaurant = $stmt->fetch()) {
           $restaurants[] = new Restaurant(
             intval($restaurant['RestaurantId']),
-            $restaurants['RestaurantName'],
-            $restaurants['RestaurantAddress'],
-            $restaurants['RestaurantCity'],
-            $restaurants['RestaurantCountry'],
-            $restaurants['RestaurantPostalCode'],
-            $restaurants['RestaurantPhone'],
+            $restaurant['RestaurantName'],
+            $restaurant['RestaurantAddress'],
+            $restaurant['RestaurantCity'],
+            $restaurant['RestaurantCountry'],
+            $restaurant['RestaurantPostalCode'],
+            $restaurant['RestaurantPhone'],
             floatval($restaurant['Rating'])
           );
         }

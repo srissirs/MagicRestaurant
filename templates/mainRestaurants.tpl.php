@@ -13,25 +13,25 @@ require_once('database/reviewResponse.class.php');
 { ?>
     <div class="mainRestaurantsHeader">
         <div class="searched">
-            <h3>Restaurant Name</h3>
+            <h3>Restaurantes</h3>
         </div>
     </div>
 <?php } ?>
 
 <?php function drawMainRestaurant(array $restaurants)
 { ?>
-    <section class="restaurants">
+    <section class="restaurants" id="restaurants">
         <?php foreach ($restaurants as $restaurant) { ?>
             <section class="restaurantCard">
                 <img src="../images/restaurant.jpg" alt="Restaurant Photo">
                 <div class="mainRestaurantsInfo">
                     <div class="mainRestaurantsName">
-                        <p id="name"> <?= $restaurant->restaurantName ?></p>
+                        <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"><?= $restaurant->restaurantName ?></a>
                         <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="mainRestaurantsRating">
                         <i class="fa-regular fa-star"></i>
-                        <p id="rating"> <?= $restaurant->rating ?> </p>
+                        <p> <?= $restaurant->rating ?> </p>
                     </div>
                 </div>
             </section>

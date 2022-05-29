@@ -1,3 +1,54 @@
+
+const searchRestaurant = document.querySelector('#searchRestaurant')
+if (searchRestaurant) {
+  searchRestaurant.addEventListener('input', async function() {
+
+    const response = await fetch('api_restaurants.php?search=' + this.value)
+    const restaurants = await response.json()
+
+    const section = document.querySelector('#restaurants')
+    section.innerHTML = ''
+
+    for (const restaurant of restaurants) {
+      
+      const restaurantCard = document.createElement('section')
+      restaurantCard.className ='restaurantCard'
+      const img = document.createElement('img')
+      img.src = "../images/restaurant.jpg"
+      //img.src = 'https://picsum.photos/200?' + restaurant.restaurantId
+      const  mainRestaurantsInfo = document.createElement('div')
+      mainRestaurantsInfo.className = 'mainRestaurantsInfo'
+
+      const  mainRestaurantsName = document.createElement('div')
+      mainRestaurantsName.className = 'mainRestaurantsName'
+      const link = document.createElement('a')
+      link.href = 'restaurant.php?id=' + restaurant.restaurantId 
+      link.textContent = restaurant.restaurantName
+      const heartIcon = document.createElement('i')
+      heartIcon.className = 'fa-regular fa-heart'
+      mainRestaurantsName.appendChild(link)
+      mainRestaurantsName.appendChild(heartIcon)
+
+      const  mainRestaurantsRating = document.createElement('div')
+      mainRestaurantsRating.className = 'mainRestaurantsRating'
+      const starIcon = document.createElement('i')
+      starIcon.className = 'fa-regular fa-star'
+      const  rating = document.createElement('p')
+      rating.textContent = restaurant.rating
+      mainRestaurantsRating.appendChild(starIcon)
+      mainRestaurantsRating.appendChild(rating)
+
+      mainRestaurantsInfo.appendChild(mainRestaurantsName)
+      mainRestaurantsInfo.appendChild(mainRestaurantsRating)
+
+      restaurantCard.appendChild(img)
+      restaurantCard.appendChild(mainRestaurantsInfo)
+      section.appendChild(restaurantCard)
+    }
+  })
+}
+
+
 function reviewsAndDishes() {
   const restauranttoppage = document.querySelector(".restaurantTopPage")
   const restaurant = document.querySelector(".restaurant")
@@ -46,19 +97,7 @@ function removeDish() {
   dish.remove();
   showTotals();
 }
-/*
-function updateQuantity(quantity, name, price) {
-  const divs = document.querySelectorAll("cartDiv");
-  for (d of divs) {
-    if (d.textContent.includes(name)) {
-      const newQuantity = parseInt(quantity) + parseInt(d.children[3].textContent);
-      d.children[3].textContent = newQuantity;
-      showTotals();
-      return;
-    }
-  }
-}
-*/
+
 function addToCart() {
   let name = event.target.parentElement.parentElement.children[0].children[0].textContent;
   let price = event.target.parentElement.children[0].textContent;

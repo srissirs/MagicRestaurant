@@ -675,9 +675,10 @@ signUp button {
     gap: 1em;
 }
 
-.mainRestaurantsName p {
+.mainRestaurantsName a {
     margin: 0;
     font-size: 2em;
+    color: var(--darker-color);
 }
 
 .mainRestaurantsRating {
