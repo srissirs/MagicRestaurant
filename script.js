@@ -1,6 +1,6 @@
 function reviewsAndDishes() {
-  const restauranttoppage = document.querySelector("restauranttoppage")
-  const restaurant = document.querySelector("restaurant")
+  const restauranttoppage = document.querySelector(".restaurantTopPage")
+  const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
@@ -66,7 +66,8 @@ function addToCart() {
   if (document.getElementById('mySidebar').textContent.includes(name)) {
     return;
   }
-  const cartItem = document.createElement('cartDiv');
+  const cartItem = document.createElement('div');
+  cartItem.className ="cartDiv";
   const nameNode = document.createElement("p");
   const Name = document.createTextNode(name);
   nameNode.appendChild(Name);
@@ -83,7 +84,8 @@ function addToCart() {
   cartItem.insertAdjacentHTML('afterbegin', closeBtn);
   cartItem.appendChild(nameNode);
   cartItem.appendChild(priceNode);
-  const div = document.createElement("quantity");
+  const div = document.createElement("div");
+  div.className = "quantity";
   div.insertAdjacentHTML('afterbegin', dec);
   div.appendChild(quantityNode);
   quantityNode.insertAdjacentHTML('afterend', inc);
@@ -116,7 +118,7 @@ function decrement() {
 function showTotals() {
   let total = 0;
   let quantity, price;
-  const divs = document.querySelectorAll("cartDiv");
+  const divs = document.querySelectorAll(".cartDiv");
   for (d of divs) {
     quantity = parseInt(d.children[3].children[1].textContent);
     price = parseFloat(d.children[2].textContent);

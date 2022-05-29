@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Magic Restaurant</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+          <searchBar>
+              <input type="text" placeholder="Search for a restaurant...">
+          </searchBar>
+          <profile>
+            <a href="profile.php" id="name">Name</a>
+            <a href="login.php" id="logout">Logout</a>
+          </profile>   
+    </header>
+    <div class="mainRestaurantsHeader">
+      <div class="searched">
+        <h2>Restaurant Name</h2>
+      </div>
+    </div>
+ 
+  
+    <section class="restaurants" >
+      <section class="restaurantCard">       
+          <img src="https://picsum.photos/200?1" alt="Restaurant Photo">
+          <div class="restaurantInfo">
+            <div>
+              <p id="name"> Dish Name </p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <div >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <p id="category"> Restaurant </p>
+            </div>
+          </div>
+      </section>
+    </section>
+    <footer>
+      <brand>
+        <img src="logo.png" alt="logo">
+        <p> Magic Restaurant</p>
+      </brand>
+      <links>
+        <h4> Dishes </h4>
+        <a href="favorites.php" id="favorites">Favorites</a>
+        <a href="pastOrders.php" id="pastOrders">Past Orders</a>
+        <p>Fake Food &copy; 2022 </p>
+      </links>
+    </footer>
+  </body>
+</html>

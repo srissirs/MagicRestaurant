@@ -33,16 +33,16 @@ declare(strict_types=1); ?>
         </div>
       </div>
       <h1> Magic Restaurant</h1>
-      <searchBar>
+      <div class="searchBar">
         <input type="text" placeholder="Search for a restaurant...">
-      </searchBar>
+      </div>
       <i class="fa-solid fa-cart-shopping"></i>
-      <profile>
+      <div class="profile">
         <?php
         if (isset($_SESSION['id'])) drawLogoutForm($_SESSION['name']);
         else drawLoginForm();
         ?>
-      </profile>
+      </div>
 
     </header>
 
@@ -53,16 +53,16 @@ declare(strict_types=1); ?>
     { ?>
     </main>
     <footer>
-      <brand>
+      <div class="brand">
         <img src="logo.png" alt="logo">
         <p> Magic Restaurant</p>
-      </brand>
-      <links>
+    </div>
+      <section class="links">
         <h4> Dishes </h4>
         <a href="favorites.php" id="favorites">Favorites</a>
         <a href="pastOrders.php" id="pastOrders">Past Orders</a>
         <p>Fake Food &copy; 2022 </p>
-      </links>
+      </section>
     </footer>
   </body>
 

@@ -24,20 +24,20 @@
     }
 
     static function getRestaurants(PDO $db, int $count) : array {
-      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant');
-      $stmt->execute(array($count));
+      $stmt = $db->prepare('SELECT *  FROM Restaurant');
+      $stmt->execute();
   
       $restaurants = array();
       while ($restaurant = $stmt->fetch()) {
         $restaurants[] = new Restaurant(
-          $restaurants['RestaurantId'],
-          $restaurants['RestaurantName'],
-          $restaurants['RestaurantAddress'],
-          $restaurants['RestaurantCity'],
-          $restaurants['RestaurantCountry'],
-          $restaurants['RestaurantPostalCode'],
-          $restaurants['RestaurantPhone'],
-          $restaurants['Rating']
+          $restaurant['RestaurantId'],
+          $restaurant['RestaurantName'],
+          $restaurant['RestaurantAddress'],
+          $restaurant['RestaurantCity'],
+          $restaurant['RestaurantCountry'],
+          $restaurant['RestaurantPostalCode'],
+          $restaurant['RestaurantPhone'],
+          $restaurant['Rating']
         );
       }
   
@@ -45,20 +45,20 @@
     }
 
     static function searchRestaurants(PDO $db, string $search, int $count) : array {
-      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant ');
+      $stmt = $db->prepare('SELECT *  FROM Restaurant ');
       $stmt->execute(array($search . '%', $count));
   
       $restaurants = array();
         while ($restaurant = $stmt->fetch()) {
           $restaurants[] = new Restaurant(
-            $restaurants['RestaurantId'],
+            intval($restaurant['RestaurantId']),
             $restaurants['RestaurantName'],
             $restaurants['RestaurantAddress'],
             $restaurants['RestaurantCity'],
             $restaurants['RestaurantCountry'],
             $restaurants['RestaurantPostalCode'],
             $restaurants['RestaurantPhone'],
-            $restaurants['Rating']
+            floatval($restaurant['Rating'])
           );
         }
       return $restaurants;
