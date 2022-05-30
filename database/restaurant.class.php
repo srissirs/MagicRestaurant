@@ -24,25 +24,26 @@
     }
 
     static function getRestaurants(PDO $db, int $count) : array {
-      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant');
-      $stmt->execute(array($count));
+      $stmt = $db->prepare('SELECT *  FROM Restaurant');
+      $stmt->execute();
   
       $restaurants = array();
       while ($restaurant = $stmt->fetch()) {
         $restaurants[] = new Restaurant(
-          $restaurants['RestaurantId'],
-          $restaurants['RestaurantName'],
-          $restaurants['RestaurantAddress'],
-          $restaurants['RestaurantCity'],
-          $restaurants['RestaurantCountry'],
-          $restaurants['RestaurantPostalCode'],
-          $restaurants['RestaurantPhone'],
-          $restaurants['Rating']
+          $restaurant['RestaurantId'],
+          $restaurant['RestaurantName'],
+          $restaurant['RestaurantAddress'],
+          $restaurant['RestaurantCity'],
+          $restaurant['RestaurantCountry'],
+          $restaurant['RestaurantPostalCode'],
+          $restaurant['RestaurantPhone'],
+          $restaurant['Rating']
         );
       }
   
       return $restaurants;
     }
+
 
     static function getCategories(PDO $db, int $restaurantId) : array {
       $stmt = $db->prepare('SELECT CategoryName FROM Category 
@@ -58,21 +59,24 @@
       return $categories;
     }
 
-    static function searchRestaurants(PDO $db, string $search, int $count) : array {
-      $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant ');
-      $stmt->execute(array($search . '%', $count));
+   
+
+    static function searchRestaurants(PDO $db, string $search) : array {
+      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ?');
+      $stmt->execute(array($search . '%'));
+
   
       $restaurants = array();
         while ($restaurant = $stmt->fetch()) {
           $restaurants[] = new Restaurant(
-            $restaurants['RestaurantId'],
-            $restaurants['RestaurantName'],
-            $restaurants['RestaurantAddress'],
-            $restaurants['RestaurantCity'],
-            $restaurants['RestaurantCountry'],
-            $restaurants['RestaurantPostalCode'],
-            $restaurants['RestaurantPhone'],
-            $restaurants['Rating']
+            intval($restaurant['RestaurantId']),
+            $restaurant['RestaurantName'],
+            $restaurant['RestaurantAddress'],
+            $restaurant['RestaurantCity'],
+            $restaurant['RestaurantCountry'],
+            $restaurant['RestaurantPostalCode'],
+            $restaurant['RestaurantPhone'],
+            floatval($restaurant['Rating'])
           );
         }
       return $restaurants;

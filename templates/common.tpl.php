@@ -1,55 +1,75 @@
-<?php declare(strict_types = 1); ?>
+<?php
 
-<?php function drawHeader() { ?>
-<!DOCTYPE html>
-<html lang="en-US">
-   <head>
-        <title>Fake Food</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style.css" rel="stylesheet">
-        <link href="layout.css" rel="stylesheet">
-        <script src="script.js" defer></script>
-        <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
-    </head>
+declare(strict_types=1); ?>
+
+<?php function drawHeader()
+{ ?>
+  <!DOCTYPE html>
+  <html lang="en-US">
+
+  <head>
+    <title>Fake Food</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
+  </head>
 
 
   <body>
     <header>
-      <searchBar>
-              <input type="text" placeholder="Search for a restaurant...">
-          </searchBar>
-          <profile>
-            <?php 
-              if (isset($_SESSION['id'])) drawLogoutForm($_SESSION['name']);
-              else drawLoginForm();
-            ?>
-          </profile>   
-      
-    </header>
-  
-    <main>
-<?php } ?>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Favorites</a>
+          <a href="pastOrders.php">Past Orders</a>
+          <a href="mainPage.php">Logout
+            <i class="fa-solid fa-arrow-right-from-bracket" id="logoutIcon"></i>
+          </a>
+        </div>
+      </div>
+      <h1> Magic Restaurant</h1>
+      <div class="searchBar">
+        <input id="searchRestaurant" type="text" placeholder="Search for a restaurant...">
+      </div>
+      <i class="fa-solid fa-cart-shopping"></i>
+      <div class="profile">
+        <?php
+        if (isset($_SESSION['id'])) drawLogoutForm($_SESSION['name']);
+        else drawLoginForm();
+        ?>
+      </div>
 
-<?php function drawFooter() { ?>
+    </header>
+
+    <main>
+    <?php } ?>
+
+    <?php function drawFooter()
+    { ?>
     </main>
     <footer>
-      <brand>
+      <div class="brand">
         <img src="logo.png" alt="logo">
         <p> Magic Restaurant</p>
-      </brand>
-      <links>
+    </div>
+      <section class="links">
         <h4> Dishes </h4>
         <a href="favorites.php" id="favorites">Favorites</a>
         <a href="pastOrders.php" id="pastOrders">Past Orders</a>
         <p>Fake Food &copy; 2022 </p>
-      </links>
+      </section>
     </footer>
   </body>
-</html>
+
+  </html>
 <?php } ?>
 
-<?php function drawLoginForm() { ?>
+<?php function drawLoginForm()
+{ ?>
   <form action="action_login.php" method="post" class="login">
     <input type="email" name="email" placeholder="email">
     <input type="password" name="password" placeholder="password">
@@ -58,9 +78,10 @@
   </form>
 <?php } ?>
 
-<?php function drawLogoutForm(string $name) { ?>
+<?php function drawLogoutForm(string $name)
+{ ?>
   <form action="action_logout.php" method="post" class="logout">
-    <a href="profile.php"><?=$name?></a>
+    <a href="profile.php"><?= $name ?></a>
     <button type="submit">Logout</button>
   </form>
 <?php } ?>
