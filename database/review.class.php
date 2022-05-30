@@ -48,7 +48,7 @@
 
     static function getReview(PDO $db, int $reviewId) : ReviewRestaurant {
       $stmt = $db->prepare('
-        SELECT ReviewId, CustomerId, RestaurantID, ReviewText, ReviewRating
+        SELECT ReviewId, CustomerId, RestaurantID, ReviewText, ReviewRating, 
         FROM Review
         WHERE ReviewId = ?
       ');

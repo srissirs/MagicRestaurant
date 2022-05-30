@@ -49,6 +49,7 @@
             <?php } ?>
         </select>
       </form>
+      
     </restaurantTopPage>
   <section id="dishes">
     <?php foreach ($dishes as $dish) { ?>
