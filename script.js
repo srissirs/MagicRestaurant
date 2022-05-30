@@ -102,5 +102,3 @@ function drawStar(){
 drawStar()
 
 reviewsAndDishes()
-
-filter()
