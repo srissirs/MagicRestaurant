@@ -144,7 +144,7 @@ CREATE TABLE ReviewResponse
 /*   PARTE DO HUGO    */
 CREATE TABLE Category(
 	CategoryId INTEGER NOT NULL,
-	Name NVARCHAR(40)	
+	CategoryName NVARCHAR(40)	
 );
 
 CREATE TABLE CategoryRestaurant(
@@ -159,6 +159,9 @@ CREATE TABLE CategoryRestaurant(
 /*******************************************************************************
    Create Foreign Keys
 ********************************************************************************/
+
+CREATE INDEX IFK_CategoryRestaurantRestaurantId ON Restaurant (RestaurantId);
+CREATE INDEX IFK_CategoryRestaurantCategoryId ON Category (CategoryId);
 
 CREATE INDEX IFK_RestaurantOwnerRestaurantOwnerId ON RestaurantOwner (RestaurantOwnerId);
 CREATE INDEX IFK_RestaurantOwnerRestaurantId ON RestaurantOwner (RestaurantId);
@@ -199,21 +202,21 @@ VALUES (1, 'Teresa', 'Ferreira', 'Rua das Flores', 'Braga', 'Portugal', '4400-40
 (15,'Clara','Claridade','Rua Casa Ajuda','Porto','Portugal','4900-123','987456321','party@gmail.com','c654096707eb03dae337dcc8176cba4774c6050f','Lolo',0);
 
 
-INSERT INTO Category(CategoryId,Name) VALUES(1,'Comida Portuguesa');
-INSERT INTO Category(CategoryId,Name) VALUES(2,'Fast Food');
-INSERT INTO Category(CategoryId,Name) VALUES(3,'Comida Indiana');
-INSERT INTO Category(CategoryId,Name) VALUES(4,'Comida Brasileira');
-INSERT INTO Category(CategoryId,Name) VALUES(5,'Comida Chinesa');
-INSERT INTO Category(CategoryId,Name) VALUES(6,'Comida Japonesa');
-INSERT INTO Category(CategoryId,Name) VALUES(7,'Comida Espanhola');
-INSERT INTO Category(CategoryId,Name) VALUES(8,'Comida Francesa');
-INSERT INTO Category(CategoryId,Name) VALUES(9,'Comida Mexicana');
-INSERT INTO Category(CategoryId,Name) VALUES(10,'Comida Vietnamisa');
-INSERT INTO Category(CategoryId,Name) VALUES(11,'Comida Russa');
-INSERT INTO Category(CategoryId,Name) VALUES(12,'Comida Italiana');
-INSERT INTO Category(CategoryId,Name) VALUES(13,'Comida Egípcia');
-INSERT INTO Category(CategoryId,Name) VALUES(14,'Comida Tailandesa');
-INSERT INTO Category(CategoryId,Name) VALUES(15,'Comida Alemã');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(1,'Comida Portuguesa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(2,'Fast Food');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(3,'Comida Indiana');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(4,'Comida Brasileira');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(5,'Comida Chinesa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(6,'Comida Japonesa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(7,'Comida Espanhola');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(8,'Comida Francesa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(9,'Comida Mexicana');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(10,'Comida Vietnamisa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(11,'Comida Russa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(12,'Comida Italiana');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(13,'Comida Egípcia');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(14,'Comida Tailandesa');
+INSERT INTO Category(CategoryId,CategoryName) VALUES(15,'Comida Alemã');
 
 
 

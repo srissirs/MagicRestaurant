@@ -24,28 +24,29 @@
       <restaurantInfo>
   <h2><?=$restaurant->restaurantName?></h2>
   <h3> 
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
+          <p id="rating"> <?=$restaurant->rating?> </p>
+          <i class="fa fa-star checked"></i>
+          <i class="fa fa-star checked"></i>
+          <i class="fa fa-star checked"></i>
+          <i class="fa fa-star checked"></i>
+          <i class="fa fa-star checked"></i>
         </h3> 
         <h4> <?=$restaurant->restaurantAddress?> </h4> 
   </restaurantInfo>
 </restaurantHeader>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews) { ?>
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories) { ?>
 <restaurant>
   <restaurantTopPage>
-      
         <a > Dishes </a>
         <a> Reviews </a>
-      
       <form action="#">
-        <select name="languages" id="lang" onchange="this.form.submit();">
-          <option value="Chinese">Chinese</option>
-          <option value="Italian">Italian</option>
+        <select>
+          <option value="Tudo"> Tudo </option>
+          <?php  foreach($categories as $category){?>
+              <option value="<?=$category?>" > <?=$category?> </option>
+            <?php } ?>
         </select>
       </form>
       
@@ -62,11 +63,17 @@
                     <i class="fa-regular fa-star"></i>
                   </name>
 
+                  <category>
+                    <p id="category"> <?=$dish->dishCategory?> </p>
+                </category>
+
                   <price>
                       <p id="price"> <?=$dish->dishPrice?> </p>
 
                     <i class="fa-solid fa-cart-shopping"></i>
                   </price>
+                  
+                  
                 </information>
               </dish> 
               
