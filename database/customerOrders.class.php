@@ -81,7 +81,8 @@
         intval($dish['DishId']), 
         strval($dish['DishName']), 
         floatval($dish['DishPrice']),
-        intval($dish['RestaurantId'])
+        intval($dish['RestaurantId']),
+        strval($dish['DishCategory'])
        );
       }
       return $dishes;

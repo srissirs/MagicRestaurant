@@ -26,8 +26,10 @@ require_once('templates/common.tpl.php');
   </div>
   </header>
   <div class="mainPage">
-    <img src="images/main.jpg" alt="Dish Photo">
-    <p style="font-size:65px"> We give food to the hungry</p>
+   
+    <div class="mainPageText">
+        <p style="font-size:65px">We give food to the hungry</p>
+      </div>
   </div>
 </body>
 

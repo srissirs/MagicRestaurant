@@ -114,8 +114,9 @@ require_once('database/reviewResponse.class.php');
         <p id="response"> Resposta: <?= $response->reviewText ?> </p>
 
       </div>
+      <?php } ?>
   </section>
-<?php } ?>
+
 </section>
 
 <?php } ?>

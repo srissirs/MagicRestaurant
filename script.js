@@ -1,3 +1,4 @@
+reviewsAndDishes()
 
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 if (searchRestaurantMain) {
@@ -78,7 +79,6 @@ function reviewsAndDishes() {
   })
 }
 
-reviewsAndDishes()
 
 function openNav() {
   document.getElementById("mySidebar").style.width = "300px";

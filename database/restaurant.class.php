@@ -30,14 +30,14 @@
       $restaurants = array();
       while ($restaurant = $stmt->fetch()) {
         $restaurants[] = new Restaurant(
-          $restaurant['RestaurantId'],
+          intval($restaurant['RestaurantId']),
           $restaurant['RestaurantName'],
           $restaurant['RestaurantAddress'],
           $restaurant['RestaurantCity'],
           $restaurant['RestaurantCountry'],
           $restaurant['RestaurantPostalCode'],
           $restaurant['RestaurantPhone'],
-          $restaurant['Rating']
+          floatval($restaurant['Rating'])
         );
       }
   
