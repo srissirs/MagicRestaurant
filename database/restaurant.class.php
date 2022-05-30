@@ -44,6 +44,20 @@
       return $restaurants;
     }
 
+    static function getCategories(PDO $db, int $restaurantId) : array {
+      $stmt = $db->prepare('SELECT CategoryName FROM Category 
+                            JOIN CategoryRestaurant 
+                            WHERE CategoryRestaurant.CategoryId=Category.CategoryId 
+                            AND RestaurantId = ?');
+      $stmt->execute(array($restaurantId));
+      $categories= array();
+      while ($category = $stmt->fetch()) {
+        print(strval($categories['CategoryName']));
+        $categories[]=$category['CategoryName'];
+      }
+      return $categories;
+    }
+
     static function searchRestaurants(PDO $db, string $search, int $count) : array {
       $stmt = $db->prepare('SELECT RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating  FROM Restaurant ');
       $stmt->execute(array($search . '%', $count));
