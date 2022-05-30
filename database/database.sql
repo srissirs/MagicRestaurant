@@ -27,6 +27,7 @@ CREATE TABLE Customer
     CustomerPostalCode NVARCHAR(10),
     CustomerPhone NVARCHAR(24),
     CustomerEmail NVARCHAR(60) NOT NULL,
+	RestaurantOwner INT NOT NULL,
     Password NVARCHAR(40) NOT NULL,
     CONSTRAINT PK_Customer PRIMARY KEY  (CustomerId)
 );
@@ -180,22 +181,22 @@ CREATE INDEX IFK_ReviewResponseReviewID ON ReviewResponse (ReviewId);
    Populate Tables
 ********************************************************************************/
 
-INSERT INTO Customer (CustomerId, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username) 
-VALUES (1, 'Teresa', 'Ferreira', 'Rua das Flores', 'Braga', 'Portugal', '4400-403', '913746653', 'teresa.ferreira@gmail.com', '1111111','Tete' ),
-(2, 'Carlos', 'Almeida', 'Rua do sapo', 'Porto', 'Portugal', '4500-406', '913722613', 'carlosalmeida@gmail.com', '11111111','Cambalhota' ),
- (3, 'Susana', 'Almeida', 'Rua das cerpas', 'Coimbra', 'Portugal', '4501-416', '935477854', 'susana@hotmail.com','111111' ,'User1212' ),
-(4, 'Hugo', 'Pereira', 'Rua das almas', 'Paredes', 'Portugal', '4502-404', '915873093', 'hugo2000@gmail.com',  '11111111','Senhor Restaurant' ),
- (5, 'Rui', 'das Cruzes', 'Rua da praceta', 'Almada', 'Portugal', '4200-446', '915943573', 'cruzrui@gmail.com',        '11111111','Nice' ),
-(6, 'Sara Isabel', 'Correia', 'Rua dos lobos', 'Baltar', 'Portugal', '4400-422', '939822005', 'scorreia@gmail.com',         '11111111','Desformatado'),
-(7, 'Ana Maria', 'Santos', 'Rua dos Santos', 'Paredes', 'Portugal', '4402-407', '965587974', 'anamaria@hotmail.com',        '11111111','User12123' ),
- (8, 'Carlota', 'Teixeira Ferreira', 'Rua Escola da Souta', 'Viana do Castelo', 'Portugal', '4312-401', '935488623', 'carlota@hotmail.com','11111111' ,'Lopes'  ),
-(9, 'Carlota', 'Teixeira Ferreira', 'Rua Escola da Souta', 'Viana do Castelo', 'Portugal', '4312-401', '935488623', 'carlota@hotmail.com',       '11111111' ,'LTW' ),
-(10,'Carla','Penedo Penedo','Rua dos Clérigos','Porto','Portugal','4900-231','963258750','carlacarla@gmail.com','111111111','Customer'),
-(11,'Pedro','Lee','Rua Maira Alberta','Porto','Portugal','4900-323','96258741','pedrooo@gmail.com','111111','PL'),
-(12,'Tiago','Pessoa','Rua Mãe','Lisboa','Portugal','4200-212','9684321','21123@gmail.com','11111','TiagoPessoa2021'),
-(13,'Sara','Tenente','Rua ALbertina Conceição','Porto','Portugal','4200-978','965412300','Sris@hotmail.com','111111','SrisSris'),
-(14,'Luisa','Lima','Rua dos Olhos Azuis','Porto','Porto','4900-121','965412300','jiokl@gmail.com','1111111','Luisaa'),
-(15,'Clara','Claridade','Rua Casa Ajuda','Porto','Portugal','4900-123','987456321','party@gmail.com','111111','Lolo');
+INSERT INTO Customer (CustomerId, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username, RestaurantOwner) 
+VALUES (1, 'Teresa', 'Ferreira', 'Rua das Flores', 'Braga', 'Portugal', '4400-403', '913746653', 'teresa.ferreira@gmail.com', '2ea6201a068c5fa0eea5d81a3863321a87f8d533','Tete',1 ),
+(2, 'Carlos', 'Almeida', 'Rua do sapo', 'Porto', 'Portugal', '4500-406', '913722613', 'carlosalmeida@gmail.com', '5f1cf9d7c7baf267c3ff2896dfa522612452e565','Cambalhota',1 ),
+(3, 'Susana', 'Almeida', 'Rua das cerpas', 'Coimbra', 'Portugal', '4501-416', '935477854', 'susana@hotmail.com','261503def9f6f3c38ba9e723d25de9576455f6bd' ,'User1212',1 ),
+(4, 'Hugo', 'Pereira', 'Rua das almas', 'Paredes', 'Portugal', '4502-404', '915873093', 'hugo2000@gmail.com',  '17b6c082db6729968a80dd994847036735af63fa','Senhor Restaurant',1),
+(5, 'Rui', 'das Cruzes', 'Rua da praceta', 'Almada', 'Portugal', '4200-446', '915943573', 'cruzrui@gmail.com',  'a0fe0efefb2359ede56352cf425055951dd0e511','Nice',1 ),
+(6, 'Sara Isabel', 'Correia', 'Rua dos lobos', 'Baltar', 'Portugal', '4400-422', '939822005', 'scorreia@gmail.com', '92b66370c2874c0bdcacc669cb433ae6daa5f053','Desformatado',1),
+(7, 'Ana Maria', 'Santos', 'Rua dos Santos', 'Paredes', 'Portugal', '4402-407', '965587974', 'anamaria@hotmail.com','3684acf97bbe609b8bb2e0fe965a6598a81ec4b9','User12123' ,1),
+(8, 'Carlota', 'Teixeira Ferreira', 'Rua Escola da Souta', 'Viana do Castelo', 'Portugal', '4312-401', '935488623', 'carlota@hotmail.com','4d1b627ed82d6d713d0175d72bc2f414a3e0dbfb' ,'Lopes',1  ),
+(9, 'Carlota', 'Teixeira Ferreira', 'Rua Escola da Souta', 'Viana do Castelo', 'Portugal', '4312-401', '935488623', 'carlota@hotmail.com','f2988cd2a9c0be376f4e1182baec57852342c999' ,'LTW' ,1),
+(10,'Carla','Penedo Penedo','Rua dos Clérigos','Porto','Portugal','4900-231','963258750','carlacarla@gmail.com','b67ffcc48fd4c495c633880edf052179898c5287','Customer',1),
+(11,'Pedro','Lee','Rua Maira Alberta','Porto','Portugal','4900-323','96258741','pedrooo@gmail.com','1014c1c251dad729d3e05337a090b5624b34a780','PL',0),
+(12,'Tiago','Pessoa','Rua Mãe','Lisboa','Portugal','4200-212','9684321','21123@gmail.com','9c0f61b68f0219823fcfab86e534926450ba8a08','TiagoPessoa2021',0),
+(13,'Sara','Tenente','Rua ALbertina Conceição','Porto','Portugal','4200-978','965412300','Sris@hotmail.com','629ab68ce423925a9aab63e1495368b407064c98','SrisSris',0),
+(14,'Luisa','Lima','Rua dos Olhos Azuis','Porto','Porto','4900-121','965412300','jiokl@gmail.com','93c8e75c919c4865739ef898c41f1f66cfabfa37','Luisaa',0),
+(15,'Clara','Claridade','Rua Casa Ajuda','Porto','Portugal','4900-123','987456321','party@gmail.com','c654096707eb03dae337dcc8176cba4774c6050f','Lolo',0);
 
 
 INSERT INTO Category(CategoryId,Name) VALUES(1,'Comida Portuguesa');

@@ -48,6 +48,7 @@
           <option value="Italian">Italian</option>
         </select>
       </form>
+      
     </restaurantTopPage>
   <section id="dishes">
     <?php foreach ($dishes as $dish) { ?>
