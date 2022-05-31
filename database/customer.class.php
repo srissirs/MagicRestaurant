@@ -1,5 +1,6 @@
 <?php
   declare(strict_types = 1);
+  require_once('database/restaurant.class.php');
 
   class Customer {
     public int $customerId;
@@ -166,6 +167,32 @@
 
   }
 
-  
+  static function getCustomerRestaurants(PDO $db, int $customerId): array {
+        $stmt = $db->prepare('
+        SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating
+        FROM Restaurant, Customer,RestaurantOwner
+        WHERE Customer.CustomerId = ?
+        AND Customer.RestaurantOwner = RestaurantOwner.RestaurantOwnerId
+        AND RestaurantOwner.RestaurantId = Restaurant.RestaurantId
+        Group By Restaurant.RestaurantId;
+        ');
+        $stmt->execute(array($customerId));
+
+        $restaurants = array();
+
+        while ($restaurant = $stmt->fetch()) {
+          $restaurants[] = new Restaurant(
+            intval($restaurant['RestaurantId']),
+            $restaurant['RestaurantName'],
+            $restaurant['RestaurantAddress'],
+            $restaurant['RestaurantCity'],
+            $restaurant['RestaurantCountry'],
+            $restaurant['RestaurantPostalCode'],
+            $restaurant['RestaurantPhone'],
+            floatval($restaurant['Rating'])
+          ); 
+    }
+    return $restaurants;
   }
+}
 ?>

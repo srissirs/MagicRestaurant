@@ -709,3 +709,72 @@ signUp button {
     align-items: baseline;
     gap: 5px;
 }
+
+/***********************************Profile****************************************************************/
+
+.profileHeader{
+    width: 100%;
+    border-bottom: 4px var(--main-color) solid;
+    display: flex;
+    align-items: baseline;
+}
+.profileHeader i{
+    font-size: 2em;
+}
+
+.customerInformation{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8em;
+    margin: 4em auto 4em 6em;
+}
+
+.customerInformation > div {
+    display: flex;
+    gap: 4em;
+    border: solid var(--main-color) 2px;
+    padding: 1em;
+ 
+
+}
+.customerInformation p{
+    font-size: 20px;
+}
+
+.customerInformation img{
+    height: 20em;
+    width: 20em;
+}
+
+.infoTypes p{
+    font-weight: 700;
+}
+
+.ownedRestaurants{
+    margin: 0 6em;
+}
+.ownedRestaurants h3{
+    font-size: 2em;
+}
+.ownedRestaurant{
+    padding: 1em;
+    border-bottom: solid 2px var(--main-color);
+}
+.ownedRestaurant div {
+    display: flex;
+    gap:1em;
+    align-items: baseline;
+}
+
+.ownedRestaurant p,
+.ownedRestaurant a{
+    font-size: 20px;
+}
+
+.ownedRestaurant a{
+    color: var(--darker-color);
+}
+
+.ownedRestaurants button{
+    margin: 2em 0;
+}
