@@ -11,7 +11,7 @@
   $customer = Customer::getCustomerWithPassword($db, $_POST['fname'], $_POST['lname']);
 
   if ($customer!=null) {
-    $_SESSION['id'] = $customer->id;
+    $_SESSION['userId'] = $customer->customerId;
     $_SESSION['name'] = $customer->name();
     header("Location:mainPage.php");
   }

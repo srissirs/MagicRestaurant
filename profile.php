@@ -3,7 +3,7 @@
 
   session_start();
 
-  if (!isset($_SESSION['id'])) die(header('Location: /'));
+  
 
   require_once('database/connection.database.php');
 
@@ -12,13 +12,14 @@
   require_once('templates/common.tpl.php');
   require_once('templates/profile.tpl.php');
   require_once('session.php');
+  if (!isset($_SESSION['userId'])) die(header('Location: /'));
 
   
 
   $db = getDatabaseConnection();
 
-  $customer = Customer::getCustomer($db, $_SESSION['id']);
-  $restaurants = Customer::getCustomerRestaurants($db,$_SESSION['id']);
+  $customer = Customer::getCustomer($db, $_SESSION['userId']);
+  $restaurants = Customer::getCustomerRestaurants($db,$_SESSION['userId']);
 
 
   drawHeader();
