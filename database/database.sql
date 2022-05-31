@@ -27,7 +27,7 @@ CREATE TABLE Customer
     CustomerPostalCode NVARCHAR(10),
     CustomerPhone NVARCHAR(24),
     CustomerEmail NVARCHAR(60) NOT NULL,
-	RestaurantOwner INT NOT NULL,
+	RestaurantOwner INT,
     Password NVARCHAR(40) NOT NULL,
     CONSTRAINT PK_Customer PRIMARY KEY  (CustomerId)
 );
