@@ -1,4 +1,7 @@
 reviewsAndDishes()
+restaurantsAndDishes()
+drawStar()
+filter()
 
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 if (searchRestaurantMain) {
@@ -49,8 +52,47 @@ if (searchRestaurantMain) {
 }
 
 
+
+function restaurantsAndDishes() {
+  const favoritedTopPage = document.querySelector(".favoritedTopPage")
+  if(favoritedTopPage==null){
+    return
+  }
+  const favorited = document.querySelector(".favorited")
+  buttons = favoritedTopPage.querySelectorAll("a")
+  dbutton = buttons[0]
+  rbutton = buttons[1]
+  dbutton.classList.add("selected")
+  var dishes = document.getElementById("dishes")
+  var restaurants = document.getElementById("restaurants")
+  restaurants.remove()
+  dbutton.addEventListener('click', function (e) {
+    if (!dbutton.classList.contains("selected")) {
+      dbutton.classList.toggle("selected")
+      rbutton.classList.toggle("selected")
+      restaurants.remove()
+      favorited.appendChild(dishes)
+    }
+
+  })
+  rbutton.addEventListener('click', function (e) {
+    if (!rbutton.classList.contains("selected")) {
+      rbutton.classList.toggle("selected")
+      dbutton.classList.toggle("selected")
+      dishes.remove()
+      favorited.appendChild(restaurants)
+    }
+
+  })
+}
+
+
+
 function reviewsAndDishes() {
   const restauranttoppage = document.querySelector(".restaurantTopPage")
+  if(restauranttoppage==null){
+    return
+  }
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
@@ -177,7 +219,7 @@ function addDishes(a, count) {
 
 
 function filter() {
-  const allDishes = document.querySelectorAll("dish")
+  const allDishes = document.querySelectorAll("div.dish")
   m = NodeList
   count = 0
   for (let i = 0; i < allDishes.length; i++) {
@@ -187,22 +229,21 @@ function filter() {
 
   const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
+  if(dropdown==null) return
   dropdown.addEventListener('change', function (e) {
     var dishes = document.getElementById("dishes")
     if (dropdown.value != "Tudo") {
       dishes.remove
       addDishes(m, count)
-      var dish = document.querySelectorAll("dish")
+      var dish = document.querySelectorAll("div.dish")
       dish.forEach(el => {
-        c = el.querySelector("information")
-        d = c.querySelector("category")
-        e = d.querySelector("p")
-        l = e.textContent
+        c = el.querySelector("div.information")
+        d = c.querySelector("#category")
+        l = d.textContent
         if (l != " " + dropdown.value + " ") {
           el.remove()
         }
       })
-
     } else {
       dishes.remove
       addDishes(m, count)
@@ -212,9 +253,12 @@ function filter() {
 }
 
 function drawStar() {
+  
   var x = document.querySelector("h3")
+  if(x==null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
+  
   console.log(z.textContent)
   z.textContent = Math.round(z.textContent)
   if (z.textContent >= 1) {
@@ -234,7 +278,5 @@ function drawStar() {
   }
 }
 
-drawStar()
 
-filter()
 

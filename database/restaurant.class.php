@@ -45,6 +45,7 @@
     }
 
 
+
     static function getCategories(PDO $db, int $restaurantId) : array {
       $stmt = $db->prepare('SELECT CategoryName FROM Category 
                             JOIN CategoryRestaurant 

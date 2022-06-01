@@ -9,6 +9,15 @@ require_once('database/review.class.php');
 require_once('database/reviewResponse.class.php');
 ?>
 
+
+<?php function drawfav(){ ?>
+  <i class="fa fa-star checked"></i>
+ <?php } ?>
+
+ <?php function drawstr(){ ?>
+  <i class="fa-regular fa-star"></i>
+ <?php } ?>
+
 <?php function drawRestaurants(array $restaurants)
 { ?>
   <h2>Restaurants</h2>
@@ -27,19 +36,20 @@ require_once('database/reviewResponse.class.php');
   <section class="restaurantHeader">
     <div class="restaurantInfo">
       <h2><?= $restaurant->restaurantName ?></h2>
-      <h3>
-      <i class="fa fa-star checked"></i>
+      <h3> 
+        <p> <?=$restaurant->rating?> </p>
           <i class="fa fa-star checked"></i>
           <i class="fa fa-star checked"></i>
           <i class="fa fa-star checked"></i>
           <i class="fa fa-star checked"></i>
+          <i class="fa fa-star checked"></i>   
       </h3>
       <h4> <?= $restaurant->restaurantAddress ?> </h4>
     </div>
   </section>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories)
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories,array $favorites)
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
@@ -72,12 +82,16 @@ require_once('database/reviewResponse.class.php');
     <section id="dishes">
       <?php foreach ($dishes as $dish) { ?>
         <div class="dish">
-
           <img src="https://picsum.photos/200?1" alt="Dish Photo">
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <i class="fa-regular fa-star"></i>
+              <?php if(in_array($dish,$favorites)){
+              drawfav();
+              }else{
+                drawstr();
+              }
+             ?>
             </div>
             <category>
                     <p id="category"> <?=$dish->dishCategory?> </p>

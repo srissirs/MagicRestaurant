@@ -133,6 +133,49 @@
     }
   }
 
+  static public function getFavoriteRestaurants(PDO $db,int $customerId): array {
+    $stmt=$db->prepare('SELECT *
+    FROM Restaurant,RestaurantFavorite
+    WHERE CustomerId=? 
+    AND Restaurant.RestaurantId=RestaurantFavorite.RestaurantId');
+    $stmt->execute(array($customerId));
+    $restaurants = array();
+      while ($restaurant = $stmt->fetch()) {
+        $restaurants[] = new Restaurant(
+          intval($restaurant['RestaurantId']),
+          $restaurant['RestaurantName'],
+          $restaurant['RestaurantAddress'],
+          $restaurant['RestaurantCity'],
+          $restaurant['RestaurantCountry'],
+          $restaurant['RestaurantPostalCode'],
+          $restaurant['RestaurantPhone'],
+          floatval($restaurant['Rating'])
+        );
+      }
+  
+      return $restaurants;
+  }
+
+  static public function getFavoriteDishes(PDO $db,int $customerId): array {
+    $stmt=$db->prepare('SELECT *
+    FROM Dish,DishFavorite,Category
+    WHERE CustomerId=? 
+    AND DishCategory=CategoryId
+    AND Dish.DishId=DishFavorite.DishId');
+    $stmt->execute(array($customerId));
+    $dishes = array();
+  
+      while ($dish = $stmt->fetch()) {
+        $dishes[] = new Dish(
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish["CategoryName"]
+        );
+      }
+      return $dishes;
+  }
 
 
 

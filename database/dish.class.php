@@ -18,6 +18,9 @@
       $this->dishCategory = $dishCategory;
     }
 
+    
+
+
     static function getRestaurantDishes(PDO $db, int $restaurantId) : array {
       $stmt = $db->prepare('
       SELECT DishId, DishName, DishPrice, Dish.RestaurantId, CategoryName
