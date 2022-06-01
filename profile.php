@@ -3,7 +3,7 @@
 
   session_start();
 
-  
+  require_once('init.php');
 
   require_once('database/connection.database.php');
 

@@ -14,40 +14,65 @@ require_once('database/customer.class.php');
 { ?>
   <div class="profileHeader">
     <h2><?= $customer->firstName ?> <?= $customer->lastName ?></h2>
-    <i class="fa-solid fa-pen-to-square"></i>
+    <button type="submit" onclick="toggle()">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
   </div>
   <section class="customerInformation">
     <img src="../images/user-profile.png">
-    <div>
-      <div class="infoTypes">
-        <p> Full Name </p>
-        <p> Username </p>
-        <p> Email Address </p>
-        <p> Address </p>
-        <p> City </p>
-        <p> Country </p>
-        <p> Postal Code </p>
-        <p> Phone </p>
+    <form action="../action_edit_profile.php" method="post">
+      <div>
+        <label for="first_name">First Name:</label>
+        <p class="unedited"><?= $customer->firstName ?></p>
+        <input type="text" name="first_name" class="editing" style="display: none;" value="<?= $customer->firstName ?>">
       </div>
-
-      <div class="personalInfo">
-        <p> <?= $customer->firstName ?> <?= $customer->lastName ?> </p>
-        <p> <?= $customer->userName ?> </p>
-        <p> <?= $customer->customerEmail ?> </p>
-        <p> <?= $customer->customerAddress ?> </p>
-        <p> <?= $customer->customerCity ?> </p>
-        <p> <?= $customer->customerCountry ?> </p>
-        <p> <?= $customer->customerPostalCode ?> </p>
-        <p> <?= $customer->customerPhone ?> </p>
+      <div>
+        <label for="last_name">Last Name:</label>
+        <p class="unedited"><?= $customer->lastName ?></p>
+        <input type="text" name="last_name" class="editing" style="display: none;" value="<?= $customer->lastName ?>">
       </div>
-    </div>
+      <div>
+        <label for="username">Username:</label>
+        <p class="unedited"><?= $customer->userName ?></p>
+        <input type="text" name="username" class="editing" style="display: none;" value="<?= $customer->userName ?>">
+      </div>
+      <div>
+        <label for="email_address">Email Address:</label>
+        <p class="unedited"><?= $customer->customerEmail ?></p>
+        <input type="text" name="email_address" class="editing" style="display: none;" value="<?= $customer->customerEmail ?>">
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <p class="unedited"><?= $customer->customerAddress ?></p>
+        <input type="text" name="address" class="editing" style="display: none;" value="<?= $customer->customerAddress ?>">
+      </div>
+      <div>
+        <label for="city">City:</label>
+        <p class="unedited"><?= $customer->customerCity ?></p>
+        <input type="text" name="city" class="editing" style="display: none;" value="<?= $customer->customerCity ?>">
+      </div>
+      <div>
+        <label for="country">Country:</label>
+        <p class="unedited"><?= $customer->customerCountry ?></p>
+        <input type="text" name="country" class="editing" style="display: none;" value="<?= $customer->customerCountry ?>">
+      </div>
+      <div>
+        <label for="postal_code">Postal Code:</label>
+        <p class="unedited"><?= $customer->customerPostalCode ?></p>
+        <input type="text" name="postal_code" class="editing" style="display: none;" value="<?= $customer->customerPostalCode ?>">
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <p class="unedited"><?= $customer->customerPhone ?></p>
+        <input type="text" name="phone" class="editing" style="display: none;" value="<?= $customer->customerPhone ?>">
+      </div>
+      <button type="submit">Save</button>
+    </form>
   </section>
 <?php } ?>
 
 <?php function drawProfileRestaurants(array $restaurants)
 { ?>
-
-
   <section class="ownedRestaurants">
     <h3> Restaurants</h3>
     <?php foreach ($restaurants as $restaurant) { ?>

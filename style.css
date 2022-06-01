@@ -173,16 +173,16 @@ h2 {
     max-width: 30em;
 }
 
-#rating{
+#rating {
     visibility: hidden;
 }
 
-h3 .checked{
+h3 .checked {
     color: #ddd;
 }
 
-h3 > .full{
-    color:#745A5A;
+h3>.full {
+    color: #745A5A;
 }
 
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
@@ -486,14 +486,14 @@ a {
 
 }
 
-signUp ,
-SignIn  {
+signUp,
+SignIn {
 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     padding: 0.5em;
 }
 
@@ -712,69 +712,86 @@ signUp button {
 
 /***********************************Profile****************************************************************/
 
-.profileHeader{
+.profileHeader {
     width: 100%;
     border-bottom: 4px var(--main-color) solid;
     display: flex;
     align-items: baseline;
 }
-.profileHeader i{
+
+.profileHeader i {
     font-size: 2em;
 }
 
-.customerInformation{
+.customerInformation {
     display: flex;
     flex-wrap: wrap;
     gap: 8em;
     margin: 4em auto 4em 6em;
 }
 
-.customerInformation > div {
+.customerInformation>form {
     display: flex;
-    gap: 4em;
+    flex-direction: column;
     border: solid var(--main-color) 2px;
     padding: 1em;
- 
+    align-items: baseline;
+    gap: 1em;
 
 }
-.customerInformation p{
+
+.customerInformation div {
+    display: flex;
+    gap: 1em;
+}
+
+.customerInformation input,
+.customerInformation label,
+.customerInformation p {
     font-size: 20px;
 }
 
-.customerInformation img{
+.customerInformation p {
+    margin: 0 0 0 auto;
+}
+
+.customerInformation label{
+    font-weight: 700;
+}
+
+.customerInformation img {
     height: 20em;
     width: 20em;
 }
 
-.infoTypes p{
-    font-weight: 700;
-}
-
-.ownedRestaurants{
+.ownedRestaurants {
     margin: 0 6em;
 }
-.ownedRestaurants h3{
+
+.ownedRestaurants h3 {
     font-size: 2em;
 }
-.ownedRestaurant{
+
+.ownedRestaurant {
     padding: 1em;
     border-bottom: solid 2px var(--main-color);
 }
+
 .ownedRestaurant div {
     display: flex;
-    gap:1em;
+    gap: 1em;
     align-items: baseline;
 }
 
 .ownedRestaurant p,
-.ownedRestaurant a{
+.ownedRestaurant a {
     font-size: 20px;
 }
 
-.ownedRestaurant a{
+.ownedRestaurant a {
     color: var(--darker-color);
 }
 
-.ownedRestaurants button{
+.ownedRestaurants button {
     margin: 2em 0;
 }

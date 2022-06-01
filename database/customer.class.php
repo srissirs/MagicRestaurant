@@ -38,7 +38,7 @@
 
     function save($db) {
       $stmt = $db->prepare('
-        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?, Password = ?, RestaurantOwner = ?
+        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?
         WHERE CustomerId = ?
       ');
 
@@ -71,7 +71,7 @@
       } else return null;
     }
 
-    static function getCustomer(PDO $db, int $id) : Customer {
+    static public function getCustomer(PDO $db, int $id) : Customer {
       $stmt = $db->prepare('
         SELECT CustomerId, Username, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, RestaurantOwner
         FROM Customer 
@@ -79,7 +79,7 @@
       ');
 
       $stmt->execute(array($id));
-      $customer = $stmt->fetch();
+      if($customer = $stmt->fetch()){
       
       return new Customer(
           intval($customer['CustomerId']),
@@ -93,7 +93,8 @@
           $customer['CustomerPhone'],
           $customer['CustomerEmail'],
           intval($customer['RestaurantOwner'])
-      );
+      );}
+      else return null;
     }
       static public function getID(PDO $db,$username): int{
       try {

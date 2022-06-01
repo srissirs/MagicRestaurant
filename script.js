@@ -238,3 +238,22 @@ drawStar()
 
 filter()
 
+function toggle() {
+  var d = document.querySelectorAll(".unedited");
+  for (x of d) {
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  var f = document.querySelectorAll(".editing");
+  for (y of f) {
+    if (y.style.display === "none") {
+      y.style.display = "block";
+    } else {
+      y.style.display = "none";
+    }
+  }
+}
+
