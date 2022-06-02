@@ -13,7 +13,6 @@
 
   $db = getDatabaseConnection();
 
-  //header('Location:mainPage.php');
   
   $customer = Customer::getCustomer($db, $_SESSION['userId']);
 
@@ -31,7 +30,7 @@
     $customer->customerPostalCode = $_POST['postal_code'];
     $customer->customerPhone = $_POST['phone'];
     
-    $customer->save($db);
+    $customer->saveProfile($db);
   }
 
   header('Location:profile.php');

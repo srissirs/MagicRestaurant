@@ -766,13 +766,21 @@ signUp button {
 
 .ownedRestaurants {
     margin: 0 6em;
+
 }
 
 .ownedRestaurants h3 {
     font-size: 2em;
 }
 
+.ownedRestaurant button {
+    margin: 0;
+}
+
 .ownedRestaurant {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
     padding: 1em;
     border-bottom: solid 2px var(--main-color);
 }
@@ -792,6 +800,6 @@ signUp button {
     color: var(--darker-color);
 }
 
-.ownedRestaurants button {
+.ownedRestaurants > button {
     margin: 2em 0;
 }

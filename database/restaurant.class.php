@@ -44,6 +44,16 @@
       return $restaurants;
     }
 
+    function saveRestaurant($db)
+    {
+      $stmt = $db->prepare('
+          UPDATE Restaurant SET RestaurantName = ?, RestaurantAddress = ?
+          WHERE RestaurantId = ?
+        ');
+  
+      $stmt->execute(array($this->restaurantName, $this->restaurantAddress, $this->restaurantId));
+    }
+
 
     static function getCategories(PDO $db, int $restaurantId) : array {
       $stmt = $db->prepare('SELECT CategoryName FROM Category 

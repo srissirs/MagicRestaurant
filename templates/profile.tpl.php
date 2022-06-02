@@ -66,7 +66,7 @@ require_once('database/customer.class.php');
         <p class="unedited"><?= $customer->customerPhone ?></p>
         <input type="text" name="phone" class="editing" style="display: none;" value="<?= $customer->customerPhone ?>">
       </div>
-      <button type="submit">Save</button>
+      <button class="customerInfoBtn" style="display: none;" type="submit">Save</button>
     </form>
   </section>
 <?php } ?>
@@ -75,13 +75,24 @@ require_once('database/customer.class.php');
 { ?>
   <section class="ownedRestaurants">
     <h3> Restaurants</h3>
-    <?php foreach ($restaurants as $restaurant) { ?>
+    <?php foreach ($restaurants as $restaurant) {?>
+      
       <section class="ownedRestaurant">
-        <div>
-          <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?= $restaurant->restaurantName ?> </a>
+        <form action="../action_edit_restaurant.php" method="post">
+          <input type="number" name="id"  style="display: none;" value=<?= $restaurant->restaurantId ?>>
+          <div>
+            <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?= $restaurant->restaurantName ?> </a>
+            <input type="text" name="restaurant_name" style="display: none;" value="<?= $restaurant->restaurantName ?>">
+          </div>
+          <div>
+            <p> <?= $restaurant->restaurantAddress ?> </p>
+            <input type="text" name="restaurant_address" style="display: none;" value="<?= $restaurant->restaurantAddress ?>">
+          </div>
+          <button type="submit"  style="display: none;">Save</button>
+        </form>
+        <button type="submit" onclick="toggleEditRestaurant()">
           <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-        <p> <?= $restaurant->restaurantAddress ?> </p>
+        </button>
       </section>
     <?php } ?>
     <button> Add a restaurant </button>

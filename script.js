@@ -11,6 +11,7 @@ if (searchRestaurantMain) {
     section.innerHTML = ''
 
     for (const restaurant of restaurants) {
+
       const restaurantCard = document.createElement('section')
       restaurantCard.className = 'restaurantCard'
       const img = document.createElement('img')
@@ -254,6 +255,51 @@ function toggle() {
     } else {
       y.style.display = "none";
     }
+  }
+  var r = document.querySelector(".customerInfoBtn");
+  if (r.style.display === "none") {
+    r.style.display = "block";
+  } else {
+    r.style.display = "none";
+  }
+}
+
+function toggleEditRestaurant (){
+  var editFieldName = event.target.parentElement.children[0].children[1].children[0];
+  var uneditedName = event.target.parentElement.children[0].children[1].children[1];
+  var editFieldAddress = event.target.parentElement.children[0].children[2].children[0];
+  var uneditedAddress = event.target.parentElement.children[0].children[2].children[1];
+  var saveBtn = event.target.parentElement.children[0].children[3];
+  if(editFieldName.style.display === "none") {
+    editFieldName.style.display = "block";
+  }
+  else{
+    editFieldName.style.display = "none";
+  }
+
+  if(uneditedName.style.display === "none") {
+    uneditedName.style.display = "block";
+  }
+  else{
+    uneditedName.style.display = "none";
+  }
+  if(editFieldAddress.style.display === "none") {
+    editFieldAddress.style.display = "block";
+  }
+  else{
+    editFieldAddress.style.display = "none";
+  }
+  if(uneditedAddress.style.display === "none") {
+    uneditedAddress.style.display = "block";
+  }
+  else{
+    uneditedAddress.style.display = "none";
+  }
+  if(saveBtn.style.display === "none") {
+    saveBtn.style.display = "block";
+  }
+  else{
+    saveBtn.style.display = "none";
   }
 }
 
