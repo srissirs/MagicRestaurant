@@ -1,5 +1,6 @@
 <?php
   declare(strict_types = 1);
+  require_once('database/restaurant.class.php');
 
   class Customer {
     public int $customerId;
@@ -37,7 +38,7 @@
 
     function save($db) {
       $stmt = $db->prepare('
-        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?, Password = ?, RestaurantOwner = ?
+        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?
         WHERE CustomerId = ?
       ');
 
@@ -70,7 +71,7 @@
       } else return null;
     }
 
-    static function getCustomer(PDO $db, int $id) : Customer {
+    static public function getCustomer(PDO $db, int $id) : Customer {
       $stmt = $db->prepare('
         SELECT CustomerId, Username, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, RestaurantOwner
         FROM Customer 
@@ -78,7 +79,7 @@
       ');
 
       $stmt->execute(array($id));
-      $customer = $stmt->fetch();
+      if($customer = $stmt->fetch()){
       
       return new Customer(
           intval($customer['CustomerId']),
@@ -92,7 +93,8 @@
           $customer['CustomerPhone'],
           $customer['CustomerEmail'],
           intval($customer['RestaurantOwner'])
-      );
+      );}
+      else return null;
     }
       static public function getID(PDO $db,$username): int{
       try {
@@ -166,6 +168,32 @@
 
   }
 
-  
+  static function getCustomerRestaurants(PDO $db, int $customerId): array {
+        $stmt = $db->prepare('
+        SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating
+        FROM Restaurant, Customer,RestaurantOwner
+        WHERE Customer.CustomerId = ?
+        AND Customer.RestaurantOwner = RestaurantOwner.RestaurantOwnerId
+        AND RestaurantOwner.RestaurantId = Restaurant.RestaurantId
+        Group By Restaurant.RestaurantId;
+        ');
+        $stmt->execute(array($customerId));
+
+        $restaurants = array();
+
+        while ($restaurant = $stmt->fetch()) {
+          $restaurants[] = new Restaurant(
+            intval($restaurant['RestaurantId']),
+            $restaurant['RestaurantName'],
+            $restaurant['RestaurantAddress'],
+            $restaurant['RestaurantCity'],
+            $restaurant['RestaurantCountry'],
+            $restaurant['RestaurantPostalCode'],
+            $restaurant['RestaurantPhone'],
+            floatval($restaurant['Rating'])
+          ); 
+    }
+    return $restaurants;
   }
+}
 ?>
