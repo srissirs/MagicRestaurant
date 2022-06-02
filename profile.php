@@ -12,7 +12,7 @@
   require_once('templates/common.tpl.php');
   require_once('templates/profile.tpl.php');
   require_once('session.php');
-  if (!isset($_SESSION['userId'])) die(header('Location: /'));
+  if (!isset($_SESSION['userId'])) header('Location: signin.php');
 
   
 
