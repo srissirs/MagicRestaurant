@@ -12,7 +12,6 @@
 
   if ($customer!=null) {
     $_SESSION['userId'] = $customer->customerId;
-    $_SESSION['name'] = $customer->name();
     header("Location:mainPage.php");
   }
 

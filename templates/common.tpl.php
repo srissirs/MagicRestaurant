@@ -1,6 +1,14 @@
 <?php
 
-declare(strict_types=1); ?>
+declare(strict_types=1);
+require_once('session.php');
+require_once('init.php');
+
+require_once('database/connection.database.php');
+require_once('database/customer.class.php');
+
+session_start();
+   ?>
 
 <?php function drawHeader()
 { ?>
@@ -8,7 +16,7 @@ declare(strict_types=1); ?>
   <html lang="en-US">
 
   <head>
-    <title>Fake Food</title>
+    <title>Magic Restaurant</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
@@ -26,20 +34,27 @@ declare(strict_types=1); ?>
         <div class="dropdown-content">
           <a href="#">Favorites</a>
           <a href="pastOrders.php">Past Orders</a>
-          <a href="mainPage.php">Logout
+          <a href="mainRestaurants.php">Restaurants</a>
+          <form action="action_logout.php" method="post" class="logout">
+            <a href="action_logout.php">Logout
             <i class="fa-solid fa-arrow-right-from-bracket" id="logoutIcon"></i>
           </a>
+          </form>
+          
         </div>
       </div>
-      <h1> Magic Restaurant</h1>
+      <a href="mainPage.php"> <h1>Magic Restaurant</h1></a>
       <div class="searchBar">
         <input id="searchRestaurant" type="text" placeholder="Search for a restaurant...">
       </div>
       <i class="fa-solid fa-cart-shopping"></i>
       <div class="profile">
         <?php
-        if (isset($_SESSION['id'])) drawLogoutForm($_SESSION['name']);
-        else drawLoginForm();
+        if (!isset($_SESSION['userId'])) header('Location: signin.php');
+        else {
+          $db = getDatabaseConnection();
+          $customer = Customer::getCustomer($db, $_SESSION['userId']);
+          drawTopInfo($customer->userName);};
         ?>
       </div>
 
@@ -68,20 +83,33 @@ declare(strict_types=1); ?>
   </html>
 <?php } ?>
 
-<?php function drawLoginForm()
+<?php function drawTopInfo(string $username)
 { ?>
-  <form action="action_login.php" method="post" class="login">
-    <input type="email" name="email" placeholder="email">
-    <input type="password" name="password" placeholder="password">
-    <a href="register.php">Register</a>
-    <button type="submit">Login</button>
+  <form action="action_logout.php" method="post" class="logout">
+    <a href="profile.php"><?= $username ?></a>
   </form>
 <?php } ?>
 
-<?php function drawLogoutForm(string $name)
-{ ?>
-  <form action="action_logout.php" method="post" class="logout">
-    <a href="profile.php"><?= $name ?></a>
-    <button type="submit">Logout</button>
-  </form>
-<?php } ?>
+
+<?php function drawMainPageHeader(){ ?>
+   <!DOCTYPE html>
+  <html lang="en-US">
+
+  <head>
+    <title>Magic Restaurant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
+  </head>
+  <div class="mainPageHeader">
+    <a href="mainpage.php" id="brandMain">Magic Restaurant</a>
+    <a href="signin.php" id="signIn">Sign in</a>
+    <a href="signup.php" id="signUp">Sign up</a>
+  </div>
+
+
+
+
+<?php }?>
