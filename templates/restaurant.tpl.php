@@ -11,11 +11,11 @@ require_once('database/reviewResponse.class.php');
 
 
 <?php function drawfav(){ ?>
-  <i class="fa fa-star checked"></i>
+  <i class="fa fa-star checked full"></i>
  <?php } ?>
 
  <?php function drawstr(){ ?>
-  <i class="fa-regular fa-star"></i>
+  <i class="fa fa-star checked"></i>
  <?php } ?>
 
 <?php function drawRestaurants(array $restaurants)

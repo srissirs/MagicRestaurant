@@ -1,7 +1,9 @@
 reviewsAndDishes()
 restaurantsAndDishes()
 drawStar()
+favorite()
 filter()
+
 
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 if (searchRestaurantMain) {
@@ -222,16 +224,19 @@ function filter() {
   const allDishes = document.querySelectorAll("div.dish")
   m = NodeList
   count = 0
+  console.log(allDishes)
   for (let i = 0; i < allDishes.length; i++) {
+    
     m[i] = allDishes[i]
+
     count++
   }
-
   const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
   if(dropdown==null) return
   dropdown.addEventListener('change', function (e) {
     var dishes = document.getElementById("dishes")
+    
     if (dropdown.value != "Tudo") {
       dishes.remove
       addDishes(m, count)
@@ -258,8 +263,7 @@ function drawStar() {
   if(x==null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
-  
-  console.log(z.textContent)
+
   z.textContent = Math.round(z.textContent)
   if (z.textContent >= 1) {
     y[0].classList.add("full")
@@ -278,5 +282,24 @@ function drawStar() {
   }
 }
 
+function favorite(){
+  const allNames = document.querySelectorAll("div.name")
+  listStars = NodeList
+  conta = 0
+  allNames.forEach(di=>{
+    star=di.querySelector("i")
+    listStars[conta] = star
+    conta++
+    })
+  for (let ss = 0; ss < conta; ss++) {
+    estrela=listStars[ss]
+    estrela.addEventListener('click',function(){
+      console.log(listStars[ss])
+       newname=listStars[ss].querySelector("div.name")
+       novastar=newname.querySelector("i")
+       novastar.classList.toggle("full")
+     })
+    }
+}
 
 
