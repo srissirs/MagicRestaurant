@@ -3,7 +3,7 @@ reviewsAndDishes()
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 if (searchRestaurantMain) {
   searchRestaurantMain.addEventListener('input', async function () {
-
+    
     const response = await fetch('api_restaurants.php?search=' + this.value)
     const restaurants = await response.json()
 

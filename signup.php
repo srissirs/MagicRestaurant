@@ -10,16 +10,16 @@
     <signUp>
       <?php include_once('session.php');?>
       <form action="action_signup.php" method="post" class="register_form">
-        <input type="text" id="firstname" name="firstname" placeholder="First Name"><br>
-        <input type="text" id="lastname" name="lastname" placeholder="Last Name"><br>
-        <input type="text" id="username" name="username" placeholder="Username"><br>
-        <input type="text" id="address" name="address" placeholder="Address"><br>
-        <input type="text" id="city" name="city" placeholder="City"><br>
-        <input type="text" id="country" name="country" placeholder="Country"><br>
-        <input type="text" id="postalcode" name="postalcode" placeholder="Postal Code"><br>
-        <input type="text" id="phone" name="phone" placeholder="Phone Number"><br>
-        <input type="text" id="email" name="email" placeholder="Email"><br>
-        <input id="password" name="password" type="password" placeholder="Password"><br>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name" required="required"><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required="required"><br>
+        <input type="text" id="username" name="username" placeholder="Username" required="required"><br>
+        <input type="text" id="address" name="address" placeholder="Address" required="required"><br>
+        <input type="text" id="city" name="city" placeholder="City" required="required"><br>
+        <input type="text" id="country" name="country" placeholder="Country" required="required"><br>
+        <input type="text" id="postalcode" name="postalcode" placeholder="Postal Code" required="required"><br>
+        <input type="number" id="phone" name="phone" placeholder="Phone Number" required="required"><br>
+        <input type="email" id="email" name="email" placeholder="Email" required="required"><br>
+        <input id="password" name="password" type="password" placeholder="Password" required="required"><br>
         <div>  
         <label for="ImRestaurant">I'm a restaurant owner</label>
         <input type="checkbox" id="restaurantowner" name="restaurantowner" value=1>

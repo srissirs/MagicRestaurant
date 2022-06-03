@@ -15,7 +15,7 @@
 
   $db = getDatabaseConnection();
 
-  $pastOrders = CustomerOrder::getCustomerOrders($db, intval($_GET['id']));
+  $pastOrders = CustomerOrder::getCustomerOrders($db, $_SESSION['userId']);
 
   drawHeader();
   drawCustomerOrders($pastOrders);

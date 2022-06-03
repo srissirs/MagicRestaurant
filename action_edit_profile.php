@@ -8,7 +8,7 @@
 
   session_start();
 
-  if (!isset($_SESSION['userId'])) die(header('Location: /'));
+  if (!isset($_SESSION['userId'])) header('Location: signin.php');
 
 
   $db = getDatabaseConnection();
@@ -19,7 +19,6 @@
 
 
   if ($customer) {
-
     $customer->firstName = $_POST['first_name'];
     $customer->lastName = $_POST['last_name'];
     $customer->userName = $_POST['username'];
@@ -29,7 +28,6 @@
     $customer->customerCountry = $_POST['country'];
     $customer->customerPostalCode = $_POST['postal_code'];
     $customer->customerPhone = $_POST['phone'];
-    
     $customer->saveProfile($db);
   }
 
