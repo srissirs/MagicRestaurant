@@ -19,8 +19,9 @@ body>header {
     padding: 1em 0;
 }
 
-header>h1 {
+header h1 {
     margin: 0;
+    color:#351C1C
 }
 
 .profile {
@@ -30,14 +31,14 @@ header>h1 {
     max-width: fit-content;
 }
 
-.profile>a {
+.profile a {
     color: #F3F3F3;
     font-size: 25px;
     margin: 0 1em;
 }
 
-.profile>i,
-.dropbtn>i {
+.profile i,
+.dropbtn i {
     color: #F3F3F3;
     padding: 1em;
     font-size: 20px;
@@ -173,7 +174,7 @@ h2 {
     max-width: 30em;
 }
 
-#rating{
+#rating {
     visibility: hidden;
 }
 
@@ -469,6 +470,8 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    z-index: -1;
+
 }
 
 .mainPageText {
@@ -490,14 +493,14 @@ a {
 
 }
 
-signUp ,
-SignIn  {
+signUp,
+SignIn {
 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     padding: 0.5em;
 }
 
@@ -714,6 +717,7 @@ signUp button {
     gap: 5px;
 }
 
+
 /******************************************************Favorited Page *********************************************/
 
 
@@ -753,3 +757,90 @@ signUp button {
 .favoritedTopPage>a:nth-child(2) {
     margin: 0 auto 0 0;
 }
+
+/***********************************Profile************************************************/
+
+.profileHeader {
+    width: 100%;
+    border-bottom: 4px var(--main-color) solid;
+    display: flex;
+    align-items: baseline;
+}
+
+.profileHeader i {
+    font-size: 2em;
+}
+
+.customerInformation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8em;
+    margin: 4em auto 4em 6em;
+}
+
+.customerInformation>form {
+    display: flex;
+    flex-direction: column;
+    border: solid var(--main-color) 2px;
+    padding: 1em;
+    align-items: baseline;
+    gap: 1em;
+
+}
+
+.customerInformation div {
+    display: flex;
+    gap: 1em;
+}
+
+.customerInformation input,
+.customerInformation label,
+.customerInformation p {
+    font-size: 20px;
+}
+
+.customerInformation p {
+    margin: 0 0 0 auto;
+}
+
+.customerInformation label{
+    font-weight: 700;
+}
+
+.customerInformation img {
+    height: 20em;
+    width: 20em;
+}
+
+.ownedRestaurants {
+    margin: 0 6em;
+}
+
+.ownedRestaurants h3 {
+    font-size: 2em;
+}
+
+.ownedRestaurant {
+    padding: 1em;
+    border-bottom: solid 2px var(--main-color);
+}
+
+.ownedRestaurant div {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+}
+
+.ownedRestaurant p,
+.ownedRestaurant a {
+    font-size: 20px;
+}
+
+.ownedRestaurant a {
+    color: var(--darker-color);
+}
+
+.ownedRestaurants button {
+    margin: 2em 0;
+}
+

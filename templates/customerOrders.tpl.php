@@ -29,7 +29,6 @@ require_once('database/customerOrders.class.php')
                 <div class = "pastDish">
                   <p id="quantity"> 1 </p>
                   <p id="dishName"> <?= $dish->dishName ?></p>
-                  <i class="fa-solid fa-cart-shopping"></i>
               </div>
 
               <?php } ?>
