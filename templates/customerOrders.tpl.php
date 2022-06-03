@@ -22,7 +22,7 @@ require_once('database/customerOrders.class.php')
           <div class="pastOrder">
             <img src="https://picsum.photos/200?1" alt="Dish Photo">
             <div class="information">
-              <h3 id="name"> <?= Restaurant::getRestaurant($db, $pastOrder->restaurantId)->restaurantName ?> </h3><br>
+              <a href="restaurant.php?id=<?= $pastOrder->restaurantId ?>" id="name"> <?= Restaurant::getRestaurant($db, $pastOrder->restaurantId)->restaurantName ?> </a><br>
               <p id="total"> <?= sizeof($dishes) ?> items for <?= CustomerOrder::getTotalPrice($dishes) ?>$ </p>
               <?php foreach ($dishes as $dish) {  ?>
 
@@ -35,22 +35,14 @@ require_once('database/customerOrders.class.php')
             </div>
             <button type="button" class="open-button" onclick="openForm()" id="review"> Leave a review </button>
           </div>
-          <div class="review-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-              <input type="text" placeholder="  Write your review" name="email" required>
+          <div class="review-popup" id="myForm" style="display: none;">
+            <form action="../action_add_review.php" class="form-container" method="post">
+              <input type="text" name="reviewText" placeholder="  Write your review" required>
+              <input type="number" name="reviewRating" required>
+              <input type="number" name="restaurantId" style="display: none;" value=<?= $pastOrder->restaurantId?>>
               <button type="submit" class="btn">Submit review</button>
-              <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
           </div>
-          <script>
-            function openForm() {
-              document.getElementById("myForm").style.display = "block";
-            }
-
-            function closeForm() {
-              document.getElementById("myForm").style.display = "none";
-            }
-          </script>
         </div>
       </section>
     <?php } ?>
