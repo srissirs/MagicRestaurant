@@ -72,8 +72,8 @@
    
 
     static function searchRestaurants(PDO $db, string $search) : array {
-      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ?');
-      $stmt->execute(array($search . '%'));
+      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ? OR Rating LIKE ?');
+      $stmt->execute(array($search . '%',$search . '%'));
 
   
       $restaurants = array();

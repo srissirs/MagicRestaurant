@@ -1,6 +1,5 @@
-reviewsAndDishes()
-
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
+
 if (searchRestaurantMain) {
   searchRestaurantMain.addEventListener('input', async function () {
     
@@ -49,6 +48,21 @@ if (searchRestaurantMain) {
   })
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+reviewsAndDishes()
 
 function reviewsAndDishes() {
   const restauranttoppage = document.querySelector(".restaurantTopPage")

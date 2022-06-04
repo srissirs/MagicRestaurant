@@ -45,7 +45,7 @@
 
     static function getDish(PDO $db, int $dishId) : Dish {
       $stmt = $db->prepare('
-        SELECT DishId, DishName, DishPrice, RestaurantId,CategoryName
+        SELECT DishId, DishName, DishPrice, RestaurantId, CategoryName
         FROM Dish,Category
         WHERE DishId = ? 
         AND CategoryId=DishCategory
@@ -55,13 +55,35 @@
       $dish = $stmt->fetch();
   
       return new Dish(
-        intval($dish['DishId']), 
-        $dish['DishName'], 
-        floatval($dish['DishPrice']),
-        intval($dish['RestaurantId'],
-        $dish['CategoryName'])
-      );
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish["CategoryName"]
+        );
     }
   
+  
+
+  
+    static function searchDishes(PDO $db, string $search) : array {
+      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE DishName LIKE ?');
+      $stmt->execute(array($search . '%',$search . '%'));
+
+  
+      $dishes = array();
+  
+      while ($dish = $stmt->fetch()) {
+        $dishes[] = new Dish(
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish["CategoryName"]
+        );
+      }
+      return $dishes;
+    }
   }
+
 ?>
