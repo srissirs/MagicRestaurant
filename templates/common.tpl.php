@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-require_once('session.php');
-require_once('init.php');
+require_once(__DIR__ . '/../session.php');
+require_once(__DIR__ . '/../init.php');
 
-require_once('database/connection.database.php');
-require_once('database/customer.class.php');
+
+require_once(__DIR__ .'/../database/connection.database.php');
+require_once(__DIR__ .'/../database/customer.class.php');
 
 session_start();
    ?>
@@ -19,8 +20,8 @@ session_start();
     <title>Magic Restaurant</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../script.js" defer></script>
     <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
   </head>
 
@@ -33,10 +34,10 @@ session_start();
         </button>
         <div class="dropdown-content">
           <a href="#">Favorites</a>
-          <a href="pastOrders.php">Past Orders</a>
-          <a href="mainRestaurants.php">Restaurants</a>
-          <form action="action_logout.php" method="post" class="logout">
-            <a href="action_logout.php">Logout
+          <a href="../pages/pastOrders.php">Past Orders</a>
+          <a href="../pages/mainRestaurants.php">Restaurants</a>
+          <form action="../actions/action_logout.php" method="post" class="logout">
+            <a href="../actions/action_logout.php">Logout
             <i class="fa-solid fa-arrow-right-from-bracket" id="logoutIcon"></i>
           </a>
           </form>
@@ -47,10 +48,9 @@ session_start();
       <div class="searchBar">
         <input id="searchRestaurant" type="text" placeholder="Search for a restaurant...">
       </div>
-      <i class="fa-solid fa-cart-shopping"></i>
       <div class="profile">
         <?php
-        if (!isset($_SESSION['userId'])) header('Location: signin.php');
+        if (!isset($_SESSION['userId'])) header('Location: ../pages/signin.php');
         else {
           $db = getDatabaseConnection();
           $customer = Customer::getCustomer($db, $_SESSION['userId']);
@@ -67,16 +67,13 @@ session_start();
     { ?>
     </main>
     <footer>
-      <div class="brand">
-        <img src="logo.png" alt="logo">
-        <p> Magic Restaurant</p>
-    </div>
+      
       <section class="links">
-        <h4> Dishes </h4>
-        <a href="favorites.php" id="favorites">Favorites</a>
-        <a href="pastOrders.php" id="pastOrders">Past Orders</a>
-        <p>Fake Food &copy; 2022 </p>
+        <a href="../restaurants.php" id="restaurants">Restaurants</a>
+        <a href="../pages/favorites.php" id="favorites">Favorites</a>
+        <a href="../pages/pastOrders.php" id="pastOrders">Past Orders</a>
       </section>
+      <p>Magic Restaurant &copy; 2022 </p>
     </footer>
   </body>
 
@@ -99,8 +96,8 @@ session_start();
     <title>Magic Restaurant</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../script.js" defer></script>
     <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
   </head>
   <div class="mainPageHeader">

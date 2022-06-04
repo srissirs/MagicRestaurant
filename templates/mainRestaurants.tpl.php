@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-require_once('database/connection.database.php');
+require_once(__DIR__.'/../database/connection.database.php');
 
-require_once('database/restaurant.class.php');
-require_once('database/review.class.php');
-require_once('database/reviewResponse.class.php');
+require_once(__DIR__.'/../database/restaurant.class.php');
+require_once(__DIR__.'/../database/review.class.php');
+require_once(__DIR__.'/../database/reviewResponse.class.php');
 ?>
 
 <?php function drawMainRestaurantHeader()

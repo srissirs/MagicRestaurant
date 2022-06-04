@@ -1,6 +1,5 @@
 /*-------------------------------------Main theme-----------------------------------------------*/
 body {
-
     --background-color: #F3F3F3;
     --main-color: #946B6B;
     --darker-color: #351C1C;
@@ -8,6 +7,7 @@ body {
     background-color: var(--background-color);
     max-width: 100%;
     margin: 0;
+    height: 100%;
 
 }
 
@@ -32,12 +32,12 @@ header h1 {
 }
 
 .profile a {
-    color: #F3F3F3;
+    color: #351C1C;
     font-size: 25px;
     margin: 0 1em;
 }
 
-.profile i,
+
 .dropbtn i {
     color: #F3F3F3;
     padding: 1em;
@@ -113,21 +113,17 @@ header h1 {
 }
 
 footer {
-    display: flex;
     width: 100%;
     background-color: var(--darker-color);
 }
 
-footer .brand {
-    margin: 2em 0;
-    padding: 1em 2em 0 20em;
-    border-right: solid black 4px;
-
-}
-
 footer .links {
     margin: 2em 0;
-    padding: 1em 2em 0 5em;
+    padding: 1em 2em;
+    display:flex;
+    gap:3em;
+    align-items:center;
+    margin: 0 auto;
 }
 
 footer .links>h4 {
@@ -137,8 +133,15 @@ footer .links>h4 {
 
 footer .links a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 2em;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+   
 }
 
 /*-------------------------------------------------Restaurant--------------------------------------------------------*/
@@ -462,6 +465,7 @@ a {
     background-image: url("images/main.jpg");
     background-color: whitesmoke;
     height: 500px;
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

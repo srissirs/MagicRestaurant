@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once('database/connection.database.php');
+require_once(__DIR__.'/../database/connection.database.php');
 
-require_once('database/customer.class.php');
+require_once(__DIR__.'/../database/customer.class.php');
 ?>
 
 
@@ -20,7 +20,7 @@ require_once('database/customer.class.php');
   </div>
   <section class="customerInformation">
     <img src="../images/user-profile.png">
-    <form action="../action_edit_profile.php" method="post">
+    <form action="../actions/action_edit_profile.php" method="post">
       <div>
         <label for="first_name">First Name:</label>
         <p class="unedited"><?= $customer->firstName ?></p>
@@ -78,7 +78,7 @@ require_once('database/customer.class.php');
     <?php foreach ($restaurants as $restaurant) {?>
       
       <section class="ownedRestaurant">
-        <form action="../action_edit_restaurant.php" method="post">
+        <form action="../actions/action_edit_restaurant.php" method="post">
           <input type="number" name="id"  style="display: none;" value=<?= $restaurant->restaurantId ?>>
           <div>
             <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?= $restaurant->restaurantName ?> </a>

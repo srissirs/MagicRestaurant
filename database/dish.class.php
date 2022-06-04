@@ -55,12 +55,12 @@
       $dish = $stmt->fetch();
   
       return new Dish(
-        intval($dish['DishId']), 
-        $dish['DishName'], 
-        floatval($dish['DishPrice']),
-        intval($dish['RestaurantId'],
-        $dish['CategoryName'])
-      );
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish["CategoryName"]
+        );
     }
   
   }
