@@ -311,3 +311,23 @@ function openForm() {
     reviewBox.style.display = "none";
   }
 }
+
+function addRestaurant() {
+  var addRestaurant = document.getElementById("addRestaurant");
+  if (addRestaurant.style.display === "none") {
+    addRestaurant.style.display = "block";
+  }
+  else {
+    addRestaurant.style.display = "none";
+  }
+}
+
+function addADish() {
+  var newDish = document.getElementById("newDish");
+  if (newDish.style.display === "none") {
+    newDish.style.display = "block";
+  }
+  else {
+    newDish.style.display = "none";
+  }
+}

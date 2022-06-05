@@ -22,10 +22,11 @@
   $dishes = Dish::getRestaurantDishes($db, intval($_GET['id']));
   $reviews = ReviewRestaurant::getRestaurantReviews($db, intval($_GET['id']));
   $categories = Restaurant::getCategories($db,intval($_GET['id']));
+  $isOwner =Restaurant::isOwner($db,intval($_GET['id']),intval($_SESSION['userId']));
 
  
   drawHeader();
   drawRestaurantHeader($restaurant);
-  drawRestaurant($restaurant, $dishes, $reviews,$categories);
+  drawRestaurant($restaurant, $dishes, $reviews,$categories,$isOwner);
   drawFooter();
 ?>
