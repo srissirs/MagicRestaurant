@@ -1,8 +1,9 @@
+starReview()
 reviewsAndDishes()
 restaurantsAndDishes()
 drawStar()
-favorite()
 filter()
+
 
 
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
@@ -54,6 +55,35 @@ if (searchRestaurantMain) {
 }
 
 
+function starReview(){
+  reviews=document.querySelectorAll("div.reviewBox")
+  
+  reviews.forEach(el=>{
+    info=el.querySelector("div.info")
+    
+    var x = info.querySelector("h3")
+  
+  yy = x.querySelectorAll("i")
+  
+  zz = x.querySelector("p")
+  zz.textContent = Math.round(zz.textContent)
+  if (zz.textContent >= 1) {
+    yy[0].classList.add("full")
+  }
+  if (zz.textContent >= 2) {
+    yy[1].classList.add("full")
+  }
+  if (zz.textContent >= 3) {
+    yy[2].classList.add("full")
+  }
+  if (zz.textContent >= 4) {
+    yy[3].classList.add("full")
+  }
+  if (zz.textContent == 5) {
+    yy[4].classList.add("full")
+  }
+  })
+}
 
 function restaurantsAndDishes() {
   const favoritedTopPage = document.querySelector(".favoritedTopPage")
@@ -224,7 +254,6 @@ function filter() {
   const allDishes = document.querySelectorAll("div.dish")
   m = NodeList
   count = 0
-  console.log(allDishes)
   for (let i = 0; i < allDishes.length; i++) {
     
     m[i] = allDishes[i]

@@ -179,6 +179,36 @@
       return $dishes;
   }
 
+  
+
+
+  static public function isFavorited(PDO $db,int $customerId,int $dishId):bool  {
+    
+    try {
+      $stmt = $db->prepare('SELECT * FROM DishFavorite WHERE CustomerId=? AND DishId=?');
+      $stmt->execute(array($customerId,$dishId));
+      return $stmt->fetch() !== false;
+    
+    }catch(PDOException $e) {
+      return true;
+    }
+  }
+
+
+
+static public function createFav(PDO $db,int $customerId,int $dishId) : void{
+  $stmt = $db->prepare('INSERT INTO DishFavorite(DishId,CustomerId) VALUES (:DishId,:CustomerId)');
+  $stmt->bindParam(':DishId', $dishId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
+
+static public function deleteFav(PDO $db, int $customerId,int $dishId) : void{
+  $stmt = $db->prepare('DELETE FROM DishFavorite WHERE DishId=:DishId AND CustomerId=:CustomerId;');
+  $stmt->bindParam(':DishId', $dishId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
 
 
     static public function createUser($db,$username, $firstName,$lastName,$address,$city,$country,$postalCode,$phone,$email,$password,$restaurantOwner) : int{

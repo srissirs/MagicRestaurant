@@ -22,16 +22,17 @@
 
   $db = getDatabaseConnection();
 
-  //$_SESSION['userId']
+  
   $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
   $dishes = Dish::getRestaurantDishes($db, intval($_GET['id']));
   $reviews = ReviewRestaurant::getRestaurantReviews($db, intval($_GET['id']));
   $categories = Restaurant::getCategories($db,intval($_GET['id']));
-  $favorites = Customer::getFavoriteDishes($db,3);
+  $favorites = Customer::getFavoriteDishes($db,$_SESSION['userId']);
  
+
   drawHeader();
   drawRestaurantHeader($restaurant);
-  drawRestaurant($restaurant, $dishes, $reviews,$categories,$favorites);
+  drawRestaurant($restaurant, $dishes, $reviews,$categories,$favorites,$db);
   drawFooter();
 ?>
 

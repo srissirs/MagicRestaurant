@@ -7,15 +7,17 @@ require_once('database/connection.database.php');
 require_once('database/restaurant.class.php');
 require_once('database/review.class.php');
 require_once('database/reviewResponse.class.php');
+
+require_once('database/customer.class.php');
 ?>
 
 
 <?php function drawfav(){ ?>
-  <i class="fa fa-star checked full"></i>
+  <button><i class="fa fa-star checked full"></i></button>
  <?php } ?>
 
  <?php function drawstr(){ ?>
-  <i class="fa fa-star checked"></i>
+  <button><i class="fa fa-star checked"></i></button>
  <?php } ?>
 
 <?php function drawRestaurants(array $restaurants)
@@ -49,7 +51,7 @@ require_once('database/reviewResponse.class.php');
   </section>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories,array $favorites)
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories,array $favorites,PDO $db)
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
@@ -70,6 +72,7 @@ require_once('database/reviewResponse.class.php');
           <p>Cart</p>
         </a>
       </div>
+
       <form action="#">
         <select>
           <option value="Tudo"> Tudo </option>
@@ -85,13 +88,19 @@ require_once('database/reviewResponse.class.php');
           <img src="https://picsum.photos/200?1" alt="Dish Photo">
           <div class="information">
             <div class="name">
-              <p id="name"> <?= $dish->dishName ?> </p>
-              <?php if(in_array($dish,$favorites)){
-              drawfav();
+                <p id="name"> <?= $dish->dishName ?> </p>
+              <form action="action_favorite_dish.php" method="post" class="register_form">
+              <input type="number" id="dishId" name="dishId" style="display:none " value=<?=$dish->dishId?>>
+              <input type="number" id="customerId" name="customerId" style="display:none " value=<?=$_SESSION['userId']?>>
+              <input type="number" id="restaurantId" name="restaurantId" style="display:none " value=<?=$restaurant->restaurantId?>>
+              <?php if(Customer::isFavorited($db,$_SESSION['userId'],$dish->dishId)){
+                drawfav();
               }else{
                 drawstr();
               }
              ?>
+             
+             </form>
             </div>
             <category>
                     <p id="category"> <?=$dish->dishCategory?> </p>
@@ -116,11 +125,12 @@ require_once('database/reviewResponse.class.php');
           <div class="info">
             <p id="name"> <?= ReviewRestaurant::getReviewerName($db, intval($review->customerId)) ?> </p>
             <h3>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star checked"></i>
+            <i class="fa fa-star checked"></i>
+              <p><?=$review->reviewRating?></p>
             </h3>
           </div>
           <p id="reviewBody"> <?= $review->reviewText ?> </p>
