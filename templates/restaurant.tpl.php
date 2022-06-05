@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-require_once(__DIR__.'/../database/connection.database.php');
+require_once(__DIR__ . '/../database/connection.database.php');
 
-require_once(__DIR__.'/../database/restaurant.class.php');
-require_once(__DIR__.'/../database/review.class.php');
-require_once(__DIR__.'/../database/reviewResponse.class.php');
+require_once(__DIR__ . '/../database/restaurant.class.php');
+require_once(__DIR__ . '/../database/review.class.php');
+require_once(__DIR__ . '/../database/reviewResponse.class.php');
 ?>
 
 <?php function drawRestaurants(array $restaurants)
@@ -28,11 +28,11 @@ require_once(__DIR__.'/../database/reviewResponse.class.php');
     <div class="restaurantInfo">
       <h2><?= $restaurant->restaurantName ?></h2>
       <h3>
-      <i class="fa fa-star checked"></i>
-          <i class="fa fa-star checked"></i>
-          <i class="fa fa-star checked"></i>
-          <i class="fa fa-star checked"></i>
-          <i class="fa fa-star checked"></i>
+        <i class="fa fa-star checked"></i>
+        <i class="fa fa-star checked"></i>
+        <i class="fa fa-star checked"></i>
+        <i class="fa fa-star checked"></i>
+        <i class="fa fa-star checked"></i>
       </h3>
       <h4> <?= $restaurant->restaurantAddress ?> </h4>
     </div>
@@ -43,9 +43,11 @@ require_once(__DIR__.'/../database/reviewResponse.class.php');
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
-
-      <a> Dishes </a>
-      <a> Reviews </a>
+      <div class="buttons">
+        <a> Dishes </a>
+        <a> Reviews </a>
+        <a class="addADish" onclick="addADish()"> Add a Dish</a>
+      </div>
 
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -63,25 +65,52 @@ require_once(__DIR__.'/../database/reviewResponse.class.php');
       <form action="#">
         <select>
           <option value="Tudo"> Tudo </option>
-          <?php  foreach($categories as $category){?>
-              <option value="<?=$category?>" > <?=$category?> </option>
-            <?php } ?>
+          <?php foreach ($categories as $category) { ?>
+            <option value="<?= $category ?>"> <?= $category ?> </option>
+          <?php } ?>
         </select>
       </form>
     </section>
     <section id="dishes">
+      <div class="dish" id="newDish" style="display: none;">
+        <form action="../actions/action_add_dish.php" method="post" enctype="multipart/form-data">
+          <div class="information">
+            <input name="restaurantId" hidden value="<?= $restaurant->restaurantId ?>">
+            <div class="name">
+              <label> Dish Name: </label>
+              <input name="dishName">
+            </div>
+            <category>
+              <label> Dish Category: </label>
+              <input name="dishCategory">
+            </category>
+            <div class="price">
+              <label> Dish Price: </label>
+              <input name="dishPrice">
+            </div>
+            <input type="file" name="image" value=''>
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </div>
       <?php foreach ($dishes as $dish) { ?>
         <div class="dish">
-
-          <img src="https://picsum.photos/200?1" alt="Dish Photo">
+          <?php
+          $db = getDatabaseConnection();
+          $dishPhoto = Dish::getDishPhoto($db, $dish);
+          if ($dishPhoto === (0)) { ?>
+            <img src="https://picsum.photos/200?1" alt="Dish Photo">
+          <?php } else { ?>
+            <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
+          <?php } ?>
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
               <i class="fa-regular fa-star"></i>
             </div>
             <category>
-                    <p id="category"> <?=$dish->dishCategory?> </p>
-                </category>
+              <p id="category"> <?= $dish->dishCategory ?> </p>
+            </category>
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>
@@ -114,9 +143,9 @@ require_once(__DIR__.'/../database/reviewResponse.class.php');
         <p id="response"> Resposta: <?= $response->reviewText ?> </p>
 
       </div>
-      <?php } ?>
+    <?php } ?>
   </section>
 
-</section>
+  </section>
 
 <?php } ?>

@@ -204,7 +204,7 @@ h3>.full {
 }
 
 
-.restaurantTopPage>a {
+.restaurantTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
     border-radius: 22px;
@@ -214,17 +214,16 @@ h3>.full {
 }
 
 
-.restaurantTopPage>a.selected {
+.restaurantTopPage a.selected,
+.addADish:hover {
     background-color: var(--main-color);
     color: #F3F3F3;
 }
 
 
-.restaurantTopPage>a:nth-child(1) {
-    margin-right: 2em;
-}
-
-.restaurantTopPage>a:nth-child(2) {
+.restaurantTopPage .buttons {
+    display: flex;
+    gap: 2em;
     margin: 0 auto 0 0;
 }
 
@@ -807,6 +806,22 @@ signUp button {
     color: var(--darker-color);
 }
 
-.ownedRestaurants > button {
-    margin: 2em 0;
+.ownedRestaurants button{
+    margin: 1em;
+
+}
+
+.addRestaurant {
+    padding: 0 1em;
+}
+
+.addRestaurant form {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.addRestaurant button {
+    margin: 0 auto 0 0;
 }

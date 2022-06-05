@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once(__DIR__.'/../database/connection.database.php');
+require_once(__DIR__ . '/../database/connection.database.php');
 
-require_once(__DIR__.'/../database/customer.class.php');
+require_once(__DIR__ . '/../database/customer.class.php');
 ?>
 
 
@@ -75,11 +75,11 @@ require_once(__DIR__.'/../database/customer.class.php');
 { ?>
   <section class="ownedRestaurants">
     <h3> Restaurants</h3>
-    <?php foreach ($restaurants as $restaurant) {?>
-      
+    <?php foreach ($restaurants as $restaurant) { ?>
+
       <section class="ownedRestaurant">
         <form action="../actions/action_edit_restaurant.php" method="post">
-          <input type="number" name="id"  style="display: none;" value=<?= $restaurant->restaurantId ?>>
+          <input type="number" name="id" style="display: none;" value=<?= $restaurant->restaurantId ?>>
           <div>
             <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?= $restaurant->restaurantName ?> </a>
             <input type="text" name="restaurant_name" style="display: none;" value="<?= $restaurant->restaurantName ?>">
@@ -88,13 +88,43 @@ require_once(__DIR__.'/../database/customer.class.php');
             <p> <?= $restaurant->restaurantAddress ?> </p>
             <input type="text" name="restaurant_address" style="display: none;" value="<?= $restaurant->restaurantAddress ?>">
           </div>
-          <button type="submit"  style="display: none;">Save</button>
+          <button type="submit" style="display: none;">Save</button>
         </form>
         <button type="submit" onclick="toggleEditRestaurant()">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
       </section>
     <?php } ?>
-    <button> Add a restaurant </button>
+    <button onclick="addRestaurant()"> Add a restaurant </button>
+    <section class="addRestaurant" style="display: none;">
+      
+      <form action="../actions/action_add_restaurant.php"  method="post">
+        <div>
+          <label> Restaurant Name: </label>
+          <input type="text" name="restaurantName">
+        </div>
+        <div>
+          <label> Restaurant Address: </label>
+          <input type="text" name="restaurantAddress">
+        </div>
+        <div>
+          <label> Restaurant City: </label>
+          <input type="text" name="restaurantCity">
+        </div>
+        <div>
+          <label> Restaurant Country: </label>
+          <input type="text" name="restaurantCountry">
+        </div>
+        <div>
+          <label> Restaurant Postal Code: </label>
+          <input type="text" name="restaurantPostalCode">
+        </div>
+        <div>
+          <label> Restaurant Phone: </label>
+          <input type="text" name="restaurantPhone">
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </section>
   </section>
 <?php } ?>

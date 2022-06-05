@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Images;
 DROP TABLE IF EXISTS Customer;
 DROP TABLE IF EXISTS RestaurantOwner;
 DROP TABLE IF EXISTS Restaurant;
@@ -14,6 +15,11 @@ DROP TABLE IF EXISTS CategoryRestaurant;
 /*******************************************************************************
    Create Tables
 ********************************************************************************/
+
+CREATE TABLE Images (
+  id INTEGER PRIMARY KEY,
+  title VARCHAR NOT NULL
+);
 
 CREATE TABLE Customer
 (
@@ -62,8 +68,10 @@ CREATE TABLE Dish
     DishName NVARCHAR(40)  NOT NULL,
     DishPrice FLOAT NOT NULL,
     RestaurantId INTEGER  NOT NULL,
-    DishPhoto STRING,
+    DishPhoto INTEGER,
 	DishCategory INTEGER  NOT NULL,
+	FOREIGN KEY (DishPhoto) REFERENCES Images (id),
+	FOREIGN KEY (DishCategory) REFERENCES Category (CategoryId),
     FOREIGN KEY (RestaurantId) REFERENCES Restaurant (RestaurantId) 
 		ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT PK_Dish PRIMARY KEY (DishId)
@@ -144,8 +152,8 @@ CREATE TABLE ReviewResponse
 
 /*   PARTE DO HUGO    */
 CREATE TABLE Category(
-	CategoryId INTEGER NOT NULL,
-	CategoryName NVARCHAR(40)	
+	CategoryId INTEGER PRIMARY KEY,
+	CategoryName STRING
 );
 
 CREATE TABLE CategoryRestaurant(
