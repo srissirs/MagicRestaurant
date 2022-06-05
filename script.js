@@ -313,7 +313,7 @@ function openForm() {
 }
 
 function addRestaurant() {
-  var addRestaurant = event.target.parentElement.children[5];
+  var addRestaurant = document.getElementById("addRestaurant");
   if (addRestaurant.style.display === "none") {
     addRestaurant.style.display = "block";
   }

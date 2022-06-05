@@ -96,7 +96,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
       </section>
     <?php } ?>
     <button onclick="addRestaurant()"> Add a restaurant </button>
-    <section class="addRestaurant" style="display: none;">
+    <section class="addRestaurant" style="display: none;" id="addRestaurant">
       
       <form action="../actions/action_add_restaurant.php"  method="post">
         <div>
