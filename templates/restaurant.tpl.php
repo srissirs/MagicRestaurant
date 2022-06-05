@@ -146,8 +146,16 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
           </div>
           <p id="reviewBody"> <?= $review->reviewText ?> </p>
         </div>
-        <p id="response"> Resposta: <?= $response->reviewText ?> </p>
-
+        <?php if ($isOwner && $response->reviewText === "") { ?>
+          <button> Respond </button>
+          <form action="../actions/action_add_response.php" method="post">
+            <input type="text" name="responseText">
+            <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">
+            <button type="submit">Save</button>
+          </form>
+        <?php } else if (!$response->reviewText === "") { ?>
+          <p id="response"> Resposta: <?= $response->reviewText ?> </p>
+        <?php } ?>
       </div>
     <?php } ?>
   </section>
