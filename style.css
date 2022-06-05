@@ -193,7 +193,8 @@ h3>.full {
 
 .restaurantTopPage {
     display: flex;
-    margin: 2em 20em 2em 16em;
+    margin: 2em auto;
+    max-width: 75%;
 }
 
 .restaurantTopPage select {
@@ -224,6 +225,7 @@ h3>.full {
 .restaurantTopPage .buttons {
     display: flex;
     gap: 2em;
+    flex-wrap: wrap;
     margin: 0 auto 0 0;
 }
 
@@ -310,14 +312,18 @@ h3>.full {
 
 .review {
     display: flex;
-    border-bottom: solid var(--main-color) 2px;
+    
 }
 
 #reviewBody {
-    margin-left: 1em;
+    margin: 1em;
     flex: auto;
     background-color: whitesmoke;
     text-align: center;
+}
+
+.responseBox {
+    border-top: solid var(--main-color) 2px;
 }
 
 /*---------------------------------------------Past Orders Page------------------------------------------------*/

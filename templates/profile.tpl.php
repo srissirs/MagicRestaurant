@@ -76,7 +76,6 @@ require_once(__DIR__ . '/../database/customer.class.php');
   <section class="ownedRestaurants">
     <h3> Restaurants</h3>
     <?php foreach ($restaurants as $restaurant) { ?>
-
       <section class="ownedRestaurant">
         <form action="../actions/action_edit_restaurant.php" method="post">
           <input type="number" name="id" style="display: none;" value=<?= $restaurant->restaurantId ?>>
@@ -90,15 +89,13 @@ require_once(__DIR__ . '/../database/customer.class.php');
           </div>
           <button type="submit" style="display: none;">Save</button>
         </form>
-        <button type="submit" onclick="toggleEditRestaurant()">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
+        <button type="submit" class="fa-solid fa-pen-to-square" onclick="toggleEditRestaurant()"> </button>
       </section>
     <?php } ?>
     <button onclick="addRestaurant()"> Add a restaurant </button>
     <section class="addRestaurant" style="display: none;" id="addRestaurant">
-      
-      <form action="../actions/action_add_restaurant.php"  method="post">
+
+      <form action="../actions/action_add_restaurant.php" method="post">
         <div>
           <label> Restaurant Name: </label>
           <input type="text" name="restaurantName">

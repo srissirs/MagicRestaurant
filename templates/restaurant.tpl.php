@@ -57,13 +57,14 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
 
         <total class="totalSum" id="totalSum">Total : </total>
       </div>
-
-      <div id="mySidenav" class="sidenav">
-        <a href="#" id="cart" class="openbtn" onclick="openNav()">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <p>Cart</p>
-        </a>
-      </div>
+      <?php if (!$isOwner) { ?>
+        <div id="mySidenav" class="sidenav">
+          <a href="#" id="cart" class="openbtn" onclick="openNav()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Cart</p>
+          </a>
+        </div>
+      <?php } ?>
       <form action="#">
         <select>
           <option value="Tudo"> Tudo </option>
@@ -146,15 +147,19 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
           </div>
           <p id="reviewBody"> <?= $review->reviewText ?> </p>
         </div>
-        <?php if ($isOwner && $response->reviewText === "") { ?>
-          <button> Respond </button>
-          <form action="../actions/action_add_response.php" method="post">
-            <input type="text" name="responseText">
-            <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">
-            <button type="submit">Save</button>
-          </form>
-        <?php } else if (!$response->reviewText === "") { ?>
-          <p id="response"> Resposta: <?= $response->reviewText ?> </p>
+        <?php if ($isOwner || !($response->reviewText === "")) { ?>
+          <section class="responseBox">
+            <?php if ($isOwner && ($response->reviewText === "") ) { ?>
+              <button> Respond </button>
+              <form action="../actions/action_add_response.php" method="post">
+                <input type="text" name="responseText">
+                <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">
+                <button type="submit">Save</button>
+              </form>
+            <?php } else { ?>
+              <p id="response"> Resposta: <?= $response->reviewText ?> </p>
+            <?php } ?>
+          </section>
         <?php } ?>
       </div>
     <?php } ?>
