@@ -67,7 +67,7 @@ class Restaurant
     $stmt->execute(array($restaurantId));
     $categories = array();
     while ($category = $stmt->fetch()) {
-     // print(strval($categories['CategoryName']));
+      // print(strval($categories['CategoryName']));
       $categories[] = ($category['CategoryName']);
     }
     return $categories;
@@ -117,7 +117,7 @@ class Restaurant
     );
   }
 
-  static public function addRestaurant(PDO $db, int $ownerId, string $restaurantName, string $restaurantAddress,string $restaurantCity, string $restaurantCountry, string $restaurantPostalCode, int $restaurantPhone, float $rating)
+  static public function addRestaurant(PDO $db, int $ownerId, string $restaurantName, string $restaurantAddress, string $restaurantCity, string $restaurantCountry, string $restaurantPostalCode, int $restaurantPhone, float $rating)
   {
     $stmt = $db->prepare('
      INSERT INTO Restaurant (RestaurantName, RestaurantAddress,RestaurantCity,RestaurantCountry,RestaurantPostalCode,RestaurantPhone,Rating ) 
@@ -145,7 +145,7 @@ class Restaurant
 
     $stmtt->execute();
   }
-/*
+  /*
   static public function getID(PDO $db, string $restaurantName, string $restaurantAddress): int
   {
     try {
@@ -158,4 +158,14 @@ class Restaurant
       return -1;
     }
   }*/
+
+  static function isOwner(PDO $db, int $restaurantId, int $customerId): int
+  {
+    $stmt = $db->prepare('SELECT * FROM RestaurantOwner WHERE RestaurantId=? AND RestaurantOwnerId=?');
+    $stmt->execute(array($restaurantId, $customerId));
+
+    if ($stmt->fetch())
+      return 1;
+    else return 0;
+  }
 }

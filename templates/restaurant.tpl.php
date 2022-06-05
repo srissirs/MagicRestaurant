@@ -39,14 +39,16 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
   </section>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories)
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories, int $isOwner)
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
       <div class="buttons">
         <a> Dishes </a>
         <a> Reviews </a>
-        <a class="addADish" onclick="addADish()"> Add a Dish</a>
+        <?php if ($isOwner) { ?>
+          <a class="addADish" onclick="addADish()"> Add a Dish</a>
+        <?php } ?>
       </div>
 
       <div id="mySidebar" class="sidebar">
@@ -106,14 +108,18 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <i class="fa-regular fa-star"></i>
+              <?php if (!$isOwner) { ?>
+                <i class="fa-regular fa-star"></i>
+              <?php } ?>
             </div>
             <category>
               <p id="category"> <?= $dish->dishCategory ?> </p>
             </category>
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
-              <button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>
+              <?php if (!$isOwner) { ?>
+                <button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>
+              <?php } ?>
             </div>
           </div>
         </div>
