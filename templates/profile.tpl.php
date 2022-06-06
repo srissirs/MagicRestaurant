@@ -87,6 +87,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
             <p> <?= $restaurant->restaurantAddress ?> </p>
             <input type="text" name="restaurant_address" style="display: none;" value="<?= $restaurant->restaurantAddress ?>">
           </div>
+          <input type="text" name="restaurant_category" style="display: none;">
           <button type="submit" style="display: none;">Save</button>
         </form>
         <button type="submit" class="fa-solid fa-pen-to-square" onclick="toggleEditRestaurant()"> </button>

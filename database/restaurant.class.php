@@ -168,4 +168,26 @@ class Restaurant
       return 1;
     else return 0;
   }
+
+  static function addCategory(PDO $db, int $restaurantId, string $category)
+  {
+    $stmt = $db->prepare('
+     INSERT INTO Category ( CategoryName ) 
+      VALUES (:CategoryName)
+      ');
+
+    $stmt->bindParam(':CategoryName', $category);
+    $stmt->execute();
+
+    $categoryId = $db->lastInsertId();
+
+    $stmt = $db->prepare('
+     INSERT INTO CategoryRestaurant ( RestaurantId, CategoryId ) 
+      VALUES (:RestaurantId, :CategoryId)
+      ');
+
+      $stmt->bindParam(':RestaurantId', $restaurantId);
+      $stmt->bindParam(':CategoryId', $categoryId);
+      $stmt->execute();
+  }
 }
