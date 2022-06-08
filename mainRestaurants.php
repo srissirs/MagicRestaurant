@@ -18,7 +18,7 @@
   
   $restaurants = Restaurant::getRestaurants($db,1);
 
-  drawHeader();
+  drawHeader(1);
   drawMainRestaurantHeader();
   drawMainRestaurant($restaurants);
   drawFooter();

@@ -10,7 +10,8 @@ require_once('database/customer.class.php');
 session_start();
    ?>
 
-<?php function drawHeader()
+
+<?php function drawHeader($search)
 { ?>
   <!DOCTYPE html>
   <html lang="en-US">
@@ -45,7 +46,13 @@ session_start();
       </div>
       <a href="mainPage.php"> <h1>Magic Restaurant</h1></a>
       <div class="searchBar">
-        <input id="searchRestaurant" type="text" placeholder="Search for a restaurant...">
+        <?php if($search==1) {?>
+          <input id="searchRestaurant" type="text" placeholder="Search here for a restaurant...">
+        <?php }?>
+        <?php if($search==2) {?>
+          <input id="searchDish" type="text" placeholder="Search here for a dish...">
+        <?php }?>
+
       </div>
       <i class="fa-solid fa-cart-shopping"></i>
       <div class="profile">

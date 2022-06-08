@@ -66,9 +66,10 @@
   
 
   
-    static function searchDishes(PDO $db, string $search) : array {
-      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE DishName LIKE ?');
-      $stmt->execute(array($search . '%',$search . '%'));
+    static function searchDishes(PDO $db, string $search, int $id) : array {
+      $stmt = $db->prepare('SELECT DishId, DishName, DishPrice, RestaurantId, CategoryName
+      FROM Dish, Category WHERE DishName LIKE ? AND CategoryId=DishCategory AND RestaurantId = ?');
+      $stmt->execute(array($search . '%',$id));
 
   
       $dishes = array();
@@ -79,7 +80,7 @@
           $dish['DishName'],
           floatval($dish['DishPrice']),
           intval($dish['RestaurantId']),
-          $dish["CategoryName"]
+          $dish['CategoryName']
         );
       }
       return $dishes;

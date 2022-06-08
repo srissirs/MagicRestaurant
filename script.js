@@ -1,8 +1,77 @@
+
+const searchDishMain = document.querySelector('#searchDish')
+
+if (searchDishMain) {
+  searchDishMain.addEventListener('input', async function () {
+    const queryString = window.location.search;
+
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+
+    const response = await fetch('api_dishes.php?search=' + this.value + '&id='+ id)
+    const dishes = await response.json()
+
+    const section = document.querySelector('#dishes')
+    section.innerHTML = ''
+
+    for (const dish of dishes) {
+
+      const dishCard = document.createElement('div')
+  
+      const dishInfo = document.createElement('div')
+      dishInfo.className = 'information'
+
+      dishCard.className = 'dish'
+      const img = document.createElement('img')
+      img.src = "../images/restaurant.jpg"
+      const dishTitle = document.createElement('div')
+      dishTitle.className = 'name'
+      const heartIconDish = document.createElement('i')
+      heartIconDish.className = 'fa-regular fa-heart'
+
+      const name = document.createElement('p')
+      name.id = 'name'
+      name.textContent = dish.dishName
+      dishTitle.appendChild(name)
+      dishTitle.appendChild(heartIconDish)
+
+
+      const category = document.createElement('p')
+      category.id='category'
+      category.textContent = dish.dishCategory
+
+      const price = document.createElement('div')
+      price.className = 'price'
+
+      const dishPrice = document.createElement('p')
+      dishPrice.id = 'price'
+      dishPrice.textContent = dish.dishPrice
+      price.appendChild(dishPrice)
+
+     
+      const addToCart = '<button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>';
+      price.insertAdjacentHTML('beforeend', addToCart);
+
+
+      dishInfo.append(dishTitle)
+      dishInfo.append(category)
+      dishInfo.append(price)
+
+
+      dishCard.appendChild(img)
+      dishCard.appendChild(dishInfo)
+      section.appendChild(dishCard)
+    }
+  })
+}
+
+
+
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 
 if (searchRestaurantMain) {
   searchRestaurantMain.addEventListener('input', async function () {
-    
+
     const response = await fetch('api_restaurants.php?search=' + this.value)
     const restaurants = await response.json()
 
@@ -47,17 +116,6 @@ if (searchRestaurantMain) {
     }
   })
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

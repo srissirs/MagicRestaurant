@@ -11,6 +11,7 @@ require_once('database/dish.class.php');
 
 $db = getDatabaseConnection();
 
-$dishes = Dish::searchDishes($db, $_GET['search']);
+
+$dishes = Dish::searchDishes($db, $_GET['search'], intval($_GET['id']) );
 
 echo json_encode($dishes);

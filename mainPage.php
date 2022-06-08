@@ -19,7 +19,7 @@ require_once('templates/common.tpl.php');
 </head>
 
       <?php if (!isset($_SESSION['userId'])) { drawMainPageHeader();
-      }else drawHeader();?>
+      }else drawHeader(0);?>
 <body>
   
   <div class="mainPage">

@@ -24,7 +24,7 @@
   $categories = Restaurant::getCategories($db,intval($_GET['id']));
 
  
-  drawHeader();
+  drawHeader(2);
   drawRestaurantHeader($restaurant);
   drawRestaurant($restaurant, $dishes, $reviews,$categories);
   drawFooter();
