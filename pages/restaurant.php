@@ -25,7 +25,7 @@
   $isOwner =Restaurant::isOwner($db,intval($_GET['id']),intval($_SESSION['userId']));
 
  
-  drawHeader();
+  drawHeader(2);
   drawRestaurantHeader($restaurant);
   drawRestaurant($restaurant, $dishes, $reviews,$categories,$isOwner);
   drawFooter();

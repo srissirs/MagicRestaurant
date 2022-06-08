@@ -22,7 +22,7 @@
   $restaurants = Customer::getCustomerRestaurants($db,$_SESSION['userId']);
 
 
-  drawHeader();
+  drawHeader(0);
   drawProfile($customer);
 
   if($customer->restaurantOwner)

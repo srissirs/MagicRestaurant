@@ -67,6 +67,29 @@ class Dish
     );
   }
 
+  
+
+ static function searchDishes(PDO $db, string $search, int $id) : array {
+      $stmt = $db->prepare('SELECT DishId, DishName, DishPrice, RestaurantId, CategoryName
+      FROM Dish, Category WHERE DishName LIKE ? AND CategoryId=DishCategory AND RestaurantId = ?');
+      $stmt->execute(array($search . '%',$id));
+
+  
+      $dishes = array();
+  
+      while ($dish = $stmt->fetch()) {
+        $dishes[] = new Dish(
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish['CategoryName']
+        );
+      }
+      return $dishes;
+    }
+  
+
   static function getDishCategory(PDO $db, string $dishCategory): int
   {
     try {
@@ -131,3 +154,4 @@ class Dish
     }
   }
 }
+

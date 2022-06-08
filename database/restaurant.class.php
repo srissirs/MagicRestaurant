@@ -75,26 +75,26 @@ class Restaurant
 
 
 
-  static function searchRestaurants(PDO $db, string $search): array
-  {
-    $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ?');
-    $stmt->execute(array($search . '%'));
+    static function searchRestaurants(PDO $db, string $search) : array {
+      $stmt = $db->prepare('SELECT *  FROM Restaurant WHERE RestaurantName LIKE ? OR Rating LIKE ?');
+      $stmt->execute(array($search . '%',$search . '%'));
 
-
-    $restaurants = array();
-    while ($restaurant = $stmt->fetch()) {
-      $restaurants[] = new Restaurant(
-        intval($restaurant['RestaurantId']),
-        $restaurant['RestaurantName'],
-        $restaurant['RestaurantAddress'],
-        $restaurant['RestaurantCity'],
-        $restaurant['RestaurantCountry'],
-        $restaurant['RestaurantPostalCode'],
-        $restaurant['RestaurantPhone'],
-        floatval($restaurant['Rating'])
-      );
-    }
-    return $restaurants;
+  
+      $restaurants = array();
+        while ($restaurant = $stmt->fetch()) {
+          $restaurants[] = new Restaurant(
+            intval($restaurant['RestaurantId']),
+            $restaurant['RestaurantName'],
+            $restaurant['RestaurantAddress'],
+            $restaurant['RestaurantCity'],
+            $restaurant['RestaurantCountry'],
+            $restaurant['RestaurantPostalCode'],
+            $restaurant['RestaurantPhone'],
+            floatval($restaurant['Rating'])
+          );
+        }
+      return $restaurants;
+   
   }
 
 
@@ -156,6 +156,7 @@ class Restaurant
       }
     } catch (PDOException $e) {
       return -1;
+>>>>>>> develop
     }
   }*/
 
