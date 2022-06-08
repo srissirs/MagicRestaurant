@@ -33,6 +33,19 @@
         );
     }
 
+    static public function addResponse(PDO $db, int $ownerId, int $reviewId, string $responseText)
+  {
+    $stmt = $db->prepare('
+     INSERT INTO ReviewResponse ( ReviewId, RestaurantOwnerId, reviewText) 
+      VALUES (:ReviewId, :RestaurantOwnerId, :reviewText)
+      ');
+
+    $stmt->bindParam(':ReviewId', $reviewId);
+    $stmt->bindParam(':RestaurantOwnerId', $ownerId);
+    $stmt->bindParam(':reviewText', $responseText);
+    $stmt->execute();
+  }
+
   }
 ?>
 

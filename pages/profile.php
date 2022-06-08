@@ -3,15 +3,15 @@
 
   session_start();
 
-  require_once('init.php');
+  require_once(__DIR__.'/../init.php');
 
-  require_once('database/connection.database.php');
+  require_once(__DIR__.'/../database/connection.database.php');
 
-  require_once('database/customer.class.php');
+  require_once(__DIR__.'/../database/customer.class.php');
 
-  require_once('templates/common.tpl.php');
-  require_once('templates/profile.tpl.php');
-  require_once('session.php');
+  require_once(__DIR__.'/../templates/common.tpl.php');
+  require_once(__DIR__.'/../templates/profile.tpl.php');
+  require_once(__DIR__.'/../session.php');
   if (!isset($_SESSION['userId'])) header('Location: signin.php');
 
   

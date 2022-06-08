@@ -5,9 +5,9 @@ declare(strict_types=1);
 session_start();
 
 
-require_once('database/connection.database.php');
+require_once(__DIR__.'/../database/connection.database.php');
 
-require_once('database/dish.class.php');
+require_once(__DIR__.'/../database/dish.class.php');
 
 $db = getDatabaseConnection();
 

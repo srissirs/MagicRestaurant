@@ -4,5 +4,5 @@
   session_start();
   session_destroy();
 
-  header('Location: mainPage.php');
+  header('Location: ../pages/mainPage.php');
 ?>

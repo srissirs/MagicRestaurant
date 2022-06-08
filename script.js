@@ -1,4 +1,3 @@
-
 const searchDishMain = document.querySelector('#searchDish')
 
 if (searchDishMain) {
@@ -66,13 +65,13 @@ if (searchDishMain) {
 }
 
 
-
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 
 if (searchRestaurantMain) {
   searchRestaurantMain.addEventListener('input', async function () {
 
-    const response = await fetch('api_restaurants.php?search=' + this.value)
+    const response = await fetch('../api/api_restaurants.php?search=' + this.value)
+
     const restaurants = await response.json()
 
     const section = document.querySelector('#restaurants')
@@ -117,6 +116,7 @@ if (searchRestaurantMain) {
   })
 }
 
+reviewsAndDishes()
 
 
 
@@ -336,42 +336,71 @@ function toggle() {
   }
 }
 
-function toggleEditRestaurant (){
+function toggleEditRestaurant() {
   var editFieldName = event.target.parentElement.children[0].children[1].children[0];
   var uneditedName = event.target.parentElement.children[0].children[1].children[1];
   var editFieldAddress = event.target.parentElement.children[0].children[2].children[0];
   var uneditedAddress = event.target.parentElement.children[0].children[2].children[1];
   var saveBtn = event.target.parentElement.children[0].children[3];
-  if(editFieldName.style.display === "none") {
+  if (editFieldName.style.display === "none") {
     editFieldName.style.display = "block";
   }
-  else{
+  else {
     editFieldName.style.display = "none";
   }
 
-  if(uneditedName.style.display === "none") {
+  if (uneditedName.style.display === "none") {
     uneditedName.style.display = "block";
   }
-  else{
+  else {
     uneditedName.style.display = "none";
   }
-  if(editFieldAddress.style.display === "none") {
+  if (editFieldAddress.style.display === "none") {
     editFieldAddress.style.display = "block";
   }
-  else{
+  else {
     editFieldAddress.style.display = "none";
   }
-  if(uneditedAddress.style.display === "none") {
+  if (uneditedAddress.style.display === "none") {
     uneditedAddress.style.display = "block";
   }
-  else{
+  else {
     uneditedAddress.style.display = "none";
   }
-  if(saveBtn.style.display === "none") {
+  if (saveBtn.style.display === "none") {
     saveBtn.style.display = "block";
   }
-  else{
+  else {
     saveBtn.style.display = "none";
   }
 }
 
+function openForm() {
+  var reviewBox = event.target.parentElement.parentElement.children[1];
+  if (reviewBox.style.display === "none") {
+    reviewBox.style.display = "block";
+  }
+  else {
+    reviewBox.style.display = "none";
+  }
+}
+
+function addRestaurant() {
+  var addRestaurant = document.getElementById("addRestaurant");
+  if (addRestaurant.style.display === "none") {
+    addRestaurant.style.display = "block";
+  }
+  else {
+    addRestaurant.style.display = "none";
+  }
+}
+
+function addADish() {
+  var newDish = document.getElementById("newDish");
+  if (newDish.style.display === "none") {
+    newDish.style.display = "block";
+  }
+  else {
+    newDish.style.display = "none";
+  }
+}

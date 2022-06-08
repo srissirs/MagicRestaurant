@@ -1,14 +1,14 @@
 <?php
   declare(strict_types = 1);
-  require_once('session.php');
-  require_once('init.php');
+  require_once(__DIR__.'/../session.php');
+  require_once(__DIR__.'/../init.php');
 
-  require_once('database/connection.database.php');
-  require_once('database/customer.class.php');
+  require_once(__DIR__.'/../database/connection.database.php');
+  require_once(__DIR__.'/../database/customer.class.php');
 
   session_start();
 
-  if (!isset($_SESSION['userId'])) die(header('Location: /'));
+  if (!isset($_SESSION['userId'])) die(header('Location: ../pages/signin.php'));
 
 
   $db = getDatabaseConnection();
@@ -21,8 +21,7 @@
     $restaurant->restaurantName = $_POST['restaurant_name'];
     $restaurant->restaurantAddress = $_POST['restaurant_address']; 
     $restaurant->saveRestaurant($db);
-    //header('Location:mainPage.php?id='. intval($_POST['idee']));
   }
 
-  header('Location:profile.php');
+  header('Location: ../pages/profile.php');
 ?>
