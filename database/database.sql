@@ -96,6 +96,7 @@ CREATE TABLE DishOrder
 (
     OrderId INTEGER  NOT NULL,
     DishId INTEGER  NOT NULL,
+	Quantity INTEGER,
     FOREIGN KEY (OrderId) REFERENCES CustomerOrder (OrderId) 
 		ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (DishId) REFERENCES Dish (DishId) 

@@ -1,3 +1,5 @@
+
+
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 if (searchRestaurantMain) {
   searchRestaurantMain.addEventListener('input', async function () {
@@ -97,41 +99,42 @@ function removeDish() {
   showTotals();
 }
 
-function addToCart() {
-  let name = event.target.parentElement.parentElement.children[0].children[0].textContent;
-  let price = event.target.parentElement.children[0].textContent;
+
+function addToCart(id, price) {
+  let name = event.target.parentElement.parentElement.children[0].children[0].textContent
 
   if (document.getElementById('mySidebar').textContent.includes(name)) {
     return;
   }
-  const cartItem = document.createElement('div');
-  cartItem.className = "cartDiv";
-  const nameNode = document.createElement("p");
-  const Name = document.createTextNode(name);
-  nameNode.appendChild(Name);
-  const priceNode = document.createElement("p");
-  const Price = document.createTextNode(price);
-  priceNode.appendChild(Price);
+  const cartItem = document.createElement('div')
+  cartItem.className = "cartDiv"
+  cartItem.id = id
+  const nameNode = document.createElement("p")
+  const Name = document.createTextNode(name)
+  nameNode.appendChild(Name)
+  const priceNode = document.createElement("p")
+  const Price = document.createTextNode(price)
+  priceNode.appendChild(Price)
 
-  const quantityNode = document.createElement("p");
-  const Quantity = document.createTextNode("1");
-  quantityNode.appendChild(Quantity);
-  const closeBtn = '<a href="javascript:void(0)" class="removeDish" onclick="removeDish()">&times;</a>';
-  const inc = '<button onclick="increment()">+</button>';
-  const dec = '<button onclick="decrement()">-</button>';
-  cartItem.insertAdjacentHTML('afterbegin', closeBtn);
-  cartItem.appendChild(nameNode);
-  cartItem.appendChild(priceNode);
-  const div = document.createElement("div");
-  div.className = "quantity";
-  div.insertAdjacentHTML('afterbegin', dec);
-  div.appendChild(quantityNode);
-  quantityNode.insertAdjacentHTML('afterend', inc);
-  cartItem.appendChild(div);
-  const cart = document.getElementById('mySidebar');
-  const total = document.getElementById('totalSum');
-  cart.insertBefore(cartItem, total);
-  showTotals();
+  const quantityNode = document.createElement("p")
+  const Quantity = document.createTextNode("1")
+  quantityNode.appendChild(Quantity)
+  const closeBtn = '<a href="javascript:void(0)" class="removeDish" onclick="removeDish()">&times;</a>'
+  const inc = '<button onclick="increment()">+</button>'
+  const dec = '<button onclick="decrement()">-</button>'
+  cartItem.insertAdjacentHTML('afterbegin', closeBtn)
+  cartItem.appendChild(nameNode)
+  cartItem.appendChild(priceNode)
+  const div = document.createElement("div")
+  div.className = "quantity"
+  div.insertAdjacentHTML('afterbegin', dec)
+  div.appendChild(quantityNode)
+  quantityNode.insertAdjacentHTML('afterend', inc)
+  cartItem.appendChild(div)
+  const cart = document.getElementById('mySidebar')
+  const total = document.getElementById('totalSum')
+  cart.insertBefore(cartItem, total)
+  showTotals()
 }
 
 function increment() {
@@ -331,3 +334,32 @@ function addADish() {
     newDish.style.display = "none";
   }
 }
+
+function addOrderDish() {
+  var cartDishes = document.querySelectorAll(".cartDiv")
+  let cartId
+  fetch('../api/api_order.php')
+  .then((response) => {
+     return response.json();
+  }).then((data) => {
+    cartId = data
+    for (const cartDish of cartDishes) {
+      quant = cartDish.querySelector(".quantity").children[1].textContent
+      fetch('../api/api_cart.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          dishId: cartDish.id,
+          quantity: quant,
+          cartId: cartId
+        }), headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then(response => response.json())
+        .then(json => console.log(json));
+    }
+
+  })
+  
+}
+

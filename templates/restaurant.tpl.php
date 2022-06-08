@@ -56,6 +56,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <p> Cart </p>
 
         <total class="totalSum" id="totalSum">Total : </total>
+        <button onclick="addOrderDish()"> HERE </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -119,7 +120,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <?php if (!$isOwner) { ?>
-                <button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>
+                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> )"></button>
               <?php } ?>
             </div>
           </div>
@@ -149,7 +150,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         </div>
         <?php if ($isOwner || !($response->reviewText === "")) { ?>
           <section class="responseBox">
-            <?php if ($isOwner && ($response->reviewText === "") ) { ?>
+            <?php if ($isOwner && ($response->reviewText === "")) { ?>
               <button> Respond </button>
               <form action="../actions/action_add_response.php" method="post">
                 <input type="text" name="responseText">
