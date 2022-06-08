@@ -93,6 +93,20 @@ class CustomerOrder
     return $dishes;
   }
 
+  static function getQuantity(PDO $db, int $orderId, int $dishId): int
+  {
+    $stmt = $db->prepare('
+      SELECT DishOrder.Quantity
+        FROM CustomerOrder JOIN DishOrder 
+        WHERE CustomerOrder.OrderId = DishOrder.OrderId AND DishOrder.DishId=? and DishOrder.OrderId=?
+      ');
+    $stmt->execute(array( $dishId,$orderId));
+
+    if ($quantity = $stmt->fetch()) {
+      return intval($quantity['Quantity']);
+    }else return 0;
+  }
+
   static function getTotalPrice(array $dishes): float
   {
     $total = 0;

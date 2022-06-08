@@ -789,171 +789,150 @@ INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) 
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(53,11,7,'delivered','2021-01-05');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(54,11,8,'delivered','2021-01-05');
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(1,2);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(1,4);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(1,10);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(1,2,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(1,4,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(1,10,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(2,11);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(2,13);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(2,14);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(2,16);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(2,11,3);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(2,13,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(2,14,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(2,16,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(3,22);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(3,21);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(3,22);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(3,30);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(3,22,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(3,21,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(3,30,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(4,31);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(4,33);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(4,40);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(4,40);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(4,31,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(4,33,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(4,40,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(5,45);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(5,45,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(6,55);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(6,55);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(6,54);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(6,58);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(6,55,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(6,54,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(6,58,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(7,68);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(7,68,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(8,80);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(8,80);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(8,80);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(8,80);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(8,80,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(9,87);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(9,87,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(10,110);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(10,110,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(11,113);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(11,113);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(11,118);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(11,119);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(11,113,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(11,118,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(11,119,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(12,9);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(12,6);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(12,9,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(12,6,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,12);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,12);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,12);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(13,12,3);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,16);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,16);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,16);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,16);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(13,16);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(13,16,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(14,20);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(14,20,3);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(15,110);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(15,109);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(15,101);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(15,103);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(15,110,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(15,109,3);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(15,101,3);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(15,103,4);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(16,125);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(16,124);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(16,125,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(16,124,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(17,23);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(17,23,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,34);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,35);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,36);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,37);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,40);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,35);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,35);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(18,36);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(18,34,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(18,35,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(18,36,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(18,37,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(18,40,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(19,59);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(19,59,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(20,30);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(20,21);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(20,27);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(20,30,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(20,21,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(20,27,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(21,110);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(21,110,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(22,112);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(22,112,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(23,1);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(23,1);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(23,2);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(23,3);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(23,1,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(23,2,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(23,3,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(24,18);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(24,18,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(25,21);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(25,21);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(25,21);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(25,21,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(26,36);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(26,36,3);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(27,46);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(27,46,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(28,56);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(28,55);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(28,57);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(28,60);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(28,56,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(28,55,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(28,57,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(28,60,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(29,67);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(29,67,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(31,78);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(31,78,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(32,89);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(32,89,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,100);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,99);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,99);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,99);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,98);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(33,95);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(33,100,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(33,99,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(33,98,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(33,95,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(34,110);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(34,110,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(35,120);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(35,120,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(36,128);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(36,128,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(37,147);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(37,150);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(37,145);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(37,144);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(37,143);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(37,147,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(37,150,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(37,145,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(37,144,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(37,143,3);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(38,70);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(38,70,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(39,90);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(39,89);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(39,88);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(39,90,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(39,89,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(39,88,3);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(40,15);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(40,11);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(40,20);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(40,15,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(40,11,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(40,20,2);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(41,10);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(41,10);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(41,10);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(41,10,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(42,23);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(43,34);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(44,45);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(44,48);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(45,57);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(46,134);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(46,131);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(47,132);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(47,140);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(47,140);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(42,23,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(48,10);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(43,34,1);
 
-INSERT INTO DishOrder(OrderId,DishId) VALUES(49,23);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(50,34);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(51,45);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(51,48);
-INSERT INTO DishOrder(OrderId,DishId) VALUES(52,57);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(44,45,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(44,48,1);
+
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(45,57,2);
+
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(46,134,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(46,131,1);
+
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(47,132,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(47,140,1);
+
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(48,10,1);
+
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(49,23,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(50,34,1);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(51,45,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(51,48,2);
+INSERT INTO DishOrder(OrderId,DishId,Quantity) VALUES(52,57,2);
 
 
 
