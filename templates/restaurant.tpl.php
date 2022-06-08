@@ -58,12 +58,14 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <total class="totalSum" id="totalSum">Total : </total>
       </div>
 
-      <div id="mySidenav" class="sidenav">
-        <a href="#" id="cart" class="openbtn" onclick="openNav()">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <p>Cart</p>
-        </a>
-      </div>
+      <?php if (!$isOwner) { ?>
+        <div id="mySidenav" class="sidenav">
+          <a href="#" id="cart" class="openbtn" onclick="openNav()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Cart</p>
+          </a>
+        </div>
+      <?php } ?>
       <form action="#">
         <select>
           <option value="Tudo"> Tudo </option>

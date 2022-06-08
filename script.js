@@ -7,7 +7,7 @@ if (searchDishMain) {
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
 
-    const response = await fetch('api_dishes.php?search=' + this.value + '&id='+ id)
+    const response = await fetch('../api/api_dishes.php?search=' + this.value + '&id='+ id)
     const dishes = await response.json()
 
     const section = document.querySelector('#dishes')
