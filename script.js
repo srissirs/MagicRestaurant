@@ -338,7 +338,11 @@ function addADish() {
 function addOrderDish() {
   var cartDishes = document.querySelectorAll(".cartDiv")
   let cartId
-  fetch('../api/api_order.php')
+  const queryString = window.location.search;
+
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+  fetch('../api/api_order.php?id='+id)
   .then((response) => {
      return response.json();
   }).then((data) => {

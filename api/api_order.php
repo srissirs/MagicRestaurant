@@ -14,6 +14,6 @@ $db = getDatabaseConnection();
 
 
 
-$orderId = CustomerOrder::addOrder($db, $_SESSION['userId'], 3, "Preparing", date("Y-m-d"));
+$orderId = CustomerOrder::addOrder($db, $_SESSION['userId'], intval($_GET['id']), "Preparing", date("Y-m-d"));
 
 echo json_encode($orderId);
