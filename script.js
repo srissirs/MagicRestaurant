@@ -128,39 +128,39 @@ restaurantsAndDishes()
 drawStar()
 filter()
 showTotalPrice()
-function starReview(){
-  reviews=document.querySelectorAll("div.reviewBox")
-  
-  reviews.forEach(el=>{
-    info=el.querySelector("div.info")
-    
+function starReview() {
+  reviews = document.querySelectorAll("div.reviewBox")
+
+  reviews.forEach(el => {
+    info = el.querySelector("div.info")
+
     var x = info.querySelector("h3")
-  
-  yy = x.querySelectorAll("i")
-  
-  zz = x.querySelector("p")
-  zz.textContent = Math.round(zz.textContent)
-  if (zz.textContent >= 1) {
-    yy[0].classList.add("full")
-  }
-  if (zz.textContent >= 2) {
-    yy[1].classList.add("full")
-  }
-  if (zz.textContent >= 3) {
-    yy[2].classList.add("full")
-  }
-  if (zz.textContent >= 4) {
-    yy[3].classList.add("full")
-  }
-  if (zz.textContent == 5) {
-    yy[4].classList.add("full")
-  }
+
+    yy = x.querySelectorAll("i")
+
+    zz = x.querySelector("p")
+    zz.textContent = Math.round(zz.textContent)
+    if (zz.textContent >= 1) {
+      yy[0].classList.add("full")
+    }
+    if (zz.textContent >= 2) {
+      yy[1].classList.add("full")
+    }
+    if (zz.textContent >= 3) {
+      yy[2].classList.add("full")
+    }
+    if (zz.textContent >= 4) {
+      yy[3].classList.add("full")
+    }
+    if (zz.textContent == 5) {
+      yy[4].classList.add("full")
+    }
   })
 }
 
 function restaurantsAndDishes() {
   const favoritedTopPage = document.querySelector(".favoritedTopPage")
-  if(favoritedTopPage==null){
+  if (favoritedTopPage == null) {
     return
   }
   const favorited = document.querySelector(".favorited")
@@ -196,26 +196,26 @@ function reviewsAndDishes() {
   var dishes = document.getElementById("dishes")
   var reviews = document.getElementById("reviews")
   var orders = document.getElementById("orders")
-  const restauranttoppage = document.querySelector(".restaurantTopPage")
-  if(restauranttoppage==null){
+  const restauranttoppage = document.querySelector(".buttons")
+  if (restauranttoppage == null) {
     return
   }
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
-  if(orders) {newDishButton= buttons[2]}
-  if(orders) {obutton = buttons[3]}
+  if (orders) { newDishButton = buttons[2] }
+  if (orders) { obutton = buttons[3] }
   dbutton.classList.add("selected")
-  
+
   reviews.remove()
-  if(orders) {orders.remove()}
+  if (orders) { orders.remove() }
   dbutton.addEventListener('click', function (e) {
     if (!dbutton.classList.contains("selected")) {
       dbutton.classList.add("selected")
       rbutton.classList.remove("selected")
-      if(orders) {obutton.classList.remove("selected")}
-      if(orders) {orders.remove()}
+      if (orders) { obutton.classList.remove("selected") }
+      if (orders) { orders.remove() }
       reviews.remove()
       restaurant.appendChild(dishes)
     }
@@ -225,31 +225,32 @@ function reviewsAndDishes() {
     if (!rbutton.classList.contains("selected")) {
       rbutton.classList.add("selected")
       dbutton.classList.remove("selected")
-      if(orders) {obutton.classList.remove("selected")}
+      if (orders) { obutton.classList.remove("selected") }
       dishes.remove()
-      if(orders) {orders.remove()}
+      if (orders) { orders.remove() }
       restaurant.appendChild(reviews)
     }
   })
 
-  if(orders){
-  obutton.addEventListener('click', function (e) {
-    if (!obutton.classList.contains("selected")) {
-      obutton.classList.add("selected")
-      dbutton.classList.remove("selected")
-      rbutton.classList.remove("selected")
-      dishes.remove()
-      reviews.remove()
-      restaurant.appendChild(orders)
-    }
-  })}
+  if (orders) {
+    obutton.addEventListener('click', function (e) {
+      if (!obutton.classList.contains("selected")) {
+        obutton.classList.add("selected")
+        dbutton.classList.remove("selected")
+        rbutton.classList.remove("selected")
+        dishes.remove()
+        reviews.remove()
+        restaurant.appendChild(orders)
+      }
+    })
+  }
 
   newDishButton.addEventListener('click', function (e) {
     if (!newDishButton.classList.contains("selected")) {
       dbutton.classList.add("selected")
       rbutton.classList.remove("selected")
-      if(orders) {obutton.classList.remove("selected")}
-      if(orders) {orders.remove()}
+      if (orders) { obutton.classList.remove("selected") }
+      if (orders) { orders.remove() }
       reviews.remove()
       restaurant.appendChild(dishes)
     }
@@ -360,14 +361,14 @@ function filter() {
 
 
   for (let i = 0; i < allDishes.length; i++) {
-    
+
     m[i] = allDishes[i]
-    
+
     count++
   }
   const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
-  if(dropdown==null) return
+  if (dropdown == null) return
   dropdown.addEventListener('change', function (e) {
     var dishes = document.querySelectorAll("div.dish")
     if (dropdown.value != "Tudo") {
@@ -379,9 +380,9 @@ function filter() {
       dish.forEach(el => {
         inf = el.querySelector("div.information")
         category = inf.querySelector("category")
-        
+
         catText = category.querySelector("p").textContent
-        
+
         if (catText != " " + dropdown.value + " ") {
           el.remove()
         }
@@ -396,12 +397,12 @@ function filter() {
 }
 
 function drawStar() {
-  
+
   var x = document.querySelector("h3")
-  var header=document.querySelector(".pastOrders")
-  if(header!=null) return
+  var header = document.querySelector(".pastOrders")
+  if (header != null) return
   console.log(header)
-  if(x==null) return
+  if (x == null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
 
@@ -423,23 +424,23 @@ function drawStar() {
   }
 }
 
-function favorite(){
+function favorite() {
   const allNames = document.querySelectorAll("div.name")
   listStars = NodeList
   conta = 0
-  allNames.forEach(di=>{
-    star=di.querySelector("i")
+  allNames.forEach(di => {
+    star = di.querySelector("i")
     listStars[conta] = star
     conta++
-    })
+  })
   for (let ss = 0; ss < conta; ss++) {
-    estrela=listStars[ss]
-    estrela.addEventListener('click',function(){
-       newname=listStars[ss].querySelector("div.name")
-       novastar=newname.querySelector("i")
-       novastar.classList.toggle("full")
-     })
-    }
+    estrela = listStars[ss]
+    estrela.addEventListener('click', function () {
+      newname = listStars[ss].querySelector("div.name")
+      novastar = newname.querySelector("i")
+      novastar.classList.toggle("full")
+    })
+  }
 }
 
 
@@ -567,7 +568,7 @@ function addOrderDish() {
     })
 }
 
-function alterState(){
+function alterState() {
   orderId = document.querySelector("#orderId").value
   state = document.querySelector("#orderState").value
   fetch('../api/api_state.php', {
@@ -583,17 +584,42 @@ function alterState(){
     .then(json => console.log(json));
 }
 
-function showTotalPrice(){
-  header=document.querySelectorAll("div.information")
-  header.forEach(box=>{
-    totalPrice=0
-    dishes=box.querySelectorAll("div.pastDish")
-    dishes.forEach(dish=>{
-      quantity=dish.querySelector("#quantity").textContent
-      price=dish.querySelector("#price").textContent
-      totalPrice=totalPrice+quantity*price
+function showTotalPrice() {
+  header = document.querySelectorAll("div.information")
+  header.forEach(box => {
+    totalPrice = 0
+    dishes = box.querySelectorAll("div.pastDish")
+    dishes.forEach(dish => {
+      quantity = dish.querySelector("#quantity").textContent
+      price = dish.querySelector("#price").textContent
+      totalPrice = totalPrice + quantity * price
     })
-    inse=box.querySelector("#total")
-    inse.textContent+=totalPrice+"$"
+    inse = box.querySelector("#total")
+    inse.textContent += totalPrice + "$"
   })
+}
+
+function toggleFavorite(id) {
+  console.log(id)
+  favorite = document.getElementById(id).children[0]
+  let unfavorite
+  if (favorite.className === "fa fa-star checked full") {
+    unfavorite = 1
+    favorite.className = "fa fa-star checked"
+  } else {
+    unfavorite = 0
+    favorite.className = "fa fa-star checked full"
+  }
+  fetch('../api/api_favorites.php', {
+    method: 'POST',
+    body: JSON.stringify({
+      id: id,
+      unfavorite: unfavorite,
+    }), headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(response => response.json())
+    .then(json => console.log(json));
+
 }

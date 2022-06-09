@@ -8,18 +8,18 @@ require_once(__DIR__ . '/../database/connection.database.php');
 require_once(__DIR__ . '/../database/restaurant.class.php');
 require_once(__DIR__ . '/../database/review.class.php');
 require_once(__DIR__ . '/../database/reviewResponse.class.php');
-require_once(__DIR__.'/../database/customer.class.php');
+require_once(__DIR__ . '/../database/customer.class.php');
 ?>
 
 
 <?php function drawfav()
 { ?>
-  <button><i class="fa fa-star checked full"></i></button>
+  <i class="fa fa-star checked full"></i>
 <?php } ?>
 
 <?php function drawstr()
 { ?>
-  <button><i class="fa fa-star checked"></i></button>
+  <i class="fa fa-star checked"></i>
 <?php } ?>
 
 <?php function drawRestaurants(array $restaurants)
@@ -58,10 +58,10 @@ require_once(__DIR__.'/../database/customer.class.php');
   <section class="restaurant">
     <section class="restaurantTopPage">
       <div class="buttons">
-        <a> Dishes </a>
-        <a> Reviews </a>
+        <a class="dishesButton"> Dishes </a>
+        <a class="reviewsButton"> Reviews </a>
         <?php if ($isOwner) { ?>
-          <a class="addADish" > Add a Dish</a>
+          <a class="addADish"> Add a Dish</a>
           <a class="orderStates"> Order States </a>
         <?php } ?>
       </div>
@@ -75,7 +75,7 @@ require_once(__DIR__.'/../database/customer.class.php');
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
-          <a href="#" id="cart" class="openbtn" onclick="openNav()">
+          <a id="cart" class="openbtn" onclick="openNav()">
             <i class="fa-solid fa-cart-shopping"></i>
             <p>Cart</p>
           </a>
@@ -121,19 +121,11 @@ require_once(__DIR__.'/../database/customer.class.php');
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <form action="../actions/action_favorite_dish.php" method="post" class="register_form">
-                <input type="number" id="dishId" name="dishId" style="display:none " value=<?= $dish->dishId ?>>
-                <input type="number" id="customerId" name="customerId" style="display:none " value=<?= $_SESSION['userId'] ?>>
-                <input type="number" id="restaurantId" name="restaurantId" style="display:none " value=<?= $restaurant->restaurantId ?>>
-                <?php if (!$isOwner) {
-                  if (Customer::isFavorited($db, $_SESSION['userId'], $dish->dishId)) {
-                    drawfav();
-                  } else {
-                    drawstr();
-                  }
-                }
-                ?>
-              </form>
+              <?php if (!$isOwner) { ?>
+                <button class="favoriteButton" id="<?= $dish->dishId ?>" onclick="toggleFavorite(<?= $dish->dishId ?>)">
+                  <i class="fa fa-star checked"></i>
+                </button>
+              <?php } ?>
             </div>
             <category>
               <p id="category"> <?= $dish->dishCategory ?> </p>

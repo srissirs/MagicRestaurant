@@ -186,8 +186,6 @@ class Customer
   }
 
   
-
-
   static public function isFavorited(PDO $db,int $customerId,int $dishId):bool  {
     
     try {
@@ -202,16 +200,30 @@ class Customer
 
 
 
-static public function createFav(PDO $db,int $customerId,int $dishId) : void{
+static public function createFavDish(PDO $db,int $customerId,int $dishId) : void{
   $stmt = $db->prepare('INSERT INTO DishFavorite(DishId,CustomerId) VALUES (:DishId,:CustomerId)');
   $stmt->bindParam(':DishId', $dishId);
   $stmt->bindParam(':CustomerId', $customerId);
   $stmt->execute();
 }
 
-static public function deleteFav(PDO $db, int $customerId,int $dishId) : void{
+static public function createFavRestaurant(PDO $db,int $customerId,int $restaurantId) : void{
+  $stmt = $db->prepare('INSERT INTO RestaurantFavorite(RestaurantId,CustomerId) VALUES (:RestaurantId,:CustomerId)');
+  $stmt->bindParam(':RestaurantId', $restaurantId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
+
+static public function deleteFavDish(PDO $db, int $customerId,int $dishId ) : void{
   $stmt = $db->prepare('DELETE FROM DishFavorite WHERE DishId=:DishId AND CustomerId=:CustomerId;');
   $stmt->bindParam(':DishId', $dishId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
+
+static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaurantId ) : void{
+  $stmt = $db->prepare('DELETE FROM RestaurantFavorite WHERE RestaurantId=:RestaurantId AND CustomerId=:CustomerId;');
+  $stmt->bindParam(':RestaurantId', $restaurantId);
   $stmt->bindParam(':CustomerId', $customerId);
   $stmt->execute();
 }
@@ -219,12 +231,8 @@ static public function deleteFav(PDO $db, int $customerId,int $dishId) : void{
 
   static public function createUser($db, $username, $firstName, $lastName, $address, $city, $country, $postalCode, $phone, $email, $password, $restaurantOwner): int
   {
-
-
     $passwordHash = sha1($password);
-
-
-
+    
     $stmt = $db->prepare('INSERT INTO Customer ( FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username, RestaurantOwner) 
         VALUES (:FirstName,:LastName,:CustomerAddress,:CustomerCity,:CustomerCountry,:CustomerPostalCode, :CustomerPhone, :CustomerEmail,:Password, :Username,:RestaurantOwner)');
 
