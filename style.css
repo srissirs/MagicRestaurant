@@ -876,3 +876,30 @@ signUp button {
 .addRestaurant button {
     margin: 0 auto 0 0;
 }
+
+
+
+/***********************************************Orders (OWNER)**********************************************************/
+
+#orders{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    margin: 2em;
+    
+}
+.order{
+    display: flex;
+    width: auto ;
+    height: auto;
+    gap: 25px;
+    background-color: white;
+    padding: 1em;
+    border: var(--main-color) solid 5px;
+    border-radius: 22px;
+}
+.order form {
+    align-self: center;
+}
+

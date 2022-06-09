@@ -116,8 +116,8 @@ require_once(__DIR__.'/../database/customer.class.php');
         <div class="dish">
           <?php
           $db = getDatabaseConnection();
-          $dishPhoto = Dish::getDishPhoto($db, $dish);?>
-            <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
+          $dishPhoto = Dish::getDishPhoto($db, $dish); ?>
+          <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
@@ -187,15 +187,15 @@ require_once(__DIR__.'/../database/customer.class.php');
       </div>
     <?php } ?>
   </section>
-  <?php if ($isOwner) { ?>
-    <section id="orders">
-      <?php foreach ($restaurantOrders as $order) { ?>
+  <section id="orders">
+    <?php foreach ($restaurantOrders as $order) { ?>
+      <div class="order">
         <div class=OrderInfo>
           <p> <?= Customer::getCustomer($db, $order->customerId)->userName ?></p>
           <p> <?= $order->orderDate ?></p>
         </div>
         <form id="alterState">
-        <input hidden id="orderId" name="orderId" value="<?= $order->orderId ?>">
+          <input hidden id="orderId" name="orderId" value="<?= $order->orderId ?>">
           <select onchange="alterState()" name="state" id="orderState">
             <option> <?= $order->orderState ?></option>
             <?php foreach (CustomerOrder::getOtherStates($order->orderState) as $state) { ?>
@@ -203,10 +203,9 @@ require_once(__DIR__.'/../database/customer.class.php');
             <?php } ?>
           </select>
         </form>
-        
-      <?php } ?>
-    </section>
-  <?php } ?>
+      </div>
+    <?php } ?>
+  </section>
   </section>
 
 <?php } ?>

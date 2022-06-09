@@ -693,6 +693,8 @@ INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) 
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(150,'Batatas Fritas',6.35,15,2,3)
 ;
 
+<<<<<<< HEAD
+=======
 
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,1);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,2);
@@ -754,6 +756,7 @@ INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,1);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,2);
 
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(1,1,24,'received','2022-5-25');
+>>>>>>> 1ab2e1956ecdac307e4540f44d0e94681cee4b9a
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,23,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(3,3,22,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(4,4,21,'received','2022-5-23');
