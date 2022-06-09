@@ -615,7 +615,7 @@ function toggleFavorite(id,dish) {
     body: JSON.stringify({
       id: id,
       unfavorite: unfavorite,
-      name: dish
+      dish: dish
     }), headers: {
       "Content-type": "application/json; charset=UTF-8"
     }

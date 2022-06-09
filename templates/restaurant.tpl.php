@@ -114,7 +114,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
                 $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
                 if($isFavorite)
                 $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
-                <button class="<?= $star ?>" id="<?= $dish->dishId ?>" onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
+                <button class="<?= $star ?>"  onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
                 </button>
               <?php } ?>
             </div>
