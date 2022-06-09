@@ -40,7 +40,13 @@ require_once(__DIR__.'/../database/dish.class.php');
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <i class="fa-regular fa-heart"></i>
+              <?php 
+                $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
+                if($isFavorite)
+                $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
+                <button class="<?= $star ?>"  onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
+                </button>
+              
             </div>
             <category>
                     <p id="category"> <?=$dish->dishCategory?> </p>
