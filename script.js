@@ -333,7 +333,7 @@ function showTotals() {
 function addDishes(a, count) {
 
   var dishes = document.getElementById("dishes")
-  console.log(dishes)
+
   for (let i = 0; i < count; i++) {
     dishes.appendChild(a[i])
   }
@@ -365,9 +365,9 @@ function filter() {
       dish.forEach(el => {
         inf = el.querySelector("div.information")
         category = inf.querySelector("category")
-
+        
         catText = category.querySelector("p").textContent
-        console.log(l)
+        
         if (catText != " " + dropdown.value + " ") {
           el.remove()
         }
