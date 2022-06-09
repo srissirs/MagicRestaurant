@@ -127,6 +127,7 @@ reviewsAndDishes()
 restaurantsAndDishes()
 drawStar()
 filter()
+showTotalPrice()
 function starReview(){
   reviews=document.querySelectorAll("div.reviewBox")
   
@@ -384,6 +385,9 @@ function filter() {
 function drawStar() {
   
   var x = document.querySelector("h3")
+  var header=document.querySelector(".pastOrders")
+  if(header!=null) return
+  console.log(header)
   if(x==null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
@@ -566,4 +570,17 @@ function alterState(){
     .then(json => console.log(json));
 }
 
-
+function showTotalPrice(){
+  header=document.querySelectorAll("div.information")
+  header.forEach(box=>{
+    totalPrice=0
+    dishes=box.querySelectorAll("div.pastDish")
+    dishes.forEach(dish=>{
+      quantity=dish.querySelector("#quantity").textContent
+      price=dish.querySelector("#price").textContent
+      totalPrice=totalPrice+quantity*price
+    })
+    inse=box.querySelector("#total")
+    inse.textContent+=totalPrice+"$"
+  })
+}
