@@ -23,12 +23,13 @@ require_once(__DIR__ . '/../database/customerOrders.class.php')
             <img src="https://picsum.photos/200?1" alt="Dish Photo">
             <div class="information">
               <a href="../pages/restaurant.php?id=<?= $pastOrder->restaurantId ?>" id="name"> <?= Restaurant::getRestaurant($db, $pastOrder->restaurantId)->restaurantName ?> </a><br>
-              <p id="total"> Total price:$ </p>
+              <p id="total"> Total price: </p>
               <?php foreach ($dishes as $dish) {  ?>
 
                 <div class="pastDish">
                   <p id="quantity"><?= CustomerOrder::getQuantity($db, $pastOrder->orderId, $dish->dishId) ?></p>
                   <p id="dishName"> <?= $dish->dishName ?></p>
+                  <p id="price"> <?= $dish->dishPrice ?></p>
                 </div>
 
               <?php } ?>
