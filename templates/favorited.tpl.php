@@ -60,7 +60,14 @@ require_once(__DIR__.'/../database/dish.class.php');
                 <div class="mainRestaurantsInfo">
                     <div class="mainRestaurantsName">
                         <a> <?=$restaurant->restaurantName ?> </a>
-                        <i class="fa-regular fa-heart"></i>
+                        <?php $db = getDatabaseConnection();
+                        if (!Restaurant::isOwner($db, intval($restaurant->restaurantId), intval($_SESSION['userId']))) {
+                            $isFavorite = Customer::isRestaurantFavorited($db, intval($_SESSION['userId']), intval($restaurant->restaurantId));
+                            if ($isFavorite)
+                                $star = "fa fa-star checked full";
+                            else $star = "fa fa-star checked"; ?>
+                            <button class="<?=$star?>" onclick="toggleFavorite(<?= $restaurant->restaurantId ?>,0)"></button>
+                        <?php } ?>
                     </div>
                     <div class="mainRestaurantsRating">
                         <i class="fa-regular fa-star"></i>
