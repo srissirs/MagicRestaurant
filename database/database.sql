@@ -753,6 +753,7 @@ INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,15);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,1);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,2);
 
+
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,23,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(3,3,22,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(4,4,21,'received','2022-5-23');

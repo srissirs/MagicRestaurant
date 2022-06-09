@@ -729,7 +729,6 @@ signUp button {
 }
 
 /******************************************************Favorited Page *********************************************/
-
 .favoritedTopPage {
     display: flex;
     margin: 2em 20em 2em 16em;
@@ -741,6 +740,7 @@ signUp button {
     align-self: center;
     border-radius: 22px;
 }
+
 
 .favoritedTopPage>a {
     padding: 15px 30px;
@@ -755,6 +755,7 @@ signUp button {
     background-color: var(--main-color);
     color: #F3F3F3;
 }
+
 
 .favoritedTopPage>a:nth-child(1) {
     margin-right: 2em;
@@ -874,6 +875,7 @@ signUp button {
 }
 
 
+
 /***********************************************Orders (OWNER)**********************************************************/
 
 #orders{
@@ -897,5 +899,4 @@ signUp button {
 .order form {
     align-self: center;
 }
-
 

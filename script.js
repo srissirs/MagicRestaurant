@@ -1,4 +1,6 @@
 
+
+
 const searchDishMain = document.querySelector('#searchDish')
 
 if (searchDishMain) {
@@ -66,6 +68,9 @@ if (searchDishMain) {
 }
 
 
+
+
+
 const searchRestaurantMain = document.querySelector('#searchRestaurant')
 
 if (searchRestaurantMain) {
@@ -117,18 +122,89 @@ if (searchRestaurantMain) {
   })
 }
 
+starReview()
 reviewsAndDishes()
+restaurantsAndDishes()
+drawStar()
+filter()
+showTotalPrice()
+function starReview(){
+  reviews=document.querySelectorAll("div.reviewBox")
+  
+  reviews.forEach(el=>{
+    info=el.querySelector("div.info")
+    
+    var x = info.querySelector("h3")
+  
+  yy = x.querySelectorAll("i")
+  
+  zz = x.querySelector("p")
+  zz.textContent = Math.round(zz.textContent)
+  if (zz.textContent >= 1) {
+    yy[0].classList.add("full")
+  }
+  if (zz.textContent >= 2) {
+    yy[1].classList.add("full")
+  }
+  if (zz.textContent >= 3) {
+    yy[2].classList.add("full")
+  }
+  if (zz.textContent >= 4) {
+    yy[3].classList.add("full")
+  }
+  if (zz.textContent == 5) {
+    yy[4].classList.add("full")
+  }
+  })
+}
+
+function restaurantsAndDishes() {
+  const favoritedTopPage = document.querySelector(".favoritedTopPage")
+  if(favoritedTopPage==null){
+    return
+  }
+  const favorited = document.querySelector(".favorited")
+  buttons = favoritedTopPage.querySelectorAll("a")
+  dbutton = buttons[0]
+  rbutton = buttons[1]
+  dbutton.classList.add("selected")
+  var dishes = document.getElementById("dishes")
+  var restaurants = document.getElementById("restaurants")
+  restaurants.remove()
+  dbutton.addEventListener('click', function (e) {
+    if (!dbutton.classList.contains("selected")) {
+      dbutton.classList.toggle("selected")
+      rbutton.classList.toggle("selected")
+      restaurants.remove()
+      favorited.appendChild(dishes)
+    }
+
+  })
+  rbutton.addEventListener('click', function (e) {
+    if (!rbutton.classList.contains("selected")) {
+      rbutton.classList.toggle("selected")
+      dbutton.classList.toggle("selected")
+      dishes.remove()
+      favorited.appendChild(restaurants)
+    }
+
+  })
+}
+
 
 function reviewsAndDishes() {
   var dishes = document.getElementById("dishes")
   var reviews = document.getElementById("reviews")
   var orders = document.getElementById("orders")
   const restauranttoppage = document.querySelector(".restaurantTopPage")
+  if(restauranttoppage==null){
+    return
+  }
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
-  if(orders) {newDishButton = buttons[2]}
+  if(orders) {newDishButton= buttons[2]}
   if(orders) {obutton = buttons[3]}
   dbutton.classList.add("selected")
   
@@ -166,7 +242,7 @@ function reviewsAndDishes() {
       reviews.remove()
       restaurant.appendChild(orders)
     }
-  })
+  })}
 
   newDishButton.addEventListener('click', function (e) {
     if (!newDishButton.classList.contains("selected")) {
@@ -179,8 +255,6 @@ function reviewsAndDishes() {
     }
     addADish()
   })
-  
-}
 }
 
 function openNav() {
@@ -271,52 +345,66 @@ function showTotals() {
 }
 
 function addDishes(a, count) {
+
   var dishes = document.getElementById("dishes")
+
   for (let i = 0; i < count; i++) {
     dishes.appendChild(a[i])
   }
 }
 
 function filter() {
-  const allDishes = document.querySelectorAll("dish")
+  const allDishes = document.querySelectorAll("div.dish")
   m = NodeList
   count = 0
+
+
   for (let i = 0; i < allDishes.length; i++) {
+    
     m[i] = allDishes[i]
+    
     count++
   }
-
   const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
+  if(dropdown==null) return
   dropdown.addEventListener('change', function (e) {
-    var dishes = document.getElementById("dishes")
+    var dishes = document.querySelectorAll("div.dish")
     if (dropdown.value != "Tudo") {
-      dishes.remove
+      dishes.forEach(di => {
+        di.remove()
+      })
       addDishes(m, count)
-      var dish = document.querySelectorAll("dish")
+      var dish = document.querySelectorAll("div.dish")
       dish.forEach(el => {
-        c = el.querySelector("information")
-        d = c.querySelector("category")
-        e = d.querySelector("p")
-        l = e.textContent
-        if (l != " " + dropdown.value + " ") {
+        inf = el.querySelector("div.information")
+        category = inf.querySelector("category")
+        
+        catText = category.querySelector("p").textContent
+        
+        if (catText != " " + dropdown.value + " ") {
           el.remove()
         }
       })
-
     } else {
-      dishes.remove
+      dishes.forEach(di => {
+        di.remove()
+      })
       addDishes(m, count)
     }
-
   })
 }
 
 function drawStar() {
+  
   var x = document.querySelector("h3")
+  var header=document.querySelector(".pastOrders")
+  if(header!=null) return
+  console.log(header)
+  if(x==null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
-  console.log(z.textContent)
+
   z.textContent = Math.round(z.textContent)
   if (z.textContent >= 1) {
     y[0].classList.add("full")
@@ -335,9 +423,25 @@ function drawStar() {
   }
 }
 
-drawStar()
+function favorite(){
+  const allNames = document.querySelectorAll("div.name")
+  listStars = NodeList
+  conta = 0
+  allNames.forEach(di=>{
+    star=di.querySelector("i")
+    listStars[conta] = star
+    conta++
+    })
+  for (let ss = 0; ss < conta; ss++) {
+    estrela=listStars[ss]
+    estrela.addEventListener('click',function(){
+       newname=listStars[ss].querySelector("div.name")
+       novastar=newname.querySelector("i")
+       novastar.classList.toggle("full")
+     })
+    }
+}
 
-filter()
 
 function toggle() {
   var d = document.querySelectorAll(".unedited");
@@ -479,4 +583,17 @@ function alterState(){
     .then(json => console.log(json));
 }
 
-
+function showTotalPrice(){
+  header=document.querySelectorAll("div.information")
+  header.forEach(box=>{
+    totalPrice=0
+    dishes=box.querySelectorAll("div.pastDish")
+    dishes.forEach(dish=>{
+      quantity=dish.querySelector("#quantity").textContent
+      price=dish.querySelector("#price").textContent
+      totalPrice=totalPrice+quantity*price
+    })
+    inse=box.querySelector("#total")
+    inse.textContent+=totalPrice+"$"
+  })
+}
