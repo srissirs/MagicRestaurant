@@ -37,7 +37,6 @@ header h1 {
     margin: 0 1em;
 }
 
-
 .dropbtn i {
     color: #F3F3F3;
     padding: 1em;
@@ -181,12 +180,12 @@ h2 {
     visibility: hidden;
 }
 
-h3 .checked {
+.checked{
     color: #ddd;
 }
 
-h3>.full {
-    color: #745A5A;
+.full{
+    color:#745A5A;
 }
 
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
@@ -204,7 +203,6 @@ h3>.full {
     border-radius: 22px;
 }
 
-
 .restaurantTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
@@ -214,19 +212,21 @@ h3>.full {
     color: black;
 }
 
-
 .restaurantTopPage a.selected,
 a:hover {
     background-color: var(--main-color);
     color: #F3F3F3;
 }
 
-
 .restaurantTopPage .buttons {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
     margin: 0 auto 0 0;
+}
+
+.restaurantInfo p{
+    visibility: hidden;
 }
 
 #mySidenav a {
@@ -250,7 +250,6 @@ a:hover {
     display: flex;
 }
 
-
 #cart p,
 #cart i {
     margin: 0 auto;
@@ -260,12 +259,12 @@ a:hover {
     display: flex;
     gap: 1em;
     margin: 0 auto;
-    max-width: 75%;
+    max-width: 60%;
     flex-wrap: wrap;
-    align-items: center;
+    justify-self: center;
 }
 
-.dish {
+.dish,.newDish {
     display: flex;
     width: 32em;
     height: 16em;
@@ -275,15 +274,29 @@ a:hover {
     border: var(--main-color) solid 5px;
     border-radius: 22px;
 }
+.newDish{
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: 25px;
+    background-color: white;
+    padding: 1em;
+    border: var(--main-color) solid 5px;
+    border-radius: 22px;
+}
+.newDish .information {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
 
-
-.dish .information .name {
+.dish .information .name,.newDish .information .name {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dish .information .price {
+.dish .information .price,.newDish .information .price {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -335,7 +348,6 @@ a:hover {
     border-bottom: var(--main-color) solid 6px;
 }
 
-
 .pastOrders .month {
     margin: 0 auto 3em auto;
     max-width: 50%;
@@ -344,7 +356,6 @@ a:hover {
     flex-direction: column;
     gap: 2em;
 }
-
 
 .pastOrderBox {
     width: 100%;
@@ -359,7 +370,6 @@ a:hover {
 .pastOrder {
     display: flex;
 }
-
 
 .pastOrder .information {
     margin-left: 2em;
@@ -419,7 +429,6 @@ a:hover {
     padding-top: 1em;
 }
 
-
 .month>h3 {
     font-size: 3em;
     width: 50%;
@@ -427,7 +436,6 @@ a:hover {
     color: var(--darker-color);
     border-bottom: var(--main-color) solid 2px;
 }
-
 
 /*----------------------------------------Main Page-----------------------------------*/
 
@@ -489,7 +497,6 @@ a {
 }
 
 /*----------------------------------------Sign In Page-----------------------------------*/
-
 
 
 #loginPage {
@@ -561,7 +568,6 @@ signUp button {
 }
 
 /*---------------------------pop-ups review---------------*/
-
 
 .form-container .btn,
 .open-button {
@@ -722,7 +728,43 @@ signUp button {
     gap: 5px;
 }
 
-/***********************************Profile****************************************************************/
+/******************************************************Favorited Page *********************************************/
+
+.favoritedTopPage {
+    display: flex;
+    margin: 2em 20em 2em 16em;
+}
+
+.favoritedTopPage select {
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    align-self: center;
+    border-radius: 22px;
+}
+
+.favoritedTopPage>a {
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    border-radius: 22px;
+    font-weight: 200;
+    text-decoration: none;
+    color: black;
+}
+
+.favoritedTopPage>a.selected {
+    background-color: var(--main-color);
+    color: #F3F3F3;
+}
+
+.favoritedTopPage>a:nth-child(1) {
+    margin-right: 2em;
+}
+
+.favoritedTopPage>a:nth-child(2) {
+    margin: 0 auto 0 0;
+}
+
+/***********************************Profile************************************************/
 
 .profileHeader {
     width: 100%;
@@ -778,7 +820,6 @@ signUp button {
 
 .ownedRestaurants {
     margin: 0 6em;
-
 }
 
 .ownedRestaurants h3 {
@@ -856,3 +897,5 @@ signUp button {
 .order form {
     align-self: center;
 }
+
+

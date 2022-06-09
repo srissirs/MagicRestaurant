@@ -47,7 +47,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <a> Dishes </a>
         <a> Reviews </a>
         <?php if ($isOwner) { ?>
-          <a class="addADish" onclick="addADish()"> Add a Dish</a>
+          <a class="addADish" > Add a Dish</a>
           <a class="orderStates"> Order States </a>
         <?php } ?>
       </div>

@@ -128,6 +128,7 @@ function reviewsAndDishes() {
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
+  if(orders) {newDishButton = buttons[2]}
   if(orders) {obutton = buttons[3]}
   dbutton.classList.add("selected")
   
@@ -165,7 +166,21 @@ function reviewsAndDishes() {
       reviews.remove()
       restaurant.appendChild(orders)
     }
-  })}
+  })
+
+  newDishButton.addEventListener('click', function (e) {
+    if (!newDishButton.classList.contains("selected")) {
+      dbutton.classList.add("selected")
+      rbutton.classList.remove("selected")
+      if(orders) {obutton.classList.remove("selected")}
+      if(orders) {orders.remove()}
+      reviews.remove()
+      restaurant.appendChild(dishes)
+    }
+    addADish()
+  })
+  
+}
 }
 
 function openNav() {
