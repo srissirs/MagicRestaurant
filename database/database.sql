@@ -496,239 +496,202 @@ INSERT INTO Restaurant(RestaurantId,
 				3.0);
 
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(1,'Sopa de Pedra',8.25,1,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(2,'Bitoque',3.65,1,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(3,'Francesinha',05,1,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(4,'Polvo à Lagareiro',4.95,1,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(5,'Arroz de Polvo',2.35,1,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(6,'Tripas à Moda do Porto',1.35,1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(1,'Sopa de Pedra',1.35,1,1,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(2,'Bitoque',3.45,1,1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(3,'Francesinha',95,1,1,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(4,'Polvo à Lagareiro',3.55,1,1,1
+);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(5,'Arroz de Polvo',35,1,1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(6,'Tripas à Moda do Porto',2.55,
+1,1,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(7,'Hambúrguer',5.55,1,2,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(8,'Batatas Fritas',6.55,1,2,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(9,'Gelado',9.15,1,2,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(10,'Caril',8.15,1,3,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(11,'Frango na manteiga',6.45,2,3,
+3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(12,'Caril de Peice',2.95,2,3,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(13,'Vindaloo',15,2,3,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(14,'Samosa',3.45,2,3,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(15,' Lassi',95,2,3,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(16,'Pão de Queijo',25,2,4,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(17,'Coxinha',2.45,2,4,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(18,'Arroz com feij├úo',65,2,4,1);
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(7,'Hambúrguer',9.95,1,2);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(8,'Batatas Fritas',5.75,1,2);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(9,'Gelado',6.75,1,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(19,'Feijoada',3.45,2,4,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(20,'Farofa',7.75,2,4,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(21,'Carne-de-Sol',1.35,3,4,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(22,'Porco Agridoce',2.35,3,5,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(23,'Frango Gong Bao',1.55,3,5,4);
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(10,'Caril',9.55,1,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(24,'Arroz Frito',65,3,5,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(25,'Pato de Pequim',7.25,3,5,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(26,'Dumplings',8.25,3,5,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(27,'Sushi',3.65,3,6,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(28,'Hossomakis',8.95,3,6,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(29,'Sashimi',5.95,3,6,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(30,'Yakisoba',6.25,3,6,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(31,'Robata',0.45,4,6,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(32,'Uramakis',4.55,4,6,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(33,'Niguiri',9.55,4,6,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(34,'Tempura',8.35,4,6,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(35,'Temakis',1.35,4,6,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(36,'Paella',2.85,4,7,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(37,'Cocido madrileño',35,4,7,1);
 
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(38,'Gazpacho',5.35,4,7,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(39,'Tortilla española',9.45,4,7,
+1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(40,'Torta de Santiago',8.95,4,7,4
+);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(41,'Tapas espanholas',7.15,5,7,2)
+;
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(42,'Magret de canard',3.15,5,8,1)
+;
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(43,'Moules frites',2.45,5,8,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(44,'Souffl├® au fromage',1.65,5,8
+,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(45,'Tacos',7.55,5,9,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(46,'Fajitas',3.85,5,9,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(47,'Pho Hanói',9.85,5,10,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(48,'Borscht',8.15,5,11,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(49,'Smetana',0.25,5,11,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(50,'Solyanka',4.55,5,11,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(51,'Stroganov',6.25,6,11,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(52,'Shashlyk',5.55,6,11,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(53,'Kholodets',35,6,11,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(54,'Lasanha ',1.35,6,12,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(55,'Pizza',1.45,6,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(56,'Bisteca Fiorentina',8.65,6,12
+,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(57,'Macarrão à Bolonhesa',3.45,
+6,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(58,'Risoto',0.25,6,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(59,'Cacio e Pepe',65,6,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(60,'Ful medames',3.35,6,13,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(61,'Hamam mahshi',2.75,7,13,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(62,'Hawawshi',45,7,13,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(63,'Kebab',3.95,7,13,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(64,'PAD THAI',6.95,7,14,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(65,'KAI MED MA MUANG (GALINHA COM
+ CAJU)',6.35,7,14,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(66,'GAENG MATSAMAN (CARIL MASSAMA
+N)',5.45,7,14,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(67,'KHAO PAD (ARROZ FRITO)',0.75,
+7,14,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(68,'GAENG DAENG (CARIL VERMELHO)'
+,4.15,7,14,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(69,'Eisbein',0.55,7,15,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(70,'Sauerkraut',6.35,7,15,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(71,'Kartoffelsalat',8.45,8,15,3);
 
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,1);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,2);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(72,'Sopa de Pedra',9.95,8,1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(73,'Bitoque',5.15,8,1,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(74,'Francesinha',3.75,8,1,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(75,'Polvo à Lagareiro',6.35,8,1,
+4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(76,'Arroz de Polvo',8.15,8,1,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(77,'Tripas à Moda do Porto',2.65
+,8,1,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(78,'Hambúrguer',1.55,8,2,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(79,'Batatas Fritas',8.35,8,2,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(80,'Gelado',6.65,8,2,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(81,'Caril',3.65,9,3,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(82,'Frango na manteiga',8.65,9,3,
+3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(83,'Caril de Peice',6.55,9,3,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(84,'Vindaloo',8.35,9,3,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(85,'Samosa',8.55,9,3,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(86,' Lassi',3.35,9,3,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(87,'Pão de Queijo',0.75,9,4,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(88,'Coxinha',9.15,9,4,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(89,'Arroz com feij├úo',4.95,9,4,1
+);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(90,'Feijoada',4.45,9,4,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(91,'Farofa',4.65,10,4,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(92,'Carne-de-Sol',1.55,10,4,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(93,'Porco Agridoce',2.35,10,5,1);
 
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(94,'Frango Gong Bao',7.35,10,5,2)
+;
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(95,'Arroz Frito',7.75,10,5,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(96,'Pato de Pequim',4.35,10,5,1);
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(11,'Frango na manteiga',4.85,2,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(12,'Caril de Peice',4.15,2,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(13,'Vindaloo',0.65,2,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(14,'Samosa',35,2,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(15,' Lassi',6.35,2,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(16,'Pão de Queijo',3.35,2,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(17,'Coxinha',6.65,2,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(18,'Arroz com feij├úo',1.15,2,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(19,'Feijoada',8.35,2,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(20,'Farofa',9.35,2,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(97,'Dumplings',25,10,5,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(98,'Sushi',7.95,10,6,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(99,'Hossomakis',4.35,10,6,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(100,'Sashimi',9.55,10,6,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(101,'Yakisoba',4.15,11,6,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(102,'Robata',1.75,11,6,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(103,'Uramakis',7.55,11,6,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(104,'Niguiri',4.45,11,6,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(105,'Tempura',9.75,11,6,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(106,'Temakis',9.45,11,6,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(107,'Paella',1.15,11,7,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(108,'Cocido madrileño',0.65,11,7
+,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(109,'Gazpacho',15,11,7,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(110,'Tortilla española',95,11,7,
+4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(111,'Torta de Santiago',5.95,12,7
+,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(112,'Tapas espanholas',8.95,12,7,
+2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(113,'Magret de canard',5.55,12,8,
+2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(114,'Moules frites',3.95,12,8,2);
 
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(2,3);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(2,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(115,'Souffl├® au fromage',3.75,12
+,8,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(116,'Tacos',0.65,12,9,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(117,'Fajitas',8.55,12,9,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(118,'Pho Hanói',7.25,12,10,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(119,'Borscht',7.15,12,11,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(120,'Smetana',5.35,12,11,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(121,'Solyanka',0.65,13,11,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(122,'Stroganov',2.55,13,11,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(123,'Shashlyk',5.15,13,11,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(124,'Kholodets',4.25,13,11,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(125,'Lasanha ',1.95,13,12,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(126,'Pizza',0.85,13,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(127,'Bisteca Fiorentina',5.65,13,
+12,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(128,'Macarrão à Bolonhesa',0.75
+,13,12,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(129,'Risoto',25,13,12,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(130,'Cacio e Pepe',3.65,13,12,4);
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(21,'Carne-de-Sol',3.95,3,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(22,'Porco Agridoce',25,3,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(23,'Frango Gong Bao',5.45,3,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(24,'Arroz Frito',5.35,3,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(25,'Pato de Pequim',1.55,3,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(26,'Dumplings',7.65,3,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(27,'Sushi',2.15,3,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(28,'Hossomakis',8.55,3,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(29,'Sashimi',4.15,3,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(30,'Yakisoba',1.25,3,6);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(131,'Ful medames',3.75,14,13,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(132,'Hamam mahshi',6.15,14,13,2);
 
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,4);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,5);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,6);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(133,'Hawawshi',7.15,14,13,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(134,'Kebab',2.45,14,13,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(135,'PAD THAI',6.85,14,14,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(136,'KAI MED MA MUANG (GALINHA CO
+M CAJU)',2.85,14,14,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(137,'GAENG MATSAMAN (CARIL MASSAM
+AN)',2.65,14,14,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(138,'KHAO PAD (ARROZ FRITO)',4.25
+,14,14,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(139,'GAENG DAENG (CARIL VERMELHO)
+',55,14,14,4);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(140,'Eisbein',2.55,14,15,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(141,'Sauerkraut',2.35,15,15,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(142,'Kartoffelsalat',3.55,15,15,2
+);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(143,'Sopa de Pedra',8.75,15,1,4);
 
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(31,'Robata',3.95,4,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(32,'Uramakis',6.85,4,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(33,'Niguiri',8.15,4,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(34,'Tempura',4.85,4,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(35,'Temakis',9.55,4,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(36,'Paella',8.15,4,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(37,'Cocido madrileño',9.45,4,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(38,'Gazpacho',8.65,4,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(39,'Tortilla española',3.65,4,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(40,'Torta de Santiago',9.65,4,7);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(4,6);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(4,7);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(41,'Tapas espanholas',2.45,5,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(42,'Magret de canard',1.65,5,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(43,'Moules frites',2.25,5,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(44,'Soufflê au fromage',9.25,5,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(45,'Tacos',0.15,5,9);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(46,'Fajitas',3.35,5,9);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(47,'Pho Hanói',7.75,5,10);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(48,'Borscht',85,5,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(49,'Smetana',5.75,5,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(50,'Solyanka',6.55,5,11);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,7);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,8);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,9);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,10);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,11);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(51,'Stroganov',6.55,6,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(52,'Shashlyk',3.85,6,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(53,'Kholodets',5.25,6,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(54,'Lasanha ',25,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(55,'Pizza',75,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(56,'Bisteca Fiorentina',5.95,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(57,'Macarrão à Bolonhesa',1.25,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(58,'Risoto',3.65,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(59,'Cacio e Pepe',9.45,6,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(60,'Ful medames',1.25,6,13);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,11);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,12);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,13);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(61,'Hamam mahshi',8.55,7,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(62,'Hawawshi',5.25,7,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(63,'Kebab',6.45,7,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(64,'PAD THAI',25,7,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(65,'KAI MED MA MUANG (GALINHA COM CAJU)',0.15,7,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(66,'GAENG MATSAMAN (CARIL MASSAMAN)',8.75,7,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(67,'KHAO PAD (ARROZ FRITO)',5.15,7,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(68,'GAENG DAENG (CARIL VERMELHO)',4.15,7,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(69,'Eisbein',5.25,7,15);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(70,'Sauerkraut',3.45,7,15);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,13);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,14);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,15);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(71,'Kartoffelsalat',0.85,8,15);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(72,'Sopa de Pedra',75,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(73,'Bitoque',7.85,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(74,'Francesinha',6.15,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(75,'Polvo à Lagareiro',1.15,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(76,'Arroz de Polvo',4.95,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(77,'Tripas à Moda do Porto',7.45,8,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(78,'Hambúrguer',3.35,8,2);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(79,'Batatas Fritas',1.85,8,2);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(80,'Gelado',9.15,8,2);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,15);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,1);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,2);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(81,'Caril',0.15,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(82,'Frango na manteiga',45,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(83,'Caril de Peice',4.25,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(84,'Vindaloo',1.95,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(85,'Samosa',1.25,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(86,' Lassi',4.25,9,3);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(87,'Pão de Queijo',3.35,9,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(88,'Coxinha',0.95,9,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(89,'Arroz com feij├úo',9.65,9,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(90,'Feijoada',1.85,9,4);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(9,3);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(9,4);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(91,'Farofa',7.25,10,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(92,'Carne-de-Sol',5.85,10,4);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(93,'Porco Agridoce',2.45,10,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(94,'Frango Gong Bao',4.15,10,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(95,'Arroz Frito',8.45,10,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(96,'Pato de Pequim',5.15,10,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(97,'Dumplings',1.95,10,5);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(98,'Sushi',5.35,10,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(99,'Hossomakis',5.15,10,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(100,'Sashimi',5.55,10,6);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,4);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,5);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,6);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(101,'Yakisoba',2.95,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(102,'Robata',6.15,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(103,'Uramakis',5.25,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(104,'Niguiri',1.15,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(105,'Tempura',1.95,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(106,'Temakis',3.95,11,6);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(107,'Paella',0.85,11,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(108,'Cocido madrileño',4.95,11,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(109,'Gazpacho',7.15,11,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(110,'Tortilla española',4.65,11,7);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(11,6);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(11,7);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(111,'Torta de Santiago',3.55,12,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(112,'Tapas espanholas',15,12,7);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(113,'Magret de canard',105,12,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(114,'Moules frites',5.95,12,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(115,'Soufflê au fromage',2.15,12,8);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(116,'Tacos',8.55,12,9);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(117,'Fajitas',7.85,12,9);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(118,'Pho Hanói',1.35,12,10);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(119,'Borscht',0.55,12,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(120,'Smetana',6.25,12,11);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,7);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,8);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,9);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,10);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,11);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(121,'Solyanka',85,13,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(122,'Stroganov',5.75,13,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(123,'Shashlyk',7.45,13,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(124,'Kholodets',8.45,13,11);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(125,'Lasanha ',2.95,13,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(126,'Pizza',25,13,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(127,'Bisteca Fiorentina',7.35,13,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(128,'Macarrão à Bolonhesa',3.15,13,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(129,'Risoto',6.25,13,12);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(130,'Cacio e Pepe',9.35,13,12);
-
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(13,11);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(13,12);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(131,'Ful medames',2.35,14,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(132,'Hamam mahshi',9.95,14,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(133,'Hawawshi',1.25,14,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(134,'Kebab',2.25,14,13);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(135,'PAD THAI',5.55,14,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(136,'KAI MED MA MUANG (GALINHA COM CAJU)',0.15,14,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(137,'GAENG MATSAMAN (CARIL MASSAMAN)',8.95,14,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(138,'KHAO PAD (ARROZ FRITO)',15,14,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(139,'GAENG DAENG (CARIL VERMELHO)',5.65,14,14);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(140,'Eisbein',8.15,14,15);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,13);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,14);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,15);
-
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(141,'Sauerkraut',8.95,15,15);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(142,'Kartoffelsalat',3.95,15,15);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(143,'Sopa de Pedra',2.85,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(144,'Bitoque',3.25,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(145,'Francesinha',0.75,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(146,'Polvo à Lagareiro',9.45,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(147,'Arroz de Polvo',5.75,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(148,'Tripas à Moda do Porto',3.95,15,1);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(149,'Hambúrguer',65,15,2);
-INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory) VALUES(150,'Batatas Fritas',1.45,15,2);
-
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,15);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,1);
-INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(144,'Bitoque',1.55,15,1,2);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(145,'Francesinha',3.65,15,1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(146,'Polvo à Lagareiro',0.85,15,
+1,1);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(147,'Arroz de Polvo',2.25,15,1,4)
+;
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(148,'Tripas à Moda do Porto',25,
+15,1,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(149,'Hambúrguer',9.15,15,2,3);
+INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(150,'Batatas Fritas',6.35,15,2,3)
+;
 
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(1,1,24,'received','2022-5-25');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,23,'received','2022-5-24');

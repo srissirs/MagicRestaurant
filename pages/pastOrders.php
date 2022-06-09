@@ -17,7 +17,7 @@
 
   $pastOrders = CustomerOrder::getCustomerOrders($db, $_SESSION['userId']);
 
-  drawHeader();
+  drawHeader(0);
   drawCustomerOrders($pastOrders);
   drawFooter();
 ?>
