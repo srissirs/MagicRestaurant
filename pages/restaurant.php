@@ -23,7 +23,6 @@
   $reviews = ReviewRestaurant::getRestaurantReviews($db, intval($_GET['id']));
   $categories = Restaurant::getCategories($db,intval($_GET['id']));
   $isOwner =Restaurant::isOwner($db,intval($_GET['id']),intval($_SESSION['userId']));
-
  
   drawHeader(2);
   drawRestaurantHeader($restaurant);

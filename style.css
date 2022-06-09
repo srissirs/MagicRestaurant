@@ -181,12 +181,12 @@ h2 {
     visibility: hidden;
 }
 
-h3 .checked {
+.checked{
     color: #ddd;
 }
 
-h3>.full {
-    color: #745A5A;
+.full{
+    color:#745A5A;
 }
 
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
@@ -229,6 +229,10 @@ h3>.full {
     margin: 0 auto 0 0;
 }
 
+.restaurantInfo p{
+    visibility: hidden;
+}
+
 #mySidenav a {
     position: fixed;
     right: -80px;
@@ -265,7 +269,7 @@ h3>.full {
     align-items: center;
 }
 
-.dish {
+.dish,.newDish {
     display: flex;
     width: 32em;
     height: 16em;
@@ -277,13 +281,13 @@ h3>.full {
 }
 
 
-.dish .information .name {
+.dish .information .name,.newDish .information .name {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dish .information .price {
+.dish .information .price,.newDish .information .price {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -722,7 +726,48 @@ signUp button {
     gap: 5px;
 }
 
-/***********************************Profile****************************************************************/
+
+/******************************************************Favorited Page *********************************************/
+
+
+.favoritedTopPage {
+    display: flex;
+    margin: 2em 20em 2em 16em;
+}
+
+.favoritedTopPage select {
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    align-self: center;
+    border-radius: 22px;
+}
+
+
+.favoritedTopPage>a {
+    padding: 15px 30px;
+    border: solid 3px var(--main-color);
+    border-radius: 22px;
+    font-weight: 200;
+    text-decoration: none;
+    color: black;
+}
+
+
+.favoritedTopPage>a.selected {
+    background-color: var(--main-color);
+    color: #F3F3F3;
+}
+
+
+.favoritedTopPage>a:nth-child(1) {
+    margin-right: 2em;
+}
+
+.favoritedTopPage>a:nth-child(2) {
+    margin: 0 auto 0 0;
+}
+
+/***********************************Profile************************************************/
 
 .profileHeader {
     width: 100%;
