@@ -9,6 +9,8 @@
   require_once(__DIR__.'/../database/restaurant.class.php');
   require_once(__DIR__.'/../database/review.class.php');
   require_once(__DIR__.'/../database/reviewResponse.class.php');
+  require_once(__DIR__.'/../database/customerOrders.class.php');
+  
    
 
   require_once(__DIR__.'/../templates/common.tpl.php');
@@ -23,9 +25,11 @@
   $reviews = ReviewRestaurant::getRestaurantReviews($db, intval($_GET['id']));
   $categories = Restaurant::getCategories($db,intval($_GET['id']));
   $isOwner =Restaurant::isOwner($db,intval($_GET['id']),intval($_SESSION['userId']));
+  $restaurantOrders = CustomerOrder::getRestaurantOrders($db,intval($_GET['id']));
+
  
   drawHeader(2);
   drawRestaurantHeader($restaurant);
-  drawRestaurant($restaurant, $dishes, $reviews,$categories,$isOwner);
+  drawRestaurant($restaurant, $dishes, $reviews,$categories,$isOwner, $restaurantOrders);
   drawFooter();
 ?>

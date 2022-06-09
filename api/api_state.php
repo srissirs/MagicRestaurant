@@ -14,4 +14,7 @@ $db = getDatabaseConnection();
 $json = file_get_contents('php://input');
 $info = json_decode($json);
 
-CustomerOrder::addDishOrder($db, intval($info->dishId),intval($info->quantity), intval($info->cartId));
+
+header('Location: '.intval($info->orderId) );
+  
+CustomerOrder::editOrderState($db, $info->state,  intval($info->orderId));

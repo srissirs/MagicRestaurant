@@ -53,8 +53,7 @@ require_once(__DIR__.'/../database/customer.class.php');
   </section>
 <?php } ?>
 
-
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories, int $isOwner)
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories, int $isOwner, array $restaurantOrders)
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
@@ -63,6 +62,7 @@ require_once(__DIR__.'/../database/customer.class.php');
         <a> Reviews </a>
         <?php if ($isOwner) { ?>
           <a class="addADish" onclick="addADish()"> Add a Dish</a>
+          <a class="orderStates"> Order States </a>
         <?php } ?>
       </div>
 
@@ -71,7 +71,7 @@ require_once(__DIR__.'/../database/customer.class.php');
         <p> Cart </p>
 
         <total class="totalSum" id="totalSum">Total : </total>
-        <button onclick="addOrderDish()"> HERE </button>
+        <button onclick="addOrderDish()"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -81,7 +81,7 @@ require_once(__DIR__.'/../database/customer.class.php');
           </a>
         </div>
       <?php } ?>
-      <form action="#">
+      <form>
         <select>
           <option value="Tudo"> Tudo </option>
           <?php foreach ($categories as $category) { ?>
@@ -116,12 +116,8 @@ require_once(__DIR__.'/../database/customer.class.php');
         <div class="dish">
           <?php
           $db = getDatabaseConnection();
-          $dishPhoto = Dish::getDishPhoto($db, $dish);
-          if ($dishPhoto === (0)) { ?>
-            <img src="https://picsum.photos/200?1" alt="Dish Photo">
-          <?php } else { ?>
+          $dishPhoto = Dish::getDishPhoto($db, $dish);?>
             <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
-          <?php } ?>
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
@@ -191,7 +187,26 @@ require_once(__DIR__.'/../database/customer.class.php');
       </div>
     <?php } ?>
   </section>
-
+  <?php if ($isOwner) { ?>
+    <section id="orders">
+      <?php foreach ($restaurantOrders as $order) { ?>
+        <div class=OrderInfo>
+          <p> <?= Customer::getCustomer($db, $order->customerId)->userName ?></p>
+          <p> <?= $order->orderDate ?></p>
+        </div>
+        <form id="alterState">
+        <input hidden id="orderId" name="orderId" value="<?= $order->orderId ?>">
+          <select onchange="alterState()" name="state" id="orderState">
+            <option> <?= $order->orderState ?></option>
+            <?php foreach (CustomerOrder::getOtherStates($order->orderState) as $state) { ?>
+              <option> <?= $state ?> </option>
+            <?php } ?>
+          </select>
+        </form>
+        
+      <?php } ?>
+    </section>
+  <?php } ?>
   </section>
 
 <?php } ?>
