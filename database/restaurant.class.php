@@ -67,7 +67,7 @@ class Restaurant
     $stmt->execute(array($restaurantId));
     $categories = array();
     while ($category = $stmt->fetch()) {
-      $categories[] = ($category['CategoryName']);
+      $categories[] = $category['CategoryName'];
     }
     return $categories;
   }

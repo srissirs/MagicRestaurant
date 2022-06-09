@@ -27,7 +27,6 @@
   $isOwner =Restaurant::isOwner($db,intval($_GET['id']),intval($_SESSION['userId']));
   $restaurantOrders = CustomerOrder::getRestaurantOrders($db,intval($_GET['id']));
 
-  header('Location:'. $categories[1]);
  
   drawHeader(2);
   drawRestaurantHeader($restaurant);

@@ -141,7 +141,80 @@ class Customer
     }
   }
 
+  static public function getFavoriteRestaurants(PDO $db,int $customerId): array {
+    $stmt=$db->prepare('SELECT *
+    FROM Restaurant,RestaurantFavorite
+    WHERE CustomerId=? 
+    AND Restaurant.RestaurantId=RestaurantFavorite.RestaurantId');
+    $stmt->execute(array($customerId));
+    $restaurants = array();
+      while ($restaurant = $stmt->fetch()) {
+        $restaurants[] = new Restaurant(
+          intval($restaurant['RestaurantId']),
+          $restaurant['RestaurantName'],
+          $restaurant['RestaurantAddress'],
+          $restaurant['RestaurantCity'],
+          $restaurant['RestaurantCountry'],
+          $restaurant['RestaurantPostalCode'],
+          $restaurant['RestaurantPhone'],
+          floatval($restaurant['Rating'])
+        );
+      }
+  
+      return $restaurants;
+  }
 
+  static public function getFavoriteDishes(PDO $db,int $customerId): array {
+    $stmt=$db->prepare('SELECT *
+    FROM Dish,DishFavorite,Category
+    WHERE CustomerId=? 
+    AND DishCategory=CategoryId
+    AND Dish.DishId=DishFavorite.DishId');
+    $stmt->execute(array($customerId));
+    $dishes = array();
+  
+      while ($dish = $stmt->fetch()) {
+        $dishes[] = new Dish(
+          intval($dish['DishId']), 
+          $dish['DishName'],
+          floatval($dish['DishPrice']),
+          intval($dish['RestaurantId']),
+          $dish["CategoryName"]
+        );
+      }
+      return $dishes;
+  }
+
+  
+
+
+  static public function isFavorited(PDO $db,int $customerId,int $dishId):bool  {
+    
+    try {
+      $stmt = $db->prepare('SELECT * FROM DishFavorite WHERE CustomerId=? AND DishId=?');
+      $stmt->execute(array($customerId,$dishId));
+      return $stmt->fetch() !== false;
+    
+    }catch(PDOException $e) {
+      return true;
+    }
+  }
+
+
+
+static public function createFav(PDO $db,int $customerId,int $dishId) : void{
+  $stmt = $db->prepare('INSERT INTO DishFavorite(DishId,CustomerId) VALUES (:DishId,:CustomerId)');
+  $stmt->bindParam(':DishId', $dishId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
+
+static public function deleteFav(PDO $db, int $customerId,int $dishId) : void{
+  $stmt = $db->prepare('DELETE FROM DishFavorite WHERE DishId=:DishId AND CustomerId=:CustomerId;');
+  $stmt->bindParam(':DishId', $dishId);
+  $stmt->bindParam(':CustomerId', $customerId);
+  $stmt->execute();
+}
 
 
   static public function createUser($db, $username, $firstName, $lastName, $address, $city, $country, $postalCode, $phone, $email, $password, $restaurantOwner): int

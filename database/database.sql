@@ -693,6 +693,70 @@ INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) 
 INSERT INTO DISH(DishId,DishName,DishPrice,RestaurantId,DishCategory,DishPhoto) VALUES(150,'Batatas Fritas',6.35,15,2,3)
 ;
 
+<<<<<<< HEAD
+=======
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,1);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,2);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(1,3);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(2,3);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(2,4);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,4);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,5);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(3,6);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(4,6);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(4,7);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,7);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,8);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,9);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,10);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(5,11);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,11);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,12);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(6,13);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,13);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,14);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(7,15);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,15);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,1);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(8,2);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(9,3);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(9,4);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,4);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,5);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(10,6);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(11,6);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(11,7);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,7);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,8);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,9);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,10);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(12,11);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(13,11);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(13,12);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,13);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,14);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(14,15);
+
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,15);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,1);
+INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,2);
+
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(1,1,24,'received','2022-5-25');
+>>>>>>> 1ab2e1956ecdac307e4540f44d0e94681cee4b9a
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,23,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(3,3,22,'received','2022-5-24');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(4,4,21,'received','2022-5-23');
