@@ -9,10 +9,17 @@ require_once(__DIR__ . '/../database/connection.database.php');
 $db = getDatabaseConnection();
 $json = file_get_contents('php://input');
 $info = json_decode($json);
-header('Location:'. intval($info->id));
-
-if (intval($info->unfavorite)) {
-    Customer::deleteFavDish($db, $_SESSION['userId'], intval($info->id));
+header('Location:' . intval($info->id));
+if ($info->dish) {
+    if (intval($info->unfavorite)) {
+        Customer::deleteFavDish($db, $_SESSION['userId'], intval($info->id));
+    } else {
+        Customer::createFavDish($db, $_SESSION['userId'], intval($info->id));
+    }
 } else {
-    Customer::createFavDish($db, $_SESSION['userId'], intval($info->id));
+    if (intval($info->unfavorite)) {
+        Customer::deleteFavRestaurant($db, $_SESSION['userId'], intval($info->id));
+    } else {
+        Customer::createFavRestaurant($db, $_SESSION['userId'], intval($info->id));
+    }
 }

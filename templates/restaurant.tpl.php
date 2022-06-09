@@ -11,17 +11,6 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
 require_once(__DIR__ . '/../database/customer.class.php');
 ?>
 
-
-<?php function drawfav()
-{ ?>
-  <i class="fa fa-star checked full"></i>
-<?php } ?>
-
-<?php function drawstr()
-{ ?>
-  <i class="fa fa-star checked"></i>
-<?php } ?>
-
 <?php function drawRestaurants(array $restaurants)
 { ?>
   <h2>Restaurants</h2>
@@ -121,9 +110,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <?php if (!$isOwner) { ?>
-                <button class="favoriteButton" id="<?= $dish->dishId ?>" onclick="toggleFavorite(<?= $dish->dishId ?>)">
-                  <i class="fa fa-star checked"></i>
+              <?php if (!$isOwner) {
+                $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
+                if($isFavorite)
+                $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
+                <button class="<?= $star ?>" id="<?= $dish->dishId ?>" onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
                 </button>
               <?php } ?>
             </div>

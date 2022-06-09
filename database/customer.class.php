@@ -186,7 +186,7 @@ class Customer
   }
 
   
-  static public function isFavorited(PDO $db,int $customerId,int $dishId):bool  {
+  static public function isDishFavorited(PDO $db,int $customerId,int $dishId):bool  {
     
     try {
       $stmt = $db->prepare('SELECT * FROM DishFavorite WHERE CustomerId=? AND DishId=?');
@@ -197,8 +197,17 @@ class Customer
       return true;
     }
   }
-
-
+  static public function isRestaurantFavorited(PDO $db,int $customerId,int $restaurantId):bool  {
+    
+    try {
+      $stmt = $db->prepare('SELECT * FROM RestaurantFavorite WHERE CustomerId=? AND RestaurantId=?');
+      $stmt->execute(array($customerId,$restaurantId));
+      return $stmt->fetch() !== false;
+    
+    }catch(PDOException $e) {
+      return true;
+    }
+  }
 
 static public function createFavDish(PDO $db,int $customerId,int $dishId) : void{
   $stmt = $db->prepare('INSERT INTO DishFavorite(DishId,CustomerId) VALUES (:DishId,:CustomerId)');
@@ -232,7 +241,7 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
   static public function createUser($db, $username, $firstName, $lastName, $address, $city, $country, $postalCode, $phone, $email, $password, $restaurantOwner): int
   {
     $passwordHash = sha1($password);
-    
+
     $stmt = $db->prepare('INSERT INTO Customer ( FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username, RestaurantOwner) 
         VALUES (:FirstName,:LastName,:CustomerAddress,:CustomerCity,:CustomerCountry,:CustomerPostalCode, :CustomerPhone, :CustomerEmail,:Password, :Username,:RestaurantOwner)');
 

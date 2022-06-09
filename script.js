@@ -599,9 +599,9 @@ function showTotalPrice() {
   })
 }
 
-function toggleFavorite(id) {
+function toggleFavorite(id,dish) {
   console.log(id)
-  favorite = document.getElementById(id).children[0]
+  favorite = event.target
   let unfavorite
   if (favorite.className === "fa fa-star checked full") {
     unfavorite = 1
@@ -615,6 +615,7 @@ function toggleFavorite(id) {
     body: JSON.stringify({
       id: id,
       unfavorite: unfavorite,
+      name: dish
     }), headers: {
       "Content-type": "application/json; charset=UTF-8"
     }
