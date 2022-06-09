@@ -21,6 +21,17 @@ class CustomerOrder
     $this->orderDate = $orderDate;
   }
 
+  static function getOtherStates(string $currentState): array
+  {
+    $orderStates = ["preparing", "ready", "delivered"];
+    $otherStates = array();
+    foreach ($orderStates as $state) {
+      if ($currentState !== $state)
+        $otherStates[] = $state;
+    }
+    return $otherStates;
+  }
+
   static function getCustomerOrders(PDO $db, int $customerId): array
   {
     $stmt = $db->prepare('
@@ -100,21 +111,13 @@ class CustomerOrder
         FROM CustomerOrder JOIN DishOrder 
         WHERE CustomerOrder.OrderId = DishOrder.OrderId AND DishOrder.DishId=? and DishOrder.OrderId=?
       ');
-    $stmt->execute(array( $dishId,$orderId));
+    $stmt->execute(array($dishId, $orderId));
 
     if ($quantity = $stmt->fetch()) {
       return intval($quantity['Quantity']);
-    }else return 0;
+    } else return 0;
   }
 
-  static function getTotalPrice(array $dishes): float
-  {
-    $total = 0;
-    foreach ($dishes as $dish) {
-      $total = $total + $dish->dishPrice;
-    }
-    return floatval($total);
-  }
   static public function addOrder(PDO $db, int $customerid, int $restaurantId, string $orderState, string $orderDate): int
   {
     $stmt = $db->prepare('
@@ -143,5 +146,40 @@ class CustomerOrder
     $stmt->bindParam(':Quantity', $quantity);
 
     $stmt->execute();
+  }
+
+
+  static function getRestaurantOrders(PDO $db, int $restaurantId): array
+  {
+    $stmt = $db->prepare('
+        SELECT OrderId, CustomerId, RestaurantId, OrderState, OrderDate
+        FROM CustomerOrder 
+        WHERE RestaurantId = ?
+        GROUP BY CustomerId
+      ');
+    $stmt->execute(array($restaurantId));
+
+    $orders = array();
+
+    while ($order = $stmt->fetch()) {
+      $orders[] = new CustomerOrder(
+        intval($order['OrderId']),
+        intval($order['CustomerId']),
+        intval($order['RestaurantId']),
+        $order['OrderState'],
+        $order['OrderDate']
+      );
+    }
+    return $orders;
+  }
+
+  static function editOrderState(PDO $db, string $orderState, int $orderId)
+  {
+    $stmt = $db->prepare('
+          UPDATE CustomerOrder SET OrderState = ?
+          WHERE OrderId = ?
+        ');
+
+    $stmt->execute(array($orderState, $orderId));
   }
 }

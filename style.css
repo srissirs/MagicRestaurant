@@ -216,7 +216,7 @@ h3>.full {
 
 
 .restaurantTopPage a.selected,
-.addADish:hover {
+a:hover {
     background-color: var(--main-color);
     color: #F3F3F3;
 }

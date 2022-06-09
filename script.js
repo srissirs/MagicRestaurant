@@ -8,7 +8,7 @@ if (searchDishMain) {
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
 
-    const response = await fetch('../api/api_dishes.php?search=' + this.value + '&id='+ id)
+    const response = await fetch('../api/api_dishes.php?search=' + this.value + '&id=' + id)
     const dishes = await response.json()
 
     const section = document.querySelector('#dishes')
@@ -17,7 +17,7 @@ if (searchDishMain) {
     for (const dish of dishes) {
 
       const dishCard = document.createElement('div')
-  
+
       const dishInfo = document.createElement('div')
       dishInfo.className = 'information'
 
@@ -37,7 +37,7 @@ if (searchDishMain) {
 
 
       const category = document.createElement('p')
-      category.id='category'
+      category.id = 'category'
       category.textContent = dish.dishCategory
 
       const price = document.createElement('div')
@@ -48,7 +48,7 @@ if (searchDishMain) {
       dishPrice.textContent = dish.dishPrice
       price.appendChild(dishPrice)
 
-     
+
       const addToCart = '<button class="fa-solid fa-cart-shopping button" onclick="addToCart()"></button>';
       price.insertAdjacentHTML('beforeend', addToCart);
 
@@ -119,24 +119,26 @@ if (searchRestaurantMain) {
 
 reviewsAndDishes()
 
-
-
-reviewsAndDishes()
-
 function reviewsAndDishes() {
+  var dishes = document.getElementById("dishes")
+  var reviews = document.getElementById("reviews")
+  var orders = document.getElementById("orders")
   const restauranttoppage = document.querySelector(".restaurantTopPage")
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
+  if(orders) {obutton = buttons[3]}
   dbutton.classList.add("selected")
-  var dishes = document.getElementById("dishes")
-  var reviews = document.getElementById("reviews")
+  
   reviews.remove()
+  if(orders) {orders.remove()}
   dbutton.addEventListener('click', function (e) {
     if (!dbutton.classList.contains("selected")) {
-      dbutton.classList.toggle("selected")
-      rbutton.classList.toggle("selected")
+      dbutton.classList.add("selected")
+      rbutton.classList.remove("selected")
+      if(orders) {obutton.classList.remove("selected")}
+      if(orders) {orders.remove()}
       reviews.remove()
       restaurant.appendChild(dishes)
     }
@@ -144,15 +146,27 @@ function reviewsAndDishes() {
   })
   rbutton.addEventListener('click', function (e) {
     if (!rbutton.classList.contains("selected")) {
-      rbutton.classList.toggle("selected")
-      dbutton.classList.toggle("selected")
+      rbutton.classList.add("selected")
+      dbutton.classList.remove("selected")
+      if(orders) {obutton.classList.remove("selected")}
       dishes.remove()
+      if(orders) {orders.remove()}
       restaurant.appendChild(reviews)
     }
-
   })
-}
 
+  if(orders){
+  obutton.addEventListener('click', function (e) {
+    if (!obutton.classList.contains("selected")) {
+      obutton.classList.add("selected")
+      dbutton.classList.remove("selected")
+      rbutton.classList.remove("selected")
+      dishes.remove()
+      reviews.remove()
+      restaurant.appendChild(orders)
+    }
+  })}
+}
 
 function openNav() {
   document.getElementById("mySidebar").style.width = "300px";
@@ -237,19 +251,16 @@ function showTotals() {
     price = parseFloat(d.children[2].textContent);
     total += quantity * price;
   }
-  //parseFloat(total,2);
   const cart = document.getElementById('totalSum');
   cart.textContent = "Total: " + total;
 }
 
 function addDishes(a, count) {
-
   var dishes = document.getElementById("dishes")
   for (let i = 0; i < count; i++) {
     dishes.appendChild(a[i])
   }
 }
-
 
 function filter() {
   const allDishes = document.querySelectorAll("dish")
@@ -412,30 +423,45 @@ function addOrderDish() {
   let cartId
   const queryString = window.location.search;
 
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
-  fetch('../api/api_order.php?id='+id)
-  .then((response) => {
-     return response.json();
-  }).then((data) => {
-    cartId = data
-    for (const cartDish of cartDishes) {
-      quant = cartDish.querySelector(".quantity").children[1].textContent
-      fetch('../api/api_cart.php', {
-        method: 'POST',
-        body: JSON.stringify({
-          dishId: cartDish.id,
-          quantity: quant,
-          cartId: cartId
-        }), headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      })
-        .then(response => response.json())
-        .then(json => console.log(json));
-    }
-
-  })
-  
+  const urlParams = new URLSearchParams(queryString);
+  const id = urlParams.get('id')
+  fetch('../api/api_order.php?id=' + id)
+    .then((response) => {
+      return response.json();
+    }).then((data) => {
+      cartId = data
+      for (const cartDish of cartDishes) {
+        quant = cartDish.querySelector(".quantity").children[1].textContent
+        fetch('../api/api_cart.php', {
+          method: 'POST',
+          body: JSON.stringify({
+            dishId: cartDish.id,
+            quantity: quant,
+            cartId: cartId
+          }), headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then(response => response.json())
+          .then(json => console.log(json));
+      }
+    })
 }
+
+function alterState(){
+  orderId = document.querySelector("#orderId").value
+  state = document.querySelector("#orderState").value
+  fetch('../api/api_state.php', {
+    method: 'POST',
+    body: JSON.stringify({
+      state: state,
+      orderId: orderId,
+    }), headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(response => response.json())
+    .then(json => console.log(json));
+}
+
 
