@@ -790,10 +790,6 @@ signUp button {
     align-items: baseline;
 }
 
-.profileHeader i {
-    font-size: 2em;
-}
-
 .customerInformation {
     display: flex;
     flex-wrap: wrap;
@@ -801,7 +797,7 @@ signUp button {
     margin: 4em auto 4em 6em;
 }
 
-.customerInformation>form {
+.customerInformation>form ,.addRestaurant form{
     display: flex;
     flex-direction: column;
     border: solid var(--main-color) 2px;
@@ -811,23 +807,13 @@ signUp button {
 
 }
 
-.customerInformation div {
+.customerInformation div{
     display: flex;
     gap: 1em;
 }
 
-.customerInformation input,
-.customerInformation label,
 .customerInformation p {
-    font-size: 20px;
-}
-
-.customerInformation p {
-    margin: 0 0 0 auto;
-}
-
-.customerInformation label{
-    font-weight: 700;
+    margin: 0;
 }
 
 .customerInformation img {
@@ -839,14 +825,6 @@ signUp button {
     margin: 0 6em;
 }
 
-.ownedRestaurants h3 {
-    font-size: 2em;
-}
-
-.ownedRestaurant button {
-    margin: 0;
-}
-
 .ownedRestaurant {
     display: flex;
     gap: 1em;
@@ -855,42 +833,31 @@ signUp button {
     border-bottom: solid 2px var(--main-color);
 }
 
-.ownedRestaurant div {
-    display: flex;
-    gap: 1em;
-    align-items: baseline;
-}
-
 .ownedRestaurant p,
-.ownedRestaurant a {
+.ownedRestaurant a,
+.ownedRestaurants label,
+.ownedRestaurants h3,
+.customerInformation input,
+.customerInformation label,
+.customerInformation p,
+.profileHeader i {
     font-size: 20px;
 }
 
-.ownedRestaurant a {
+.ownedRestaurant a:hover {
+    color: whitesmoke;
+    background-color: var(--main-color);
+}
+.ownedRestaurant a,
+.customerInformation label {
     color: var(--darker-color);
+    font-weight: 600;
 }
 
 .ownedRestaurants button{
     margin: 1em;
-
+    padding: 10px;
 }
-
-.addRestaurant {
-    padding: 0 1em;
-}
-
-.addRestaurant form {
-    margin: 1em 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.addRestaurant button {
-    margin: 0 auto 0 0;
-}
-
-
 
 /***********************************************Orders (OWNER)**********************************************************/
 
