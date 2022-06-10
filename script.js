@@ -123,11 +123,13 @@ if (searchRestaurantMain) {
 }
 
 starReview()
-reviewsAndDishes()
 restaurantsAndDishes()
 drawStar()
 filter()
+restaurantButtons()
 showTotalPrice()
+
+
 function starReview() {
   reviews = document.querySelectorAll("div.reviewBox")
 
@@ -192,65 +194,65 @@ function restaurantsAndDishes() {
 }
 
 
-function reviewsAndDishes() {
-  var dishes = document.getElementById("dishes")
-  var reviews = document.getElementById("reviews")
-  var orders = document.getElementById("orders")
+function restaurantButtons() {
+
   const restauranttoppage = document.querySelector(".buttons")
   if (restauranttoppage == null) {
     return
   }
+  var dishes = document.getElementById("dishes")
+  var reviews = document.getElementById("reviews")
+
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
-  if (orders) { newDishButton = buttons[2] }
-  if (orders) { obutton = buttons[3] }
-  dbutton.classList.add("selected")
 
+  var orders = document.getElementById("orders")
+  newDishButton = buttons[2]
+  obutton = buttons[3]
+  orders.remove()
+
+  dbutton.classList.add("selected")
   reviews.remove()
-  if (orders) { orders.remove() }
+
   dbutton.addEventListener('click', function (e) {
     if (!dbutton.classList.contains("selected")) {
       dbutton.classList.add("selected")
       rbutton.classList.remove("selected")
-      if (orders) { obutton.classList.remove("selected") }
-      if (orders) { orders.remove() }
+      orders.remove()
       reviews.remove()
       restaurant.appendChild(dishes)
     }
-
   })
+
   rbutton.addEventListener('click', function (e) {
     if (!rbutton.classList.contains("selected")) {
       rbutton.classList.add("selected")
       dbutton.classList.remove("selected")
-      if (orders) { obutton.classList.remove("selected") }
+      orders.remove()
       dishes.remove()
-      if (orders) { orders.remove() }
       restaurant.appendChild(reviews)
     }
   })
 
-  if (orders) {
-    obutton.addEventListener('click', function (e) {
-      if (!obutton.classList.contains("selected")) {
-        obutton.classList.add("selected")
-        dbutton.classList.remove("selected")
-        rbutton.classList.remove("selected")
-        dishes.remove()
-        reviews.remove()
-        restaurant.appendChild(orders)
-      }
-    })
-  }
+  obutton.addEventListener('click', function (e) {
+    if (!obutton.classList.contains("selected")) {
+      obutton.classList.add("selected")
+      dbutton.classList.remove("selected")
+      rbutton.classList.remove("selected")
+      dishes.remove()
+      reviews.remove()
+      restaurant.appendChild(orders)
+    }
+  })
 
   newDishButton.addEventListener('click', function (e) {
     if (!newDishButton.classList.contains("selected")) {
       dbutton.classList.add("selected")
       rbutton.classList.remove("selected")
-      if (orders) { obutton.classList.remove("selected") }
-      if (orders) { orders.remove() }
+      obutton.classList.remove("selected")
+      orders.remove()
       reviews.remove()
       restaurant.appendChild(dishes)
     }
@@ -599,7 +601,7 @@ function showTotalPrice() {
   })
 }
 
-function toggleFavorite(id,dish) {
+function toggleFavorite(id, dish) {
   console.log(id)
   favorite = event.target
   let unfavorite
