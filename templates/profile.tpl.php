@@ -89,7 +89,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
           </div>
           <label style="display: none;"  > Add a Category:  <input type="text" name="restaurant_category"> </label>
          
-          <button type="submit" style="display: none;">Save</button>
+          <button id="saveResponse" type="submit" style="display: none;">Save</button>
         </form>
         <button type="submit" class="fa-solid fa-pen-to-square" onclick="toggleEditRestaurant()"> </button>
       </section>

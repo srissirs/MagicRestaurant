@@ -156,9 +156,8 @@ require_once(__DIR__ . '/../database/customer.class.php');
         <?php if ($isOwner || !($response->reviewText === "")) { ?>
           <section class="responseBox">
             <?php if ($isOwner && ($response->reviewText === "")) { ?>
-              <button> Respond </button>
               <form action="../actions/action_add_response.php" method="post">
-                <input type="text" name="responseText">
+                <input type="text" id = "resposeBody" name="responseText" placeholder="Type your response">
                 <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">
                 <button type="submit">Save</button>
               </form>
