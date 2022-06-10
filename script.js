@@ -511,7 +511,7 @@ function toggleEditRestaurant() {
 }
 
 function openForm() {
-  var reviewBox = event.target.parentElement.parentElement.children[1];
+  var reviewBox = event.target.parentElement.parentElement.parentElement.children[1];
   if (reviewBox.style.display === "none") {
     reviewBox.style.display = "block";
   }

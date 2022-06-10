@@ -326,9 +326,10 @@ h2 {
     border-radius: 22px;
 }
 
-.review {
-    display: flex;
-    
+.pastOrderLabels {
+   margin: 0 0 0 auto;
+   display: flex;
+   flex-direction: column;
 }
 
 #reviewBody {
@@ -372,15 +373,17 @@ h2 {
 
 .pastOrder {
     display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
 }
 
-.pastOrder .information {
-    margin-left: 2em;
-}
 
 .pastDish {
     display: flex;
+    gap: 1em;
     border-bottom: var(--main-color) solid 1px;
+    align-items: baseline;
 }
 
 .pastDish #dishName {
@@ -412,13 +415,18 @@ h2 {
     border-radius: 5px;
 }
 
-.pastOrder #review {
-    margin: 1em 1em auto auto;
+.pastOrder #review,
+.pastOrder .OrderState {
+    margin: 0;
     padding: 1em;
+    font-weight: 600;
     background-color: var(--main-color);
     color: whitesmoke;
     border: none;
     font-size: 15px;
+}
+.pastOrder #review{
+    margin: 0 0 auto 0;
 }
 
 .pastOrder img {
@@ -430,6 +438,13 @@ h2 {
     margin-top: 2em;
     border-top: var(--main-color) solid 2px;
     padding-top: 1em;
+}
+
+.review-popup form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
 }
 
 .month>h3 {
@@ -574,14 +589,12 @@ signUp button {
 
 .form-container .btn,
 .open-button {
-    background-color: var(--main-color);
-    color: white;
-    padding: 12px 16px;
-    margin-top: 1em;
-    border: none;
+
+
+
     cursor: pointer;
 
-    margin-bottom: 10px;
+  
     opacity: 0.8;
 }
 
