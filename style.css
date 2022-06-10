@@ -1,4 +1,8 @@
 /*-------------------------------------Main theme-----------------------------------------------*/
+html {
+    height: 100%;
+}
+
 body {
     --background-color: #F3F3F3;
     --main-color: #946B6B;
@@ -7,8 +11,10 @@ body {
     background-color: var(--background-color);
     max-width: 100%;
     margin: 0;
-    height: 100%;
-
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body>header {
@@ -112,6 +118,7 @@ header h1 {
 }
 
 footer {
+    margin-top: auto;
     width: 100%;
     background-color: var(--darker-color);
 }
@@ -259,6 +266,7 @@ h2 {
 }
 
 #dishes {
+
     display: flex;
     gap: 1em;
     margin: 0 auto;
@@ -514,8 +522,7 @@ a {
 .mainPage {
     background-image: url("images/main.jpg");
     background-color: whitesmoke;
-    height: 500px;
-
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -764,6 +771,10 @@ signUp button {
 }
 
 /******************************************************Favorited Page *********************************************/
+
+.favorited{
+    height: max-content
+}
 .favoritedTopPage {
     display: flex;
     margin: 2em 20em 2em 16em;
@@ -803,7 +814,6 @@ signUp button {
 /***********************************Profile************************************************/
 
 .profileHeader {
-    width: 100%;
     border-bottom: 4px var(--main-color) solid;
     display: flex;
     align-items: baseline;

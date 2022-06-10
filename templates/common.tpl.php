@@ -67,12 +67,12 @@ session_start();
 
     </header>
 
-    <main>
+    
     <?php } ?>
 
     <?php function drawFooter()
     { ?>
-    </main>
+    
     <footer>
       
       <section class="links">

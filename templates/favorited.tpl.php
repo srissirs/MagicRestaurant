@@ -65,7 +65,7 @@ require_once(__DIR__.'/../database/dish.class.php');
                 <img src="../images/restaurant.jpg" alt="Restaurant Photo">
                 <div class="mainRestaurantsInfo">
                     <div class="mainRestaurantsName">
-                        <a> <?=$restaurant->restaurantName ?> </a>
+                        <a  href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?=$restaurant->restaurantName ?> </a>
                         <?php $db = getDatabaseConnection();
                         if (!Restaurant::isOwner($db, intval($restaurant->restaurantId), intval($_SESSION['userId']))) {
                             $isFavorite = Customer::isRestaurantFavorited($db, intval($_SESSION['userId']), intval($restaurant->restaurantId));
