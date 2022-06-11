@@ -1,4 +1,74 @@
 /*-------------------------------------Main theme-----------------------------------------------*/
+
+@media screen and (max-width: 980px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    html header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    .searchBar {
+        width: 75%;
+        margin: 0;
+    }
+
+    header>a {
+        margin: 10px;
+    }
+
+    .dropbtn i {
+        padding: 5px 0;
+    }
+
+    body h2 {
+        font-size: 40px;
+        margin: 2em auto 0 2em;
+    }
+
+    body .pastOrders .month h3,
+    body .mainRestaurantsHeader h3{
+        font-size: 35px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    img,
+    body .restaurantCard img,
+    body .customerInformation img {
+        width: 100%;
+        height: auto;
+    }
+
+    body .mainRestaurantsHeader {
+        width: 100%;
+        height: 5em;
+    }
+
+    body h2,  .profileHeader button {
+        margin: 20px auto;
+    }
+
+    body .customerInformation,
+    body .ownedRestaurants{
+        margin: 2em;
+        justify-content: center;
+        gap: 4em;
+    }
+
+    body .customerInformation input {
+        font-size: 10px;
+    }
+}
+
 html {
     height: 100%;
 }
@@ -23,11 +93,14 @@ body>header {
     align-items: center;
     max-width: 100%;
     padding: 1em 0;
+    gap: 2em;
 }
+
+
 
 header h1 {
     margin: 0;
-    color:#351C1C
+    color: #351C1C
 }
 
 .profile {
@@ -40,7 +113,6 @@ header h1 {
 .profile a {
     color: #351C1C;
     font-size: 25px;
-    margin: 0 1em;
 }
 
 .dropbtn i {
@@ -60,13 +132,23 @@ header h1 {
 .searchBar {
     margin: 0 auto;
     align-content: center;
+    display: flex;
 }
 
 .searchBar input {
     height: 3em;
     width: 40em;
     border-color: var(--main-color);
+    border: none;
 }
+
+.searchBar button {
+    border: none;
+    background-color: #351C1C;
+    color: whitesmoke;
+    padding: 1em;
+}
+
 
 /* The dropdown container */
 .dropdown {
@@ -126,9 +208,9 @@ footer {
 footer .links {
     margin: 2em 0;
     padding: 1em 2em;
-    display:flex;
-    gap:3em;
-    align-items:center;
+    display: flex;
+    gap: 3em;
+    align-items: center;
     margin: 0 auto;
 }
 
@@ -147,7 +229,7 @@ footer .links a {
     text-decoration: none;
     color: white;
     font-size: 2em;
-   
+
 }
 
 /*-------------------------------------------------Restaurant--------------------------------------------------------*/
@@ -187,12 +269,12 @@ h2 {
     visibility: hidden;
 }
 
-.checked{
+.checked {
     color: #ddd;
 }
 
-.full{
-    color:#745A5A;
+.full {
+    color: #745A5A;
 }
 
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
@@ -235,7 +317,7 @@ h2 {
     margin: 0 auto 0 0;
 }
 
-.restaurantInfo p{
+.restaurantInfo p {
     visibility: hidden;
 }
 
@@ -275,7 +357,8 @@ h2 {
     justify-self: center;
 }
 
-.dish,.newDish {
+.dish,
+.newDish {
     display: flex;
     width: 32em;
     height: 16em;
@@ -285,7 +368,8 @@ h2 {
     border: var(--main-color) solid 5px;
     border-radius: 22px;
 }
-.newDish{
+
+.newDish {
     display: flex;
     width: auto;
     height: auto;
@@ -295,19 +379,22 @@ h2 {
     border: var(--main-color) solid 5px;
     border-radius: 22px;
 }
+
 .newDish .information {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.dish .information .name,.newDish .information .name {
+.dish .information .name,
+.newDish .information .name {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dish .information .price,.newDish .information .price {
+.dish .information .price,
+.newDish .information .price {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -339,13 +426,13 @@ h2 {
     gap: 1em;
 }
 
-#reviewBody{
+#reviewBody {
     flex: auto;
     background-color: whitesmoke;
     text-align: center;
 }
 
-#resposeBody{
+#resposeBody {
     border: none;
     height: 3em;
     width: 100%;
@@ -356,7 +443,7 @@ h2 {
     border-top: solid var(--main-color) 2px;
 }
 
-.responseBox form{
+.responseBox form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -386,7 +473,7 @@ h2 {
     margin: 0 0 0 auto;
     display: flex;
     flex-direction: column;
- }
+}
 
 .pastOrderBox {
     width: 100%;
@@ -452,7 +539,8 @@ h2 {
     border: none;
     font-size: 15px;
 }
-.pastOrder #review{
+
+.pastOrder #review {
     margin: 0 0 auto 0;
 }
 
@@ -620,7 +708,7 @@ signUp button {
 
     cursor: pointer;
 
-  
+
     opacity: 0.8;
 }
 
@@ -772,12 +860,11 @@ signUp button {
 
 /******************************************************Favorited Page *********************************************/
 
-.favorited{
-    height: max-content
-}
 .favoritedTopPage {
     display: flex;
-    margin: 2em 20em 2em 16em;
+    gap: 2em;
+    margin: 2em auto;
+    justify-content: center;
 }
 
 .favoritedTopPage select {
@@ -787,8 +874,7 @@ signUp button {
     border-radius: 22px;
 }
 
-
-.favoritedTopPage>a {
+.favoritedTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
     border-radius: 22px;
@@ -797,18 +883,9 @@ signUp button {
     color: black;
 }
 
-.favoritedTopPage>a.selected {
+.favoritedTopPage a.selected {
     background-color: var(--main-color);
     color: #F3F3F3;
-}
-
-
-.favoritedTopPage>a:nth-child(1) {
-    margin-right: 2em;
-}
-
-.favoritedTopPage>a:nth-child(2) {
-    margin: 0 auto 0 0;
 }
 
 /***********************************Profile************************************************/
@@ -826,7 +903,8 @@ signUp button {
     margin: 4em auto 4em 6em;
 }
 
-.customerInformation>form ,.addRestaurant form{
+.customerInformation>form,
+.addRestaurant form {
     display: flex;
     flex-direction: column;
     border: solid var(--main-color) 2px;
@@ -837,7 +915,7 @@ signUp button {
 
 }
 
-.customerInformation div{
+.customerInformation div {
     display: flex;
     gap: 1em;
 }
@@ -878,30 +956,32 @@ signUp button {
     color: whitesmoke;
     background-color: var(--main-color);
 }
+
 .ownedRestaurant a,
 .customerInformation label {
     color: var(--darker-color);
     font-weight: 600;
 }
 
-.ownedRestaurants button{
+.ownedRestaurants button {
     margin: 1em;
     padding: 10px;
 }
 
 /***********************************************Orders (OWNER)**********************************************************/
 
-#orders{
+#orders {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     justify-content: center;
     margin: 2em;
-    
+
 }
-.order{
+
+.order {
     display: flex;
-    width: auto ;
+    width: auto;
     height: auto;
     gap: 25px;
     background-color: white;
@@ -909,7 +989,7 @@ signUp button {
     border: var(--main-color) solid 5px;
     border-radius: 22px;
 }
+
 .order form {
     align-self: center;
 }
-
