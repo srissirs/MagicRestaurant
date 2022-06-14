@@ -16,6 +16,7 @@
   require_once(__DIR__.'/../templates/common.tpl.php');
   require_once(__DIR__.'/../templates/restaurant.tpl.php');
 
+   if (!isset($_SESSION['userId'])) header('Location: signin.php');
 
 
   $db = getDatabaseConnection();
