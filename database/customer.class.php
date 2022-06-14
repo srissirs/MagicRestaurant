@@ -179,7 +179,8 @@ class Customer
           $dish['DishName'],
           floatval($dish['DishPrice']),
           intval($dish['RestaurantId']),
-          $dish["CategoryName"]
+          $dish["CategoryName"],
+          intval($dish['DishPhoto'])
         );
       }
       return $dishes;

@@ -22,10 +22,10 @@ if (searchDishMain) {
 
       const dishInfo = document.createElement('div')
       dishInfo.className = 'information'
-
+      db=
       dishCard.className = 'dish'
       const img = document.createElement('img')
-      img.src = "../images/restaurant.jpg"
+      img.src = "../images/" + dish.photo + ".jpg"
       const dishTitle = document.createElement('div')
       dishTitle.className = 'name'
       const heartIconDish = document.createElement('i')
