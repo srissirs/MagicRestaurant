@@ -143,19 +143,19 @@ function starReview() {
     zz = x.querySelector("p")
     zz.textContent = Math.round(zz.textContent)
     if (zz.textContent >= 1) {
-      yy[0].classList.add("full")
+      yy[0].className= "fa fa-star checked full"
     }
     if (zz.textContent >= 2) {
-      yy[1].classList.add("full")
+      yy[1].className= "fa fa-star checked full"
     }
     if (zz.textContent >= 3) {
-      yy[2].classList.add("full")
+      yy[2].className= "fa fa-star checked full"
     }
     if (zz.textContent >= 4) {
-      yy[3].classList.add("full")
+      yy[3].className= "fa fa-star checked full"
     }
     if (zz.textContent == 5) {
-      yy[4].classList.add("full")
+      yy[4].className= "fa fa-star checked full"
     }
   })
 }
@@ -409,20 +409,20 @@ function drawStar() {
   z = x.querySelector("p")
 
   z.textContent = Math.round(z.textContent)
-  if (z.textContent >= 1) {
-    y[0].classList.add("full")
+  if (zz.textContent >= 1) {
+    y[0].className= "fa fa-star checked full"
   }
-  if (z.textContent >= 2) {
-    y[1].classList.add("full")
+  if (zz.textContent >= 2) {
+    y[1].className= "fa fa-star checked full"
   }
-  if (z.textContent >= 3) {
-    y[2].classList.add("full")
+  if (zz.textContent >= 3) {
+    y[2].className= "fa fa-star checked full"
   }
-  if (z.textContent >= 4) {
-    y[3].classList.add("full")
+  if (zz.textContent >= 4) {
+    y[3].className= "fa fa-star checked full"
   }
-  if (z.textContent == 5) {
-    y[4].classList.add("full")
+  if (zz.textContent == 5) {
+    y[4].className= "fa fa-star checked full"
   }
 }
 
