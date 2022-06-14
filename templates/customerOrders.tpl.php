@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-require_once(__DIR__ . '/../database/customerOrders.class.php')
+require_once(__DIR__ . '/../database/customerOrders.class.php');
+include_once(__DIR__.'/session.php');
 ?>
 
 <?php function drawCustomerOrders(array $pastOrders)
@@ -41,6 +42,9 @@ require_once(__DIR__ . '/../database/customerOrders.class.php')
 
           </div>
           <div class="review-popup" id="myForm" style="display: none;">
+           <p id="error_messages" style="color: #946B6B"> 
+            <?php if(isset($_SESSION['ERROR_ADD_REV'])) echo htmlentities($_SESSION['ERROR_ADD_REV']); unset($_SESSION['ERROR_ADD_REV'])?>
+            </p>  
             <form action="../actions/action_add_review.php" class="form-container" method="post">
               <input type="text" name="reviewText" placeholder="  Write your review" required>
               <div> Rating: <input type="number" name="reviewRating" required max="5" min="0"> </div>

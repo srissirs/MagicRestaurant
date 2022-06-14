@@ -15,7 +15,16 @@ if (!isset($_SESSION['userId'])) header('Location: ../pages/signin.php');
 
 $db = getDatabaseConnection();
 
-
-ReviewRestaurant::addReview($db, $_SESSION['userId'], intval($_POST['restaurantId']), strval($_POST['reviewText']), intval($_POST['reviewRating']));
+if ( !preg_match ("/^[A-Za-zÀ-ȕ0-9!?(),.-:\s]*$/",$_POST['reviewText'])) {
+  $_SESSION['ERROR_ADD_REV'] = 'Text invalid';
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
+ } 
+if($_POST['reviewRating']>5 || $_POST['reviewRating']<1){
+  $_SESSION['ERROR_ADD_REV'] = 'Rating invalid (1 to 5)';
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+ if(!isset($_SESSION['ERROR_ADD_REV'])){
+  ReviewRestaurant::addReview($db, $_SESSION['userId'], intval($_POST['restaurantId']), strval($_POST['reviewText']), intval($_POST['reviewRating']));
+ }
 
   header('Location:../pages/pastOrders.php');
