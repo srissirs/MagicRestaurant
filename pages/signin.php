@@ -12,7 +12,7 @@
   <section id="SignIn">
     <?php include_once('../session.php'); ?>
     <form action="../actions/action_login.php" method="post" class="register_form">
-      <input type="text" id="fname" name="fname" placeholder="Name"><br>
+      <input type="text" id="fname" name="fname" placeholder="Email"><br>
       <input id="lname" name="lname" type="password" placeholder="Password"><br>
       <button type="submit"> Sign In</button><br>
       <a href="signup.php">Sign up</a> <br>
