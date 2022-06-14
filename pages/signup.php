@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/e93bc86ff0.js" crossorigin="anonymous"></script>
   </head>
-  <body id="loginPage">
+  <body id="Page">
     <section id="Signup">
 
       <form action="../actions/action_signup.php" method="post" class="register_form">

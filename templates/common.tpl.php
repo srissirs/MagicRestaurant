@@ -34,7 +34,7 @@ session_start();
           <i class="fa-solid fa-bars"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Favorites</a>
+          <a href="../pages/favorited.php">Favorites</a>
           <a href="../pages/pastOrders.php">Past Orders</a>
           <a href="../pages/mainRestaurants.php">Restaurants</a>
           <form action="../actions/action_logout.php" method="post" class="logout">

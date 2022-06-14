@@ -4,10 +4,23 @@ declare(strict_types=1);
 
 require_once(__DIR__ . '/../database/connection.database.php');
 
+
 require_once(__DIR__ . '/../database/restaurant.class.php');
 require_once(__DIR__ . '/../database/review.class.php');
 require_once(__DIR__ . '/../database/reviewResponse.class.php');
+require_once(__DIR__.'/../database/customer.class.php');
 ?>
+
+
+<?php function drawfav()
+{ ?>
+  <button><i class="fa fa-star checked full"></i></button>
+<?php } ?>
+
+<?php function drawstr()
+{ ?>
+  <button><i class="fa fa-star checked"></i></button>
+<?php } ?>
 
 <?php function drawRestaurants(array $restaurants)
 { ?>
@@ -28,6 +41,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
     <div class="restaurantInfo">
       <h2><?= $restaurant->restaurantName ?></h2>
       <h3>
+        <p> <?= $restaurant->rating ?> </p>
         <i class="fa fa-star checked"></i>
         <i class="fa fa-star checked"></i>
         <i class="fa fa-star checked"></i>
@@ -39,7 +53,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
   </section>
 <?php } ?>
 
-<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories, int $isOwner)
+<?php function drawRestaurant(Restaurant $restaurant, array $dishes, array $reviews, array $categories, int $isOwner, array $restaurantOrders)
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
@@ -48,6 +62,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <a> Reviews </a>
         <?php if ($isOwner) { ?>
           <a class="addADish" onclick="addADish()"> Add a Dish</a>
+          <a class="orderStates"> Order States </a>
         <?php } ?>
       </div>
 
@@ -56,7 +71,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <p> Cart </p>
 
         <total class="totalSum" id="totalSum">Total : </total>
-        <button onclick="addOrderDish()"> HERE </button>
+        <button onclick="addOrderDish()"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -66,7 +81,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
           </a>
         </div>
       <?php } ?>
-      <form action="#">
+      <form>
         <select>
           <option value="Tudo"> Tudo </option>
           <?php foreach ($categories as $category) { ?>
@@ -76,7 +91,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
       </form>
     </section>
     <section id="dishes">
-      <div class="dish" id="newDish" style="display: none;">
+      <div class="newDish" id="newDish" style="display: none;">
         <form action="../actions/action_add_dish.php" method="post" enctype="multipart/form-data">
           <div class="information">
             <input name="restaurantId" hidden value="<?= $restaurant->restaurantId ?>">
@@ -101,18 +116,24 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
         <div class="dish">
           <?php
           $db = getDatabaseConnection();
-          $dishPhoto = Dish::getDishPhoto($db, $dish);
-          if ($dishPhoto === (0)) { ?>
-            <img src="https://picsum.photos/200?1" alt="Dish Photo">
-          <?php } else { ?>
-            <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
-          <?php } ?>
+          $dishPhoto = Dish::getDishPhoto($db, $dish); ?>
+          <img src="../images/<?= $dishPhoto ?>.jpg" alt="Dish Photo">
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <?php if (!$isOwner) { ?>
-                <i class="fa-regular fa-star"></i>
-              <?php } ?>
+              <form action="../actions/action_favorite_dish.php" method="post" class="register_form">
+                <input type="number" id="dishId" name="dishId" style="display:none " value=<?= $dish->dishId ?>>
+                <input type="number" id="customerId" name="customerId" style="display:none " value=<?= $_SESSION['userId'] ?>>
+                <input type="number" id="restaurantId" name="restaurantId" style="display:none " value=<?= $restaurant->restaurantId ?>>
+                <?php if (!$isOwner) {
+                  if (Customer::isFavorited($db, $_SESSION['userId'], $dish->dishId)) {
+                    drawfav();
+                  } else {
+                    drawstr();
+                  }
+                }
+                ?>
+              </form>
             </div>
             <category>
               <p id="category"> <?= $dish->dishCategory ?> </p>
@@ -139,11 +160,12 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
           <div class="info">
             <p id="name"> <?= ReviewRestaurant::getReviewerName($db, intval($review->customerId)) ?> </p>
             <h3>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <p><?= $review->reviewRating ?></p>
             </h3>
           </div>
           <p id="reviewBody"> <?= $review->reviewText ?> </p>
@@ -165,7 +187,25 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
       </div>
     <?php } ?>
   </section>
-
+  <section id="orders">
+    <?php foreach ($restaurantOrders as $order) { ?>
+      <div class="order">
+        <div class=OrderInfo>
+          <p> <?= Customer::getCustomer($db, $order->customerId)->userName ?></p>
+          <p> <?= $order->orderDate ?></p>
+        </div>
+        <form id="alterState">
+          <input hidden id="orderId" name="orderId" value="<?= $order->orderId ?>">
+          <select onchange="alterState()" name="state" id="orderState">
+            <option> <?= $order->orderState ?></option>
+            <?php foreach (CustomerOrder::getOtherStates($order->orderState) as $state) { ?>
+              <option> <?= $state ?> </option>
+            <?php } ?>
+          </select>
+        </form>
+      </div>
+    <?php } ?>
+  </section>
   </section>
 
 <?php } ?>
