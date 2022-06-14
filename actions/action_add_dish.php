@@ -49,11 +49,29 @@ if ($customer->restaurantOwner) {
         imagejpeg($small, $folder);
     }
 
-    $categoryId = Dish::getDishCategory($db, $_POST['dishCategory']);
-    if ($categoryId === (-1)) {
-        $categoryId = Dish::addCategory($db, $_POST['dishCategory'], intval($_POST['restaurantId']));
+    if ( !preg_match ("/^[A-Za-zÀ-ȕ\s]+$/",$_POST['dishName'])) {
+        $_SESSION['ERROR_ADD_DISH'] = 'Name can only contain letters and spaces';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+       }
+
+    if ( !preg_match ("/^[+]?\d+([.]\d+)?$/",$_POST['dishPrice'])) {
+        $_SESSION['ERROR_ADD_DISH'] = 'Price needs to be a number';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+       }
+    
+    if ( !preg_match ("/^[A-Za-zÀ-ȕ\s]+$/",$_POST['dishCategory'])) {
+        $_SESSION['ERROR_ADD_DISH'] = 'Category can only contain letters and spaces';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+       }
+
+    if(!isset($_SESSION['ERROR_ADD_DISH'])){
+        $categoryId = Dish::getDishCategory($db, $_POST['dishCategory']);
+        if ($categoryId === (-1)) {
+            $categoryId = Dish::addCategory($db, $_POST['dishCategory'], intval($_POST['restaurantId']));
+        }
+        Dish::addDish($db, $_POST['dishName'], floatval($_POST['dishPrice']), intval($_POST['restaurantId']),  intval($categoryId), intval($dishId));
+    
     }
-    Dish::addDish($db, $_POST['dishName'], floatval($_POST['dishPrice']), intval($_POST['restaurantId']),  intval($categoryId), intval($dishId));
-}
+  }
 
 header('Location:../pages/restaurant.php?id=' . intval($_POST['restaurantId']));
