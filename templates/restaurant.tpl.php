@@ -69,8 +69,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
-
-        <total class="totalSum" id="totalSum">Total : </total>
+        <div class="totalSum" id="totalSum">Total : </div>
         <button onclick="addOrderDish()"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
@@ -96,10 +95,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
               <label> Dish Name: </label>
               <input name="dishName">
             </div>
-            <category>
+            <div>
               <label> Dish Category: </label>
               <input name="dishCategory">
-            </category>
+            </div>
             <div class="price">
               <label> Dish Price: </label>
               <input name="dishPrice">
@@ -127,9 +126,9 @@ require_once(__DIR__ . '/../database/customer.class.php');
                 </button>
               <?php } ?>
             </div>
-            <category>
-              <p id="category"> <?= $dish->dishCategory ?> </p>
-            </category>
+            <div class="dishCategory">
+              <p> <?= $dish->dishCategory ?> </p>
+            </div>
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <?php if (!$isOwner) { ?>

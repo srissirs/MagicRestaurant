@@ -368,7 +368,6 @@ function filter() {
 
     count++
   }
-  const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
   if (dropdown == null) return
   dropdown.addEventListener('change', function (e) {
@@ -381,7 +380,7 @@ function filter() {
       var dish = document.querySelectorAll("div.dish")
       dish.forEach(el => {
         inf = el.querySelector("div.information")
-        category = inf.querySelector("category")
+        category = inf.querySelector("div.dishCategory")
 
         catText = category.querySelector("p").textContent
 
