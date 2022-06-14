@@ -26,7 +26,7 @@ require_once(__DIR__.'/../templates/common.tpl.php');
   <div class="mainPage">
    
     <div class="mainPageText">
-        <p style="font-size:65px">We give food to the hungry</p>
+        <p style="font-size:62px">We give food to the hungry</p>
       </div>
   </div>
 </body>

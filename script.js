@@ -22,20 +22,24 @@ if (searchDishMain) {
 
       const dishInfo = document.createElement('div')
       dishInfo.className = 'information'
-      db=
+
       dishCard.className = 'dish'
       const img = document.createElement('img')
       img.src = "../images/" + dish.photo + ".jpg"
       const dishTitle = document.createElement('div')
       dishTitle.className = 'name'
-      const heartIconDish = document.createElement('i')
-      heartIconDish.className = 'fa-regular fa-heart'
+      const starIconDish = document.createElement('button')
+      starIconDish.className = 'fa-regular fa-star'
+                              
+      starIconDish.onclick = function () {
+        toggleFavorite(dish.dishId,1)
+      }
 
       const name = document.createElement('p')
       name.id = 'name'
       name.textContent = dish.dishName
       dishTitle.appendChild(name)
-      dishTitle.appendChild(heartIconDish)
+      dishTitle.appendChild(starIconDish)
 
 
       const category = document.createElement('p')
@@ -89,7 +93,6 @@ if (searchRestaurantMain) {
       restaurantCard.className = 'restaurantCard'
       const img = document.createElement('img')
       img.src = "../images/restaurant.jpg"
-      //img.src = 'https://picsum.photos/200?' + restaurant.restaurantId
       const mainRestaurantsInfo = document.createElement('div')
       mainRestaurantsInfo.className = 'mainRestaurantsInfo'
 
@@ -98,10 +101,17 @@ if (searchRestaurantMain) {
       const link = document.createElement('a')
       link.href = 'restaurant.php?id=' + restaurant.restaurantId
       link.textContent = restaurant.restaurantName
-      const heartIcon = document.createElement('i')
-      heartIcon.className = 'fa-regular fa-heart'
+      starIconButton = document.createElement('button')
+      starIconButton.className = 'fa-regular fa-star'
+
+                              
+      starIconButton.onclick = function () {
+        toggleFavorite(restaurant.restaurantId,0)
+      }
+      
       mainRestaurantsName.appendChild(link)
-      mainRestaurantsName.appendChild(heartIcon)
+      mainRestaurantsName.appendChild(starIconButton)
+      
 
       const mainRestaurantsRating = document.createElement('div')
       mainRestaurantsRating.className = 'mainRestaurantsRating'
@@ -123,11 +133,19 @@ if (searchRestaurantMain) {
 }
 
 starReview()
-restaurantsAndDishes()
+
 drawStar()
 filter()
+restaurantsAndDishes()
 restaurantButtons()
+
 showTotalPrice()
+
+
+
+
+
+
 
 
 function starReview() {
@@ -143,19 +161,19 @@ function starReview() {
     zz = x.querySelector("p")
     zz.textContent = Math.round(zz.textContent)
     if (zz.textContent >= 1) {
-      yy[0].classList.add("full")
+      yy[0].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 2) {
-      yy[1].classList.add("full")
+      yy[1].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 3) {
-      yy[2].classList.add("full")
+      yy[2].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 4) {
-      yy[3].classList.add("full")
+      yy[3].className = "fa fa-star checked full"
     }
     if (zz.textContent == 5) {
-      yy[4].classList.add("full")
+      yy[4].className = "fa fa-star checked full"
     }
   })
 }
@@ -254,7 +272,9 @@ function restaurantButtons() {
       obutton.classList.remove("selected")
       orders.remove()
       reviews.remove()
+      
       restaurant.appendChild(dishes)
+
     }
     addADish()
   })
@@ -344,7 +364,7 @@ function showTotals() {
     total += quantity * price;
   }
   const cart = document.getElementById('totalSum');
-  cart.textContent = "Total: " + total;
+  cart.textContent = "Total: " + total.toFixed(2);
 }
 
 function addDishes(a, count) {
@@ -368,7 +388,6 @@ function filter() {
 
     count++
   }
-  const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
   if (dropdown == null) return
   dropdown.addEventListener('change', function (e) {
@@ -381,7 +400,7 @@ function filter() {
       var dish = document.querySelectorAll("div.dish")
       dish.forEach(el => {
         inf = el.querySelector("div.information")
-        category = inf.querySelector("category")
+        category = inf.querySelector("div.dishCategory")
 
         catText = category.querySelector("p").textContent
 
@@ -410,19 +429,19 @@ function drawStar() {
 
   z.textContent = Math.round(z.textContent)
   if (z.textContent >= 1) {
-    y[0].classList.add("full")
+    y[0].className = "fa fa-star checked full"
   }
   if (z.textContent >= 2) {
-    y[1].classList.add("full")
+    y[1].className = "fa fa-star checked full"
   }
   if (z.textContent >= 3) {
-    y[2].classList.add("full")
+    y[2].className = "fa fa-star checked full"
   }
   if (z.textContent >= 4) {
-    y[3].classList.add("full")
+    y[3].className = "fa fa-star checked full"
   }
   if (z.textContent == 5) {
-    y[4].classList.add("full")
+    y[4].className = "fa fa-star checked full"
   }
 }
 
@@ -597,7 +616,7 @@ function showTotalPrice() {
       totalPrice = totalPrice + quantity * price
     })
     inse = box.querySelector("#total")
-    inse.textContent += totalPrice + "$"
+    inse.textContent += totalPrice.toFixed(2) + "$"
   })
 }
 
@@ -607,7 +626,7 @@ function toggleFavorite(id, dish) {
   let unfavorite
   if (favorite.className === "fa fa-star checked full") {
     unfavorite = 1
-    favorite.className = "fa fa-star checked"
+    favorite.className = "fa-regular fa-star"
   } else {
     unfavorite = 0
     favorite.className = "fa fa-star checked full"
@@ -624,5 +643,12 @@ function toggleFavorite(id, dish) {
   })
     .then(response => response.json())
     .then(json => console.log(json));
+}
 
+function clearDishes() {
+  let dishes = document.querySelectorAll(".cartDiv")
+  for (var dish of dishes) {
+    dish.remove()
+  }
+  showTotals()
 }

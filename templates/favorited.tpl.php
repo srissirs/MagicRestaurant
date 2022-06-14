@@ -43,7 +43,7 @@ require_once(__DIR__.'/../database/dish.class.php');
               <?php 
                 $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
                 if($isFavorite)
-                $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
+                $star ="fa fa-star checked full"; else $star = "fa-regular fa-star"; ?>
                 <button class="<?= $star ?>"  onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
                 </button>
               
@@ -71,7 +71,7 @@ require_once(__DIR__.'/../database/dish.class.php');
                             $isFavorite = Customer::isRestaurantFavorited($db, intval($_SESSION['userId']), intval($restaurant->restaurantId));
                             if ($isFavorite)
                                 $star = "fa fa-star checked full";
-                            else $star = "fa fa-star checked"; ?>
+                            else $star = "fa-regular fa-star"; ?>
                             <button class="<?=$star?>" onclick="toggleFavorite(<?= $restaurant->restaurantId ?>,0)"></button>
                         <?php } ?>
                     </div>

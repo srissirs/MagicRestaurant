@@ -53,6 +53,12 @@
     $_SESSION['ERROR_NAME'] = 'Phone number invalid';
     header('Location: ' . $_SERVER['HTTP_REFERER']);
    } 
+   if (!preg_match ("/^[A-Za-zÀ-ȕ0-9!?().-:\s]*$/",$_POST['password'])) {
+		$_SESSION['ERROR_NAME'] = 'Password invalid';
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
+	   } 
+  
+     
   if ($customer && !isset($_SESSION['ERROR_NAME'])) {
     $customer->firstName = $_POST['first_name'];
     $customer->lastName = $_POST['last_name'];
@@ -63,6 +69,17 @@
     $customer->customerCountry = $_POST['country'];
     $customer->customerPostalCode = $_POST['postal_code'];
     $customer->customerPhone = $_POST['phone'];
+    if($_POST['password']==""){
+	    $old =  Customer::getCustomer($db,getUserID()) ;
+      $customer->passwordHash = $old->passwordHash;
+    }
+    else{
+      $password = $_POST['password'];
+      $options = ['cost' => 12];
+      $customer->passwordHash = password_hash($password,PASSWORD_DEFAULT,$options);
+    }
+    
+   
     $customer->saveProfile($db);
   }
 

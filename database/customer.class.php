@@ -19,7 +19,7 @@ class Customer
   public string $passwordHash;
 
 
-  public function __construct(int $customerId, string $userName, string $firstName, string $lastName, string $customerAddress, string $customerCity, string $customerCountry, string $customerPostalCode, string $customerPhone, string $customerEmail, int $restaurantOwner)
+  public function __construct(int $customerId, string $userName, string $firstName, string $lastName, string $customerAddress, string $customerCity, string $customerCountry, string $customerPostalCode, string $customerPhone, string $customerEmail, int $restaurantOwner, string $passwordHash)
   {
     $this->customerId = $customerId;
     $this->userName = $userName;
@@ -32,6 +32,7 @@ class Customer
     $this->customerPhone = $customerPhone;
     $this->customerEmail = $customerEmail;
     $this->restaurantOwner = $restaurantOwner;
+    $this->passwordHash = $passwordHash;
   }
 
   function name()
@@ -42,11 +43,11 @@ class Customer
   function saveProfile($db)
   {
     $stmt = $db->prepare('
-        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?
+        UPDATE Customer SET Username = ?, FirstName = ?, LastName = ?, CustomerAddress = ?, CustomerCity = ?, CustomerCountry = ?, CustomerPostalCode = ?, CustomerPhone = ?, CustomerEmail = ?, Password = ?
         WHERE CustomerId = ?
       ');
 
-    $stmt->execute(array($this->userName, $this->firstName, $this->lastName, $this->customerAddress, $this->customerCity, $this->customerCountry, $this->customerPostalCode, $this->customerPhone, $this->customerEmail, $this->customerId));
+    $stmt->execute(array($this->userName, $this->firstName, $this->lastName, $this->customerAddress, $this->customerCity, $this->customerCountry, $this->customerPostalCode, $this->customerPhone, $this->customerEmail, $this->passwordHash, $this->customerId));
   }
 
   static function getCustomerWithPassword(PDO $db, string $customerEmail, string $password): ?Customer
@@ -54,32 +55,36 @@ class Customer
     $stmt = $db->prepare('
         SELECT *
         FROM Customer 
-        WHERE lower(CustomerEmail) = ? AND Password = ?
+        WHERE lower(CustomerEmail) = ?
       ');
 
-    $stmt->execute(array(strtolower($customerEmail), sha1($password)));
+    $stmt->execute(array(strtolower($customerEmail)));
 
     if ($customer = $stmt->fetch()) {
-      return new Customer(
-        intval($customer['CustomerId']),
-        $customer['Username'],
-        $customer['FirstName'],
-        $customer['LastName'],
-        $customer['CustomerAddress'],
-        $customer['CustomerCity'],
-        $customer['CustomerCountry'],
-        $customer['CustomerPostalCode'],
-        $customer['CustomerPhone'],
-        $customer['CustomerEmail'],
-        intval($customer['RestaurantOwner'])
-      );
-    } else return null;
+      if(password_verify($password,$customer['Password'])){
+        return new Customer(
+          intval($customer['CustomerId']),
+          $customer['Username'],
+          $customer['FirstName'],
+          $customer['LastName'],
+          $customer['CustomerAddress'],
+          $customer['CustomerCity'],
+          $customer['CustomerCountry'],
+          $customer['CustomerPostalCode'],
+          $customer['CustomerPhone'],
+          $customer['CustomerEmail'],
+          intval($customer['RestaurantOwner']),
+          $customer['Password']
+        );
+      }
+    } 
+    return null;
   }
 
   static public function getCustomer(PDO $db, int $id): Customer
   {
     $stmt = $db->prepare('
-        SELECT CustomerId, Username, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, RestaurantOwner
+        SELECT CustomerId, Username, FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password, RestaurantOwner
         FROM Customer 
         WHERE CustomerId = ?
       ');
@@ -98,7 +103,8 @@ class Customer
         $customer['CustomerPostalCode'],
         $customer['CustomerPhone'],
         $customer['CustomerEmail'],
-        intval($customer['RestaurantOwner'])
+        intval($customer['RestaurantOwner']),
+        $customer['Password']
       );
     } else return null;
   }
@@ -241,7 +247,8 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
 
   static public function createUser($db, $username, $firstName, $lastName, $address, $city, $country, $postalCode, $phone, $email, $password, $restaurantOwner): int
   {
-    $passwordHash = sha1($password);
+    $options = ['cost' => 12];
+    $passwordHash = password_hash($password,PASSWORD_DEFAULT,$options);
 
     $stmt = $db->prepare('INSERT INTO Customer ( FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username, RestaurantOwner) 
         VALUES (:FirstName,:LastName,:CustomerAddress,:CustomerCity,:CustomerCountry,:CustomerPostalCode, :CustomerPhone, :CustomerEmail,:Password, :Username,:RestaurantOwner)');
@@ -270,7 +277,7 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
         SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating
         FROM Restaurant, Customer,RestaurantOwner
         WHERE Customer.CustomerId = ?
-        AND Customer.RestaurantOwner = RestaurantOwner.RestaurantOwnerId
+        AND Customer.CustomerId = RestaurantOwner.RestaurantOwnerId
         AND RestaurantOwner.RestaurantId = Restaurant.RestaurantId
         Group By Restaurant.RestaurantId;
         ');

@@ -31,11 +31,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
       <h2><?= $restaurant->restaurantName ?></h2>
       <h3>
         <p> <?= $restaurant->rating ?> </p>
-        <i class="fa fa-star checked"></i>
-        <i class="fa fa-star checked"></i>
-        <i class="fa fa-star checked"></i>
-        <i class="fa fa-star checked"></i>
-        <i class="fa fa-star checked"></i>
+        <i class="fa-regular fa-star full"></i>
+        <i class="fa-regular fa-star full"></i>
+        <i class="fa-regular fa-star full"></i>
+        <i class="fa-regular fa-star full"></i>
+        <i class="fa-regular fa-star full"></i>
       </h3>
       <h4> <?= $restaurant->restaurantAddress ?> </h4>
     </div>
@@ -46,16 +46,16 @@ require_once(__DIR__ . '/../database/customer.class.php');
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
-  
-        <div class="buttons">
-          <a class="dishesButton"> Dishes </a>
-          <a class="reviewsButton"> Reviews </a>
-          <?php if ($isOwner) { ?>
-            <a class="addADish"> Add a Dish</a>
-            <a class="orderStates"> Order States </a>
-          <?php } ?>
 
-          <form>
+      <div class="buttons">
+        <a class="dishesButton"> Dishes </a>
+        <a class="reviewsButton"> Reviews </a>
+        <?php if ($isOwner) { ?>
+          <a class="addADish"> Add a Dish</a>
+          <a class="orderStates"> Order States </a>
+        <?php } ?>
+
+        <form>
           <select>
             <option value="Tudo"> Tudo </option>
             <?php foreach ($categories as $category) { ?>
@@ -64,14 +64,12 @@ require_once(__DIR__ . '/../database/customer.class.php');
           </select>
         </form>
       </div>
-       
-       
+
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
-
-        <total class="totalSum" id="totalSum">Total : </total>
-        <button onclick="addOrderDish()"> Finish you order </button>
+        <div class="totalSum" id="totalSum">Total : </div>
+        <button onclick="addOrderDish();clearDishes();"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -86,19 +84,20 @@ require_once(__DIR__ . '/../database/customer.class.php');
     <section id="dishes">
       <div class="newDish" id="newDish" style="display: none;">
         <form action="../actions/action_add_dish.php" method="post" enctype="multipart/form-data">
-          <p id="error_messages" style="color: #946B6B"> 
-                <?php if(isset($_SESSION['ERROR_ADD_DISH'])) echo htmlentities($_SESSION['ERROR_ADD_DISH']); unset($_SESSION['ERROR_ADD_DISH'])?>
-              </p>  
+          <p id="error_messages" style="color: #946B6B">
+            <?php if (isset($_SESSION['ERROR_ADD_DISH'])) echo htmlentities($_SESSION['ERROR_ADD_DISH']);
+            unset($_SESSION['ERROR_ADD_DISH']) ?>
+          </p>
           <div class="information">
             <input name="restaurantId" hidden value="<?= $restaurant->restaurantId ?>">
             <div class="name">
               <label> Dish Name: </label>
               <input name="dishName">
             </div>
-            <category>
+            <div>
               <label> Dish Category: </label>
               <input name="dishCategory">
-            </category>
+            </div>
             <div class="price">
               <label> Dish Price: </label>
               <input name="dishPrice">
@@ -121,18 +120,18 @@ require_once(__DIR__ . '/../database/customer.class.php');
                 $isFavorite = Customer::isDishFavorited($db, intval($_SESSION['userId']), intval($dish->dishId));
                 if ($isFavorite)
                   $star = "fa fa-star checked full";
-                else $star = "fa fa-star checked"; ?>
+                else $star = "fa-regular fa-star full"; ?>
                 <button class="<?= $star ?>" onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
                 </button>
               <?php } ?>
             </div>
-            <category>
-              <p id="category"> <?= $dish->dishCategory ?> </p>
-            </category>
+            <div class="dishCategory">
+              <p> <?= $dish->dishCategory ?> </p>
+            </div>
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <?php if (!$isOwner) { ?>
-                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> )"></button>
+                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> );openNav();"></button>
               <?php } ?>
             </div>
           </div>
@@ -151,11 +150,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
           <div class="info">
             <p id="name"> <?= ReviewRestaurant::getReviewerName($db, intval($review->customerId)) ?> </p>
             <h3>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
+              <i class="fa-regular fa-star full"></i>
+              <i class="fa-regular fa-star full"></i>
+              <i class="fa-regular fa-star full"></i>
+              <i class="fa-regular fa-star full"></i>
+              <i class="fa-regular fa-star full"></i>
               <p><?= $review->reviewRating ?></p>
             </h3>
           </div>
@@ -164,9 +163,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
         <?php if ($isOwner || !($response->reviewText === "")) { ?>
           <section class="responseBox">
             <?php if ($isOwner && ($response->reviewText === "")) { ?>
-              <p id="error_messages" style="color: #946B6B"> 
-                <?php if(isset($_SESSION['ERROR_ADD_RES'])) echo htmlentities($_SESSION['ERROR_ADD_RES']); unset($_SESSION['ERROR_ADD_RES'])?>
-              </p>  
+              <p id="error_messages" style="color: #946B6B">
+                <?php if (isset($_SESSION['ERROR_ADD_RES'])) echo htmlentities($_SESSION['ERROR_ADD_RES']);
+                unset($_SESSION['ERROR_ADD_RES']) ?>
+              </p>
               <button> Respond </button>
               <form action="../actions/action_add_response.php" method="post">
                 <input type="text" id="resposeBody" name="responseText" placeholder="Type your response">
