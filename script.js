@@ -28,14 +28,14 @@ if (searchDishMain) {
       img.src = "../images/restaurant.jpg"
       const dishTitle = document.createElement('div')
       dishTitle.className = 'name'
-      const heartIconDish = document.createElement('i')
-      heartIconDish.className = 'fa-regular fa-heart'
+      const starIconDish = document.createElement('button')
+      starIconDish.className = 'fa-regular fa-star'
 
       const name = document.createElement('p')
       name.id = 'name'
       name.textContent = dish.dishName
       dishTitle.appendChild(name)
-      dishTitle.appendChild(heartIconDish)
+      dishTitle.appendChild(starIconDish)
 
 
       const category = document.createElement('p')
@@ -607,7 +607,7 @@ function toggleFavorite(id, dish) {
   let unfavorite
   if (favorite.className === "fa fa-star checked full") {
     unfavorite = 1
-    favorite.className = "fa fa-star checked"
+    favorite.className = "fa-regular fa-star"
   } else {
     unfavorite = 0
     favorite.className = "fa fa-star checked full"

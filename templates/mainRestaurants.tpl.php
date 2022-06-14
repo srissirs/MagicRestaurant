@@ -32,7 +32,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
                             $isFavorite = Customer::isRestaurantFavorited($db, intval($_SESSION['userId']), intval($restaurant->restaurantId));
                             if ($isFavorite)
                                 $star = "fa fa-star checked full";
-                            else $star = "fa fa-star checked"; ?>
+                            else $star = "fa-regular fa-star"; ?>
                             <button class="<?=$star?>" onclick="toggleFavorite(<?= $restaurant->restaurantId ?>,0)"></button>
                         <?php } ?>
                     </div>
