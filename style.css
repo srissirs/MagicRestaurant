@@ -181,7 +181,14 @@ h2 {
     visibility: hidden;
 }
 
+
+h3 .checked {
+    display: flex;
+    
+    flex-direction: column;}
+
 .checked{
+
     color: #ddd;
 }
 
@@ -453,7 +460,8 @@ a {
 }
 
 #signUp {
-    padding-right: 6em;
+    height: 100%;
+    
 }
 
 #signIn,
@@ -496,39 +504,54 @@ a {
 
 
 
-#loginPage {
+#login, #Page{
+    height: 70%;
     object-fit: contain;
     background-image: url("images/login.jpg");
 
 }
 
-signUp,
-SignIn {
+html{
+    height:100%;
+}
 
-    margin: 0 auto;
+
+#login form{
+    height: 45%;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    padding: 0.5em;
-}
-
-signUp form,
-SignIn form {
+    flex-wrap: wrap;
+    margin:10% 35% auto 35% ;
+    flex-direction: column;
     background-color: #351C1C;
+    align-items: center;
+}
+#check{
+    background-color: #351C1C;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto
+    ;
+    align-items: center;
+    width: 100%;
 }
 
-SignIn input {
-    width: 20em;
-    height: 2em;
-    margin: 1em;
+
+#login input{ 
+    width: 50%;
+    height: 10%;
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
-SignIn button {
+
+#login button {
     width: 5em;
 }
 
-SignIn a {
+#login a, #Signup a {
     text-align: right;
     font-size: 20px;
     color: whitesmoke;
@@ -537,29 +560,67 @@ SignIn a {
 
 /*----------------------------------------Sign Up Page-----------------------------------*/
 
-signUp label {
+
+#input{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly
+
+}
+#Signup form{
+    height: 70%;
+    width: 70%;
+    margin:10% 10% auto 10% ;
+    background-color: #351C1C;
+    align-items: center;
+}
+#Signup input:not(#restaurantowner) { 
+    width: 45%;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 1%;
+}
+#Signup label {
     color: whitesmoke;
     font-size: 25px;
-    margin-right: 1em;
+}
+#restaurantOwner{
+    height: 25%;
+    width: 100%;
+    margin-top: 5%;
+    align-items:center;
+    justify-content: center;
+    display:flex;
+    gap: 5%
+
+}
+#restaurantowner{
+    height: auto;
+    width: auto;
 }
 
-signUp div {
+#Signup div {
     display: flex;
+
 }
 
-signUp #field {
+#Signup #field {
     width: 20em;
     height: 2em;
     margin: 1em;
 }
 
-signUp #ImRestaurant {
-    height: 2em;
-    width: 2em;
-}
 
-signUp button {
-    margin: 1em;
+
+#Signup button {
+    justify-self: center;
+    height: auto;
+    width: 30%;
+    margin-top: 3%;
+    margin-bottom: 1%;
     padding: 0.5em;
     font-size: 20px;
 }
