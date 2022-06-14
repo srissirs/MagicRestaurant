@@ -54,26 +54,29 @@ class Customer
     $stmt = $db->prepare('
         SELECT *
         FROM Customer 
-        WHERE lower(CustomerEmail) = ? AND Password = ?
+        WHERE lower(CustomerEmail) = ?
       ');
 
-    $stmt->execute(array(strtolower($customerEmail), sha1($password)));
+    $stmt->execute(array(strtolower($customerEmail)));
 
     if ($customer = $stmt->fetch()) {
-      return new Customer(
-        intval($customer['CustomerId']),
-        $customer['Username'],
-        $customer['FirstName'],
-        $customer['LastName'],
-        $customer['CustomerAddress'],
-        $customer['CustomerCity'],
-        $customer['CustomerCountry'],
-        $customer['CustomerPostalCode'],
-        $customer['CustomerPhone'],
-        $customer['CustomerEmail'],
-        intval($customer['RestaurantOwner'])
-      );
-    } else return null;
+      if(password_verify($password,$customer['Password'])){
+        return new Customer(
+          intval($customer['CustomerId']),
+          $customer['Username'],
+          $customer['FirstName'],
+          $customer['LastName'],
+          $customer['CustomerAddress'],
+          $customer['CustomerCity'],
+          $customer['CustomerCountry'],
+          $customer['CustomerPostalCode'],
+          $customer['CustomerPhone'],
+          $customer['CustomerEmail'],
+          intval($customer['RestaurantOwner'])
+        );
+      }
+    } 
+    return null;
   }
 
   static public function getCustomer(PDO $db, int $id): Customer
@@ -240,7 +243,8 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
 
   static public function createUser($db, $username, $firstName, $lastName, $address, $city, $country, $postalCode, $phone, $email, $password, $restaurantOwner): int
   {
-    $passwordHash = sha1($password);
+    $options = ['cost' => 12];
+    $passwordHash = password_hash($password,PASSWORD_DEFAULT,$options);
 
     $stmt = $db->prepare('INSERT INTO Customer ( FirstName, LastName, CustomerAddress, CustomerCity, CustomerCountry, CustomerPostalCode, CustomerPhone, CustomerEmail, Password,Username, RestaurantOwner) 
         VALUES (:FirstName,:LastName,:CustomerAddress,:CustomerCity,:CustomerCountry,:CustomerPostalCode, :CustomerPhone, :CustomerEmail,:Password, :Username,:RestaurantOwner)');
