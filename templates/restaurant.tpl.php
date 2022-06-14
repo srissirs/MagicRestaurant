@@ -86,6 +86,9 @@ require_once(__DIR__ . '/../database/customer.class.php');
     <section id="dishes">
       <div class="newDish" id="newDish" style="display: none;">
         <form action="../actions/action_add_dish.php" method="post" enctype="multipart/form-data">
+          <p id="error_messages" style="color: #946B6B"> 
+                <?php if(isset($_SESSION['ERROR_ADD_DISH'])) echo htmlentities($_SESSION['ERROR_ADD_DISH']); unset($_SESSION['ERROR_ADD_DISH'])?>
+              </p>  
           <div class="information">
             <input name="restaurantId" hidden value="<?= $restaurant->restaurantId ?>">
             <div class="name">
@@ -161,6 +164,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
         <?php if ($isOwner || !($response->reviewText === "")) { ?>
           <section class="responseBox">
             <?php if ($isOwner && ($response->reviewText === "")) { ?>
+              <p id="error_messages" style="color: #946B6B"> 
+                <?php if(isset($_SESSION['ERROR_ADD_RES'])) echo htmlentities($_SESSION['ERROR_ADD_RES']); unset($_SESSION['ERROR_ADD_RES'])?>
+              </p>  
+              <button> Respond </button>
               <form action="../actions/action_add_response.php" method="post">
                 <input type="text" id="resposeBody" name="responseText" placeholder="Type your response">
                 <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">

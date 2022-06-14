@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 require_once(__DIR__ . '/../database/connection.database.php');
-
+  include_once(__DIR__.'/session.php');
 require_once(__DIR__ . '/../database/customer.class.php');
 ?>
 
@@ -21,6 +21,9 @@ require_once(__DIR__ . '/../database/customer.class.php');
   <section class="customerInformation">
     <img src="../images/user-profile.png">
     <form action="../actions/action_edit_profile.php" method="post">
+      <p id="error_messages" style="color: #946B6B"> 
+        <?php if(isset($_SESSION['ERROR_NAME'])) echo htmlentities($_SESSION['ERROR_NAME']); unset($_SESSION['ERROR_NAME'])?>
+    </p>
       <div>
         <label for="first_name">First Name:</label>
         <p class="unedited"><?= $customer->firstName ?></p>
@@ -76,6 +79,9 @@ require_once(__DIR__ . '/../database/customer.class.php');
   <section class="ownedRestaurants">
     <h3> Restaurants</h3>
     <?php foreach ($restaurants as $restaurant) { ?>
+      <p id="error_messages" style="color: #946B6B"> 
+        <?php if(isset($_SESSION['ERROR_REST'])) echo htmlentities($_SESSION['ERROR_REST']); unset($_SESSION['ERROR_REST'])?>
+      </p>
       <section class="ownedRestaurant">
         <form action="../actions/action_edit_restaurant.php" method="post">
           <input type="number" name="id" style="display: none;" value=<?= $restaurant->restaurantId ?>>
@@ -96,8 +102,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
     <?php } ?>
     <button onclick="addRestaurant()"> Add a restaurant </button>
     <section class="addRestaurant" style="display: none;" id="addRestaurant">
-
-      <form action="../actions/action_add_restaurant.php" method="post">
+    <p id="error_messages" style="color: #946B6B"> 
+        <?php if(isset($_SESSION['ERROR_ADD_REST'])) echo htmlentities($_SESSION['ERROR_ADD_REST']); unset($_SESSION['ERROR_ADD_REST'])?>
+      </p>  
+    <form action="../actions/action_add_restaurant.php" method="post">
         <div>
           <label> Restaurant Name: </label>
           <input type="text" name="restaurantName">
