@@ -1,4 +1,147 @@
 /*-------------------------------------Main theme-----------------------------------------------*/
+
+@media screen and (max-width: 980px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body footer .links {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 15px;
+        align-items: center;
+    }
+
+    html body header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+    }
+
+    body .mainPageHeader {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    body #brandMain,
+    body #signIn,
+    body #signUp {
+        margin: 0;
+    }
+
+    body .searchBar {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    header .profile a {
+        margin: 0 15px;
+    }
+
+    header>a {
+        margin: 10px;
+        display: none;
+    }
+
+    .dropbtn {
+        padding: 0;
+    }
+
+    .dropbtn i {
+        padding: 5px 0;
+        font-size: 10px;
+    }
+
+    body h2 {
+        font-size: 40px;
+        margin: 2em auto 0 2em;
+    }
+
+    body .pastOrders .month h3,
+    body .mainRestaurantsHeader h3 {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    img,
+    body .restaurantCard img,
+    body .customerInformation img,
+    body #dishes img {
+        width: 100%;
+        height: auto;
+    }
+
+    body .customerInformation img {
+        margin: 5em;
+    }
+
+    body .mainRestaurantsHeader {
+        text-align: center;
+        padding: 2em 0;
+    }
+
+    body h2,
+    .profileHeader button {
+        margin: 20px auto;
+    }
+
+    body .customerInformation,
+    body .ownedRestaurants {
+        margin: 0 2em 2em 2em;
+        justify-content: center;
+        gap: 0;
+    }
+
+    body .customerInformation input {
+        font-size: 10px;
+    }
+
+    body .restaurantInfo {
+        flex-direction: column;
+        justify-items: center;
+        display: flex;
+    }
+
+    body .restaurantInfo h3,
+    body .restaurantInfo h2,
+    body .restaurantInfo h4 {
+        text-align: center;
+        margin: 10px auto;
+        width: 80%;
+        flex: auto;
+        align-self: center;
+    }
+
+    body .dish,
+    body .newDish {
+        width: 50%;
+        height: auto;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    body .restaurantTopPage .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+html {
+    height: 100%;
+}
+
 body {
     --background-color: #F3F3F3;
     --main-color: #946B6B;
@@ -7,8 +150,10 @@ body {
     background-color: var(--background-color);
     max-width: 100%;
     margin: 0;
-    height: 100%;
-
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body>header {
@@ -17,15 +162,16 @@ body>header {
     align-items: center;
     max-width: 100%;
     padding: 1em 0;
+    gap: 2em;
 }
 
 header h1 {
     margin: 0;
-    color:#351C1C
+    color: #351C1C
 }
 
 .profile {
-    margin: 0;
+    margin: 0 0 0 auto;
     display: flex;
     align-items: center;
     max-width: fit-content;
@@ -34,9 +180,8 @@ header h1 {
 .profile a {
     color: #351C1C;
     font-size: 25px;
-    margin: 0 1em;
+    margin-right: 1em;
 }
-
 
 .dropbtn i {
     color: #F3F3F3;
@@ -53,15 +198,31 @@ header h1 {
 }
 
 .searchBar {
-    margin: 0 auto;
+    margin-right: 2em;
     align-content: center;
+    display: flex;
+}
+
+body .mainPageText {
+    width: 85%;
+    text-align: center;
 }
 
 .searchBar input {
     height: 3em;
     width: 40em;
     border-color: var(--main-color);
+    border: none;
+    margin-bottom: 1em;
 }
+
+.searchBar button {
+    border: none;
+    background-color: #351C1C;
+    color: whitesmoke;
+    padding: 1em;
+}
+
 
 /* The dropdown container */
 .dropdown {
@@ -113,35 +274,33 @@ header h1 {
 }
 
 footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: auto;
     width: 100%;
     background-color: var(--darker-color);
+    padding: 1em 0;
+
 }
 
 footer .links {
-    margin: 2em 0;
-    padding: 1em 2em;
-    display:flex;
-    gap:3em;
-    align-items:center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    justify-content: center;
+    margin: auto;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+}
+
+footer>p {
     margin: 0 auto;
-}
-
-footer .links>h4 {
-    font-size: 2em;
-    margin: 0;
-}
-
-footer .links a {
-    text-decoration: none;
-    color: white;
-    font-size: 2em;
-}
-
-footer .links a {
-    text-decoration: none;
-    color: white;
-    font-size: 2em;
-   
+    color: var(--main-color);
 }
 
 /*-------------------------------------------------Restaurant--------------------------------------------------------*/
@@ -181,19 +340,8 @@ h2 {
     visibility: hidden;
 }
 
-
-h3 .checked {
-    display: flex;
-    
-    flex-direction: column;}
-
-.checked{
-
-    color: #ddd;
-}
-
-.full{
-    color:#745A5A;
+.full {
+    color: #745A5A;
 }
 
 /*---------------Restaurant Page Content (Client)----------------------------------------*/
@@ -211,7 +359,6 @@ h3 .checked {
     border-radius: 22px;
 }
 
-
 .restaurantTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
@@ -221,13 +368,14 @@ h3 .checked {
     color: black;
 }
 
-
 .restaurantTopPage a.selected,
-a:hover {
+.orderStates:hover,
+.addADish:hover,
+.reviewsButton:hover,
+.dishesButton:hover {
     background-color: var(--main-color);
     color: #F3F3F3;
 }
-
 
 .restaurantTopPage .buttons {
     display: flex;
@@ -236,7 +384,7 @@ a:hover {
     margin: 0 auto 0 0;
 }
 
-.restaurantInfo p{
+.restaurantInfo p {
     visibility: hidden;
 }
 
@@ -261,7 +409,6 @@ a:hover {
     display: flex;
 }
 
-
 #cart p,
 #cart i {
     margin: 0 auto;
@@ -270,16 +417,16 @@ a:hover {
 #dishes {
     display: flex;
     gap: 1em;
-    margin: 0 auto;
-    max-width: 75%;
+    margin: 1em auto;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
 }
 
-.dish,.newDish {
+.dish,
+.newDish {
     display: flex;
-    width: 32em;
-    height: 16em;
+    width: 35%;
+    height: 20%;
     gap: 25px;
     background-color: white;
     padding: 1em;
@@ -287,18 +434,34 @@ a:hover {
     border-radius: 22px;
 }
 
+.newDish {
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: 25px;
+    background-color: white;
+    padding: 1em;
+    border: var(--main-color) solid 5px;
+    border-radius: 22px;
+}
 
-.dish .information .name,.newDish .information .name {
+.newDish .information {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.dish .information .name,
+.newDish .information .name,
+.dish .information .price,
+.newDish .information .price {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
-.dish .information .price,.newDish .information .price {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 /*---------------------------------------------Reviews------------------------------------------------*/
 #reviews {
@@ -323,18 +486,32 @@ a:hover {
 
 .review {
     display: flex;
-    
+    gap: 1em;
 }
 
 #reviewBody {
-    margin: 1em;
     flex: auto;
     background-color: whitesmoke;
     text-align: center;
 }
 
+#resposeBody {
+    border: none;
+    height: 3em;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
 .responseBox {
     border-top: solid var(--main-color) 2px;
+}
+
+.responseBox form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    margin: 1em 0;
 }
 
 /*---------------------------------------------Past Orders Page------------------------------------------------*/
@@ -346,7 +523,6 @@ a:hover {
     border-bottom: var(--main-color) solid 6px;
 }
 
-
 .pastOrders .month {
     margin: 0 auto 3em auto;
     max-width: 50%;
@@ -356,6 +532,11 @@ a:hover {
     gap: 2em;
 }
 
+.pastOrderLabels {
+    margin: 0 0 0 auto;
+    display: flex;
+    flex-direction: column;
+}
 
 .pastOrderBox {
     width: 100%;
@@ -369,16 +550,16 @@ a:hover {
 
 .pastOrder {
     display: flex;
-}
+    flex-wrap: wrap;
+    gap: 2em;
 
-
-.pastOrder .information {
-    margin-left: 2em;
 }
 
 .pastDish {
     display: flex;
+    gap: 1em;
     border-bottom: var(--main-color) solid 1px;
+    align-items: baseline;
 }
 
 .pastDish #dishName {
@@ -410,13 +591,19 @@ a:hover {
     border-radius: 5px;
 }
 
-.pastOrder #review {
-    margin: 1em 1em auto auto;
+.pastOrder #review,
+.pastOrder .OrderState {
+    margin: 0;
     padding: 1em;
+    font-weight: 600;
     background-color: var(--main-color);
     color: whitesmoke;
     border: none;
     font-size: 15px;
+}
+
+.pastOrder #review {
+    margin: 0 0 auto 0;
 }
 
 .pastOrder img {
@@ -430,6 +617,12 @@ a:hover {
     padding-top: 1em;
 }
 
+.review-popup form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+}
 
 .month>h3 {
     font-size: 3em;
@@ -439,7 +632,6 @@ a:hover {
     border-bottom: var(--main-color) solid 2px;
 }
 
-
 /*----------------------------------------Main Page-----------------------------------*/
 
 .mainPageHeader {
@@ -448,7 +640,7 @@ a:hover {
     padding: 2em 0;
     background-color: var(--main-color);
     gap: 30px;
-    align-items: flex-start;
+
 }
 
 a {
@@ -460,8 +652,7 @@ a {
 }
 
 #signUp {
-    height: 100%;
-    
+    margin-right: 2em;
 }
 
 #signIn,
@@ -469,20 +660,20 @@ a {
     font-size: 20px;
     color: whitesmoke;
     font-weight: 500;
+
 }
 
 #brandMain {
     font-size: 30px;
     color: whitesmoke;
     font-weight: 500;
-    padding-left: 3em;
+    margin-left: 2em;
 }
 
 .mainPage {
     background-image: url("images/main.jpg");
     background-color: whitesmoke;
-    height: 500px;
-
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -503,49 +694,40 @@ a {
 /*----------------------------------------Sign In Page-----------------------------------*/
 
 
-
 #login, #Page{
     height: 70%;
     object-fit: contain;
     background-image: url("images/login.jpg");
-
 }
 
-html{
-    height:100%;
-}
-
-
+ 
 #login form{
     height: 45%;
     width: 30%;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     margin:10% 35% auto 35% ;
     flex-direction: column;
     background-color: #351C1C;
     align-items: center;
 }
+
 #check{
     background-color: #351C1C;
     display: flex;
     flex-direction: column;
-    margin: 0 auto
-    ;
+    margin: 0 auto;
     align-items: center;
     width: 100%;
 }
 
-
-#login input{ 
+#login input{
     width: 50%;
     height: 10%;
     margin-top: 5%;
     margin-left: 1%;
     margin-right: 1%;
 }
-
 
 #login button {
     width: 5em;
@@ -560,7 +742,6 @@ html{
 
 /*----------------------------------------Sign Up Page-----------------------------------*/
 
-
 #input{
     width: 100%;
     height: 70%;
@@ -568,8 +749,8 @@ html{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly
-
 }
+
 #Signup form{
     height: 70%;
     width: 70%;
@@ -577,16 +758,19 @@ html{
     background-color: #351C1C;
     align-items: center;
 }
-#Signup input:not(#restaurantowner) { 
+
+#Signup input:not(#restaurantowner) {
     width: 45%;
     margin-top: 2%;
     margin-left: 2%;
     margin-right: 1%;
 }
+
 #Signup label {
     color: whitesmoke;
     font-size: 25px;
 }
+
 #restaurantOwner{
     height: 25%;
     width: 100%;
@@ -595,8 +779,8 @@ html{
     justify-content: center;
     display:flex;
     gap: 5%
-
 }
+
 #restaurantowner{
     height: auto;
     width: auto;
@@ -604,7 +788,6 @@ html{
 
 #Signup div {
     display: flex;
-
 }
 
 #Signup #field {
@@ -612,8 +795,6 @@ html{
     height: 2em;
     margin: 1em;
 }
-
-
 
 #Signup button {
     justify-self: center;
@@ -627,17 +808,9 @@ html{
 
 /*---------------------------pop-ups review---------------*/
 
-
 .form-container .btn,
 .open-button {
-    background-color: var(--main-color);
-    color: white;
-    padding: 12px 16px;
-    margin-top: 1em;
-    border: none;
     cursor: pointer;
-
-    margin-bottom: 10px;
     opacity: 0.8;
 }
 
@@ -771,6 +944,7 @@ html{
 
 .mainRestaurantsName {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     gap: 1em;
 }
@@ -787,13 +961,13 @@ html{
     gap: 5px;
 }
 
-
 /******************************************************Favorited Page *********************************************/
-
 
 .favoritedTopPage {
     display: flex;
-    margin: 2em 20em 2em 16em;
+    gap: 2em;
+    margin: 2em auto;
+    justify-content: center;
 }
 
 .favoritedTopPage select {
@@ -803,8 +977,7 @@ html{
     border-radius: 22px;
 }
 
-
-.favoritedTopPage>a {
+.favoritedTopPage a {
     padding: 15px 30px;
     border: solid 3px var(--main-color);
     border-radius: 22px;
@@ -813,32 +986,17 @@ html{
     color: black;
 }
 
-
-.favoritedTopPage>a.selected {
+.favoritedTopPage a.selected {
     background-color: var(--main-color);
     color: #F3F3F3;
-}
-
-
-.favoritedTopPage>a:nth-child(1) {
-    margin-right: 2em;
-}
-
-.favoritedTopPage>a:nth-child(2) {
-    margin: 0 auto 0 0;
 }
 
 /***********************************Profile************************************************/
 
 .profileHeader {
-    width: 100%;
     border-bottom: 4px var(--main-color) solid;
     display: flex;
     align-items: baseline;
-}
-
-.profileHeader i {
-    font-size: 2em;
 }
 
 .customerInformation {
@@ -848,13 +1006,15 @@ html{
     margin: 4em auto 4em 6em;
 }
 
-.customerInformation>form {
+.customerInformation>form,
+.addRestaurant form {
     display: flex;
     flex-direction: column;
     border: solid var(--main-color) 2px;
     padding: 1em;
     align-items: baseline;
     gap: 1em;
+    margin: 1em 0;
 
 }
 
@@ -863,18 +1023,8 @@ html{
     gap: 1em;
 }
 
-.customerInformation input,
-.customerInformation label,
 .customerInformation p {
-    font-size: 20px;
-}
-
-.customerInformation p {
-    margin: 0 0 0 auto;
-}
-
-.customerInformation label{
-    font-weight: 700;
+    margin: 0;
 }
 
 .customerInformation img {
@@ -884,15 +1034,6 @@ html{
 
 .ownedRestaurants {
     margin: 0 6em;
-
-}
-
-.ownedRestaurants h3 {
-    font-size: 2em;
-}
-
-.ownedRestaurant button {
-    margin: 0;
 }
 
 .ownedRestaurant {
@@ -903,64 +1044,56 @@ html{
     border-bottom: solid 2px var(--main-color);
 }
 
-.ownedRestaurant div {
-    display: flex;
-    gap: 1em;
-    align-items: baseline;
-}
-
 .ownedRestaurant p,
-.ownedRestaurant a {
+.ownedRestaurant a,
+.ownedRestaurants label,
+.ownedRestaurants h3,
+.customerInformation input,
+.customerInformation label,
+.customerInformation p,
+.profileHeader i {
     font-size: 20px;
 }
 
-.ownedRestaurant a {
+.ownedRestaurant a:hover {
+    color: whitesmoke;
+    background-color: var(--main-color);
+}
+
+.ownedRestaurant a,
+.customerInformation label {
     color: var(--darker-color);
+    font-weight: 600;
 }
 
-.ownedRestaurants button{
+.ownedRestaurants button {
     margin: 1em;
-
+    padding: 10px;
 }
-
-.addRestaurant {
-    padding: 0 1em;
-}
-
-.addRestaurant form {
-    margin: 1em 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.addRestaurant button {
-    margin: 0 auto 0 0;
-}
-
-
 
 /***********************************************Orders (OWNER)**********************************************************/
 
-#orders{
+#orders {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     justify-content: center;
     margin: 2em;
-    
+
 }
-.order{
+
+.order {
     display: flex;
-    width: auto ;
+    justify-content: space-between;
     height: auto;
     gap: 25px;
     background-color: white;
     padding: 1em;
     border: var(--main-color) solid 5px;
     border-radius: 22px;
+    width: 15em;
 }
+
 .order form {
     align-self: center;
 }
-

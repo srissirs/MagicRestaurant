@@ -123,44 +123,46 @@ if (searchRestaurantMain) {
 }
 
 starReview()
-reviewsAndDishes()
 restaurantsAndDishes()
 drawStar()
 filter()
+restaurantButtons()
 showTotalPrice()
-function starReview(){
-  reviews=document.querySelectorAll("div.reviewBox")
-  
-  reviews.forEach(el=>{
-    info=el.querySelector("div.info")
-    
+
+
+function starReview() {
+  reviews = document.querySelectorAll("div.reviewBox")
+
+  reviews.forEach(el => {
+    info = el.querySelector("div.info")
+
     var x = info.querySelector("h3")
-  
-  yy = x.querySelectorAll("i")
-  
-  zz = x.querySelector("p")
-  zz.textContent = Math.round(zz.textContent)
-  if (zz.textContent >= 1) {
-    yy[0].classList.add("full")
-  }
-  if (zz.textContent >= 2) {
-    yy[1].classList.add("full")
-  }
-  if (zz.textContent >= 3) {
-    yy[2].classList.add("full")
-  }
-  if (zz.textContent >= 4) {
-    yy[3].classList.add("full")
-  }
-  if (zz.textContent == 5) {
-    yy[4].classList.add("full")
-  }
+
+    yy = x.querySelectorAll("i")
+
+    zz = x.querySelector("p")
+    zz.textContent = Math.round(zz.textContent)
+    if (zz.textContent >= 1) {
+      yy[0].classList.add("full")
+    }
+    if (zz.textContent >= 2) {
+      yy[1].classList.add("full")
+    }
+    if (zz.textContent >= 3) {
+      yy[2].classList.add("full")
+    }
+    if (zz.textContent >= 4) {
+      yy[3].classList.add("full")
+    }
+    if (zz.textContent == 5) {
+      yy[4].classList.add("full")
+    }
   })
 }
 
 function restaurantsAndDishes() {
   const favoritedTopPage = document.querySelector(".favoritedTopPage")
-  if(favoritedTopPage==null){
+  if (favoritedTopPage == null) {
     return
   }
   const favorited = document.querySelector(".favorited")
@@ -192,46 +194,48 @@ function restaurantsAndDishes() {
 }
 
 
-function reviewsAndDishes() {
-  var dishes = document.getElementById("dishes")
-  var reviews = document.getElementById("reviews")
-  var orders = document.getElementById("orders")
-  const restauranttoppage = document.querySelector(".restaurantTopPage")
-  if(restauranttoppage==null){
+function restaurantButtons() {
+
+  const restauranttoppage = document.querySelector(".buttons")
+  if (restauranttoppage == null) {
     return
   }
+  var dishes = document.getElementById("dishes")
+  var reviews = document.getElementById("reviews")
+
   const restaurant = document.querySelector(".restaurant")
   buttons = restauranttoppage.querySelectorAll("a")
   dbutton = buttons[0]
   rbutton = buttons[1]
-  if(orders) {obutton = buttons[3]}
+
+  var orders = document.getElementById("orders")
+  newDishButton = buttons[2]
+  obutton = buttons[3]
+  orders.remove()
+
   dbutton.classList.add("selected")
-  
   reviews.remove()
-  if(orders) {orders.remove()}
+
   dbutton.addEventListener('click', function (e) {
     if (!dbutton.classList.contains("selected")) {
       dbutton.classList.add("selected")
       rbutton.classList.remove("selected")
-      if(orders) {obutton.classList.remove("selected")}
-      if(orders) {orders.remove()}
+      orders.remove()
       reviews.remove()
       restaurant.appendChild(dishes)
     }
-
   })
+
   rbutton.addEventListener('click', function (e) {
     if (!rbutton.classList.contains("selected")) {
       rbutton.classList.add("selected")
       dbutton.classList.remove("selected")
-      if(orders) {obutton.classList.remove("selected")}
+      orders.remove()
       dishes.remove()
-      if(orders) {orders.remove()}
       restaurant.appendChild(reviews)
     }
   })
 
-  if(orders){
   obutton.addEventListener('click', function (e) {
     if (!obutton.classList.contains("selected")) {
       obutton.classList.add("selected")
@@ -241,7 +245,19 @@ function reviewsAndDishes() {
       reviews.remove()
       restaurant.appendChild(orders)
     }
-  })}
+  })
+
+  newDishButton.addEventListener('click', function (e) {
+    if (!newDishButton.classList.contains("selected")) {
+      dbutton.classList.add("selected")
+      rbutton.classList.remove("selected")
+      obutton.classList.remove("selected")
+      orders.remove()
+      reviews.remove()
+      restaurant.appendChild(dishes)
+    }
+    addADish()
+  })
 }
 
 function openNav() {
@@ -347,14 +363,14 @@ function filter() {
 
 
   for (let i = 0; i < allDishes.length; i++) {
-    
+
     m[i] = allDishes[i]
-    
+
     count++
   }
   const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
-  if(dropdown==null) return
+  if (dropdown == null) return
   dropdown.addEventListener('change', function (e) {
     var dishes = document.querySelectorAll("div.dish")
     if (dropdown.value != "Tudo") {
@@ -366,9 +382,9 @@ function filter() {
       dish.forEach(el => {
         inf = el.querySelector("div.information")
         category = inf.querySelector("category")
-        
+
         catText = category.querySelector("p").textContent
-        
+
         if (catText != " " + dropdown.value + " ") {
           el.remove()
         }
@@ -383,12 +399,12 @@ function filter() {
 }
 
 function drawStar() {
-  
+
   var x = document.querySelector("h3")
-  var header=document.querySelector(".pastOrders")
-  if(header!=null) return
+  var header = document.querySelector(".pastOrders")
+  if (header != null) return
   console.log(header)
-  if(x==null) return
+  if (x == null) return
   y = x.querySelectorAll("i")
   z = x.querySelector("p")
 
@@ -410,23 +426,23 @@ function drawStar() {
   }
 }
 
-function favorite(){
+function favorite() {
   const allNames = document.querySelectorAll("div.name")
   listStars = NodeList
   conta = 0
-  allNames.forEach(di=>{
-    star=di.querySelector("i")
+  allNames.forEach(di => {
+    star = di.querySelector("i")
     listStars[conta] = star
     conta++
-    })
+  })
   for (let ss = 0; ss < conta; ss++) {
-    estrela=listStars[ss]
-    estrela.addEventListener('click',function(){
-       newname=listStars[ss].querySelector("div.name")
-       novastar=newname.querySelector("i")
-       novastar.classList.toggle("full")
-     })
-    }
+    estrela = listStars[ss]
+    estrela.addEventListener('click', function () {
+      newname = listStars[ss].querySelector("div.name")
+      novastar = newname.querySelector("i")
+      novastar.classList.toggle("full")
+    })
+  }
 }
 
 
@@ -495,7 +511,7 @@ function toggleEditRestaurant() {
 }
 
 function openForm() {
-  var reviewBox = event.target.parentElement.parentElement.children[1];
+  var reviewBox = event.target.parentElement.parentElement.parentElement.children[1];
   if (reviewBox.style.display === "none") {
     reviewBox.style.display = "block";
   }
@@ -554,7 +570,7 @@ function addOrderDish() {
     })
 }
 
-function alterState(){
+function alterState() {
   orderId = document.querySelector("#orderId").value
   state = document.querySelector("#orderState").value
   fetch('../api/api_state.php', {
@@ -570,17 +586,43 @@ function alterState(){
     .then(json => console.log(json));
 }
 
-function showTotalPrice(){
-  header=document.querySelectorAll("div.information")
-  header.forEach(box=>{
-    totalPrice=0
-    dishes=box.querySelectorAll("div.pastDish")
-    dishes.forEach(dish=>{
-      quantity=dish.querySelector("#quantity").textContent
-      price=dish.querySelector("#price").textContent
-      totalPrice=totalPrice+quantity*price
+function showTotalPrice() {
+  header = document.querySelectorAll("div.information")
+  header.forEach(box => {
+    totalPrice = 0
+    dishes = box.querySelectorAll("div.pastDish")
+    dishes.forEach(dish => {
+      quantity = dish.querySelector("#quantity").textContent
+      price = dish.querySelector("#price").textContent
+      totalPrice = totalPrice + quantity * price
     })
-    inse=box.querySelector("#total")
-    inse.textContent+=totalPrice+"$"
+    inse = box.querySelector("#total")
+    inse.textContent += totalPrice + "$"
   })
+}
+
+function toggleFavorite(id, dish) {
+  console.log(id)
+  favorite = event.target
+  let unfavorite
+  if (favorite.className === "fa fa-star checked full") {
+    unfavorite = 1
+    favorite.className = "fa fa-star checked"
+  } else {
+    unfavorite = 0
+    favorite.className = "fa fa-star checked full"
+  }
+  fetch('../api/api_favorites.php', {
+    method: 'POST',
+    body: JSON.stringify({
+      id: id,
+      unfavorite: unfavorite,
+      dish: dish
+    }), headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(response => response.json())
+    .then(json => console.log(json));
+
 }
