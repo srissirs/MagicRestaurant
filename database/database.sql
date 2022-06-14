@@ -1017,7 +1017,7 @@ INSERT INTO DishFavorite(DishId,CustomerId) VALUES (139,7);
 INSERT INTO DishFavorite(DishId,CustomerId) VALUES (147,9);
 
 
-INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,1);
+
 INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,2);
 INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,3);
 INSERT INTO RestaurantFavorite(RestaurantId,CustomerId)VALUES(1,4);
