@@ -143,19 +143,19 @@ function starReview() {
     zz = x.querySelector("p")
     zz.textContent = Math.round(zz.textContent)
     if (zz.textContent >= 1) {
-      yy[0].className= "fa fa-star checked full"
+      yy[0].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 2) {
-      yy[1].className= "fa fa-star checked full"
+      yy[1].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 3) {
-      yy[2].className= "fa fa-star checked full"
+      yy[2].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 4) {
-      yy[3].className= "fa fa-star checked full"
+      yy[3].className = "fa fa-star checked full"
     }
     if (zz.textContent == 5) {
-      yy[4].className= "fa fa-star checked full"
+      yy[4].className = "fa fa-star checked full"
     }
   })
 }
@@ -409,19 +409,19 @@ function drawStar() {
 
   z.textContent = Math.round(z.textContent)
   if (zz.textContent >= 1) {
-    y[0].className= "fa fa-star checked full"
+    y[0].className = "fa fa-star checked full"
   }
   if (zz.textContent >= 2) {
-    y[1].className= "fa fa-star checked full"
+    y[1].className = "fa fa-star checked full"
   }
   if (zz.textContent >= 3) {
-    y[2].className= "fa fa-star checked full"
+    y[2].className = "fa fa-star checked full"
   }
   if (zz.textContent >= 4) {
-    y[3].className= "fa fa-star checked full"
+    y[3].className = "fa fa-star checked full"
   }
   if (zz.textContent == 5) {
-    y[4].className= "fa fa-star checked full"
+    y[4].className = "fa fa-star checked full"
   }
 }
 
@@ -623,5 +623,12 @@ function toggleFavorite(id, dish) {
   })
     .then(response => response.json())
     .then(json => console.log(json));
+}
 
+function clearDishes() {
+  let dishes = document.querySelectorAll(".cartDiv")
+  for (var dish of dishes) {
+    dish.remove()
+  }
+  showTotals()
 }

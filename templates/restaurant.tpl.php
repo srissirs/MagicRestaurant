@@ -65,12 +65,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
         </form>
       </div>
 
-
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
         <div class="totalSum" id="totalSum">Total : </div>
-        <button onclick="addOrderDish()"> Finish you order </button>
+        <button onclick="addOrderDish();clearDishes();"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -132,7 +131,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <?php if (!$isOwner) { ?>
-                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> )"></button>
+                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> );openNav();"></button>
               <?php } ?>
             </div>
           </div>
