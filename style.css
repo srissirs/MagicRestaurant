@@ -1,4 +1,8 @@
 /*-------------------------------------Main theme-----------------------------------------------*/
+img{
+    width: 200px;
+    height: 200px;
+}
 
 @media screen and (max-width: 980px) {
 
@@ -938,10 +942,6 @@ a {
     width: 50%;
 }
 
-.restaurantCard img {
-    width: 15em;
-}
-
 .mainRestaurantsName {
     display: flex;
     flex-wrap: wrap;
@@ -1025,11 +1025,6 @@ a {
 
 .customerInformation p {
     margin: 0;
-}
-
-.customerInformation img {
-    height: 20em;
-    width: 20em;
 }
 
 .ownedRestaurants {
