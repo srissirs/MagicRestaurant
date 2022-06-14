@@ -344,7 +344,7 @@ function showTotals() {
     total += quantity * price;
   }
   const cart = document.getElementById('totalSum');
-  cart.textContent = "Total: " + total;
+  cart.textContent = "Total: " + total.toFixed(2);
 }
 
 function addDishes(a, count) {
@@ -596,7 +596,7 @@ function showTotalPrice() {
       totalPrice = totalPrice + quantity * price
     })
     inse = box.querySelector("#total")
-    inse.textContent += totalPrice + "$"
+    inse.textContent += totalPrice.toFixed(2) + "$"
   })
 }
 
