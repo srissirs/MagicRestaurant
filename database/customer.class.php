@@ -303,10 +303,10 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
   static function getCustomerRestaurant(PDO $db, int $customerId, int $restaurantId): Restaurant
   {
     $stmt = $db->prepare('
-    SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating
+    SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating, CustomerId
     FROM Restaurant, Customer,RestaurantOwner
     WHERE Customer.CustomerId = ?
-    AND Customer.RestaurantOwner = RestaurantOwner.RestaurantOwnerId
+    AND Customer.CustomerId = RestaurantOwner.RestaurantOwnerId
     AND RestaurantOwner.RestaurantId = Restaurant.RestaurantId
     AND Restaurant.RestaurantId = ?
     ;
