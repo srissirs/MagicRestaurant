@@ -13,7 +13,7 @@ require_once(__DIR__ . '/../database/reviewResponse.class.php');
 { ?>
     <div class="mainRestaurantsHeader">
         <div class="searched">
-            <h3>Restaurantes</h3>
+            <h3>Restaurants</h3>
         </div>
     </div>
 <?php } ?>

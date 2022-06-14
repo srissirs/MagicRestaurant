@@ -46,15 +46,26 @@ require_once(__DIR__ . '/../database/customer.class.php');
 { ?>
   <section class="restaurant">
     <section class="restaurantTopPage">
-      <div class="buttons">
-        <a class="dishesButton"> Dishes </a>
-        <a class="reviewsButton"> Reviews </a>
-        <?php if ($isOwner) { ?>
-          <a class="addADish"> Add a Dish</a>
-          <a class="orderStates"> Order States </a>
-        <?php } ?>
-      </div>
+  
+        <div class="buttons">
+          <a class="dishesButton"> Dishes </a>
+          <a class="reviewsButton"> Reviews </a>
+          <?php if ($isOwner) { ?>
+            <a class="addADish"> Add a Dish</a>
+            <a class="orderStates"> Order States </a>
+          <?php } ?>
 
+          <form>
+          <select>
+            <option value="Tudo"> Tudo </option>
+            <?php foreach ($categories as $category) { ?>
+              <option value="<?= $category ?>"> <?= $category ?> </option>
+            <?php } ?>
+          </select>
+        </form>
+      </div>
+       
+       
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
@@ -70,14 +81,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
           </a>
         </div>
       <?php } ?>
-      <form>
-        <select>
-          <option value="Tudo"> Tudo </option>
-          <?php foreach ($categories as $category) { ?>
-            <option value="<?= $category ?>"> <?= $category ?> </option>
-          <?php } ?>
-        </select>
-      </form>
+
     </section>
     <section id="dishes">
       <div class="newDish" id="newDish" style="display: none;">
@@ -111,10 +115,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
               <?php if (!$isOwner) {
-                $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
-                if($isFavorite)
-                $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
-                <button class="<?= $star ?>"  onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
+                $isFavorite = Customer::isDishFavorited($db, intval($_SESSION['userId']), intval($dish->dishId));
+                if ($isFavorite)
+                  $star = "fa fa-star checked full";
+                else $star = "fa fa-star checked"; ?>
+                <button class="<?= $star ?>" onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
                 </button>
               <?php } ?>
             </div>
@@ -157,7 +162,7 @@ require_once(__DIR__ . '/../database/customer.class.php');
           <section class="responseBox">
             <?php if ($isOwner && ($response->reviewText === "")) { ?>
               <form action="../actions/action_add_response.php" method="post">
-                <input type="text" id = "resposeBody" name="responseText" placeholder="Type your response">
+                <input type="text" id="resposeBody" name="responseText" placeholder="Type your response">
                 <input type="text" hidden name="reviewId" value="<?= $review->reviewId ?>">
                 <button type="submit">Save</button>
               </form>

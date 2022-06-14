@@ -12,7 +12,7 @@ require_once(__DIR__.'/../database/dish.class.php');
 { ?>
   <section class="favoritedHeader">
     <div class="restaurantInfo">
-      <h2>Favorited</h2>
+      <h2>Favorites</h2>
     </div>
   </section>
 <?php } ?>

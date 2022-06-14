@@ -7,26 +7,56 @@
         overflow-x: hidden;
     }
 
-    html header {
-        display: flex;
+    body footer .links {
         flex-direction: column;
+        gap: 5px;
+        font-size: 15px;
+        align-items: center;
+    }
+
+    html body  header {
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         gap: 0;
+        padding: 0;
     }
 
-    .searchBar {
-        width: 75%;
+    body .mainPageHeader{
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    body #brandMain,
+    body #signIn,
+    body #signUp{
         margin: 0;
+    }
+
+    body .searchBar {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    header .profile a {
+        margin: 0 15px;
     }
 
     header>a {
         margin: 10px;
+        display: none;
+    }
+
+    .dropbtn {
+        padding: 0;
     }
 
     .dropbtn i {
         padding: 5px 0;
+        font-size: 10px;
     }
 
     body h2 {
@@ -36,21 +66,25 @@
 
     body .pastOrders .month h3,
     body .mainRestaurantsHeader h3{
-        font-size: 35px;
+        font-size: 30px;
         width: 100%;
-        margin: 0 auto;
     }
 
     img,
     body .restaurantCard img,
-    body .customerInformation img {
+    body .customerInformation img,
+    body #dishes img {
         width: 100%;
         height: auto;
     }
 
+    body .customerInformation img{
+        margin: 5em;
+    }
+
     body .mainRestaurantsHeader {
-        width: 100%;
-        height: 5em;
+        text-align: center;
+        padding: 2em 0 ;
     }
 
     body h2,  .profileHeader button {
@@ -59,13 +93,46 @@
 
     body .customerInformation,
     body .ownedRestaurants{
-        margin: 2em;
+        margin: 0 2em 2em 2em;
         justify-content: center;
-        gap: 4em;
+        gap: 0;
     }
 
     body .customerInformation input {
         font-size: 10px;
+    }
+
+    body .restaurantInfo{
+        flex-direction: column;
+        justify-items: center;
+        display: flex;
+    }
+
+    body .restaurantInfo h3,
+    body .restaurantInfo h2,
+    body .restaurantInfo h4
+    {
+        text-align: center;
+        margin: 10px auto;
+        width: 80%;
+        flex: auto;
+        align-self: center;
+    }
+
+    body .dish,body .newDish {
+        width: 50%;
+        height: auto;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap: 10px;
+    }
+    body .restaurantTopPage .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        width: 100%;
     }
 }
 
@@ -96,15 +163,13 @@ body>header {
     gap: 2em;
 }
 
-
-
 header h1 {
     margin: 0;
     color: #351C1C
 }
 
 .profile {
-    margin: 0;
+    margin: 0 0 0 auto;
     display: flex;
     align-items: center;
     max-width: fit-content;
@@ -113,6 +178,7 @@ header h1 {
 .profile a {
     color: #351C1C;
     font-size: 25px;
+    margin-right: 1em ;
 }
 
 .dropbtn i {
@@ -130,9 +196,14 @@ header h1 {
 }
 
 .searchBar {
-    margin: 0 auto;
+    margin-right: 2em;
     align-content: center;
     display: flex;
+}
+
+body .mainPageText{
+    width: 85%;
+    text-align: center;
 }
 
 .searchBar input {
@@ -140,6 +211,7 @@ header h1 {
     width: 40em;
     border-color: var(--main-color);
     border: none;
+    margin-bottom: 1em;
 }
 
 .searchBar button {
@@ -200,36 +272,33 @@ header h1 {
 }
 
 footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     margin-top: auto;
     width: 100%;
     background-color: var(--darker-color);
+    padding: 1em 0;
+    
 }
 
 footer .links {
-    margin: 2em 0;
-    padding: 1em 2em;
     display: flex;
+    flex-wrap: wrap;
     gap: 3em;
-    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+}
+
+footer >p {
     margin: 0 auto;
-}
-
-footer .links>h4 {
-    font-size: 2em;
-    margin: 0;
-}
-
-footer .links a {
-    text-decoration: none;
-    color: white;
-    font-size: 2em;
-}
-
-footer .links a {
-    text-decoration: none;
-    color: white;
-    font-size: 2em;
-
+    color: var(--main-color);
 }
 
 /*-------------------------------------------------Restaurant--------------------------------------------------------*/
@@ -348,20 +417,18 @@ h2 {
 }
 
 #dishes {
-
     display: flex;
     gap: 1em;
-    margin: 0 auto;
-    max-width: 60%;
+    margin: 1em auto;
     flex-wrap: wrap;
-    justify-self: center;
+    justify-content: center;
 }
 
 .dish,
 .newDish {
     display: flex;
-    width: 32em;
-    height: 16em;
+    width: 35%;
+    height: 20%;
     gap: 25px;
     background-color: white;
     padding: 1em;
@@ -381,24 +448,22 @@ h2 {
 }
 
 .newDish .information {
+    width: auto;
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
 .dish .information .name,
-.newDish .information .name {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+.newDish .information .name,
 .dish .information .price,
 .newDish .information .price {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
+
 
 /*---------------------------------------------Reviews------------------------------------------------*/
 #reviews {
@@ -492,7 +557,6 @@ h2 {
 
 }
 
-
 .pastDish {
     display: flex;
     gap: 1em;
@@ -578,19 +642,17 @@ h2 {
     padding: 2em 0;
     background-color: var(--main-color);
     gap: 30px;
-    align-items: flex-start;
+ 
 }
 
 a {
     text-decoration: none;
 }
-
-#signIn {
+#signIn{
     margin-left: auto;
 }
-
-#signUp {
-    padding-right: 6em;
+#signUp{
+    margin-right:2em ;
 }
 
 #signIn,
@@ -598,13 +660,14 @@ a {
     font-size: 20px;
     color: whitesmoke;
     font-weight: 500;
+
 }
 
 #brandMain {
     font-size: 30px;
     color: whitesmoke;
     font-weight: 500;
-    padding-left: 3em;
+    margin-left: 2em ;
 }
 
 .mainPage {
@@ -638,7 +701,7 @@ a {
 }
 
 signUp,
-SignIn {
+.SignIn {
 
     margin: 0 auto;
     display: flex;
@@ -649,21 +712,21 @@ SignIn {
 }
 
 signUp form,
-SignIn form {
+.SignIn form {
     background-color: #351C1C;
 }
 
-SignIn input {
+.SignIn input {
     width: 20em;
     height: 2em;
     margin: 1em;
 }
 
-SignIn button {
+.SignIn button {
     width: 5em;
 }
 
-SignIn a {
+.SignIn a {
     text-align: right;
     font-size: 20px;
     color: whitesmoke;
@@ -842,6 +905,7 @@ signUp button {
 
 .mainRestaurantsName {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     gap: 1em;
 }
@@ -981,13 +1045,14 @@ signUp button {
 
 .order {
     display: flex;
-    width: auto;
+    justify-content: space-between;
     height: auto;
     gap: 25px;
     background-color: white;
     padding: 1em;
     border: var(--main-color) solid 5px;
     border-radius: 22px;
+    width: 15em;
 }
 
 .order form {
