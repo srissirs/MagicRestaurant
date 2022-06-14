@@ -1094,3 +1094,9 @@ INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(11,10,'
 INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(14,14,':(');
 INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(15,14,'Muito obrigado. Ficamos felizes que gostou');
 INSERT INTO ReviewResponse(ReviewId,RestaurantOwnerId,reviewText) VALUES(17,15,'Obrigado ;)');
+
+
+INSERT INTO Images(id, title) VALUES (1,1);
+INSERT INTO Images(id, title) VALUES (2,2);
+INSERT INTO Images(id, title) VALUES (3,3);
+INSERT INTO Images(id, title) VALUES (4,4);
