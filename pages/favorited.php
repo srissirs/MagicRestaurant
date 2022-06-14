@@ -21,7 +21,7 @@
 
   $dishes=Customer::getFavoriteDishes($db,1);
  
-  drawHeader(1);
+  drawHeader(0);
   drawFavoritedHeader();
   drawFavorited($restaurant,$dishes);
   drawFooter();
