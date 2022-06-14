@@ -25,11 +25,15 @@ if (searchDishMain) {
 
       dishCard.className = 'dish'
       const img = document.createElement('img')
-      img.src = "../images/restaurant.jpg"
+      img.src = "../images/" + dish.photo + ".jpg"
       const dishTitle = document.createElement('div')
       dishTitle.className = 'name'
       const starIconDish = document.createElement('button')
       starIconDish.className = 'fa-regular fa-star'
+                              
+      starIconDish.onclick = function () {
+        toggleFavorite(dish.dishId,1)
+      }
 
       const name = document.createElement('p')
       name.id = 'name'
@@ -89,7 +93,6 @@ if (searchRestaurantMain) {
       restaurantCard.className = 'restaurantCard'
       const img = document.createElement('img')
       img.src = "../images/restaurant.jpg"
-      //img.src = 'https://picsum.photos/200?' + restaurant.restaurantId
       const mainRestaurantsInfo = document.createElement('div')
       mainRestaurantsInfo.className = 'mainRestaurantsInfo'
 
@@ -98,10 +101,17 @@ if (searchRestaurantMain) {
       const link = document.createElement('a')
       link.href = 'restaurant.php?id=' + restaurant.restaurantId
       link.textContent = restaurant.restaurantName
-      const heartIcon = document.createElement('i')
-      heartIcon.className = 'fa-regular fa-heart'
+      starIconButton = document.createElement('button')
+      starIconButton.className = 'fa-regular fa-star'
+
+                              
+      starIconButton.onclick = function () {
+        toggleFavorite(restaurant.restaurantId,0)
+      }
+      
       mainRestaurantsName.appendChild(link)
-      mainRestaurantsName.appendChild(heartIcon)
+      mainRestaurantsName.appendChild(starIconButton)
+      
 
       const mainRestaurantsRating = document.createElement('div')
       mainRestaurantsRating.className = 'mainRestaurantsRating'
