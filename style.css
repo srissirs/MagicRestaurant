@@ -928,6 +928,7 @@ a {
 
 .restaurants {
     margin: 1em auto;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 3em;
