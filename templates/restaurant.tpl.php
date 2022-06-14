@@ -65,13 +65,11 @@ require_once(__DIR__ . '/../database/customer.class.php');
         </form>
       </div>
 
-
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p> Cart </p>
-
-        <total class="totalSum" id="totalSum">Total : </total>
-        <button onclick="addOrderDish()"> Finish you order </button>
+        <div class="totalSum" id="totalSum">Total : </div>
+        <button onclick="addOrderDish();clearDishes();"> Finish you order </button>
       </div>
       <?php if (!$isOwner) { ?>
         <div id="mySidenav" class="sidenav">
@@ -96,10 +94,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
               <label> Dish Name: </label>
               <input name="dishName">
             </div>
-            <category>
+            <div>
               <label> Dish Category: </label>
               <input name="dishCategory">
-            </category>
+            </div>
             <div class="price">
               <label> Dish Price: </label>
               <input name="dishPrice">
@@ -127,13 +125,13 @@ require_once(__DIR__ . '/../database/customer.class.php');
                 </button>
               <?php } ?>
             </div>
-            <category>
-              <p id="category"> <?= $dish->dishCategory ?> </p>
-            </category>
+            <div class="dishCategory">
+              <p> <?= $dish->dishCategory ?> </p>
+            </div>
             <div class="price">
               <p id="price"> <?= $dish->dishPrice ?> </p>
               <?php if (!$isOwner) { ?>
-                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> )"></button>
+                <button class="fa-solid fa-cart-shopping button" onclick="addToCart(<?= intval($dish->dishId) ?>,<?= floatval($dish->dishPrice) ?> );openNav();"></button>
               <?php } ?>
             </div>
           </div>

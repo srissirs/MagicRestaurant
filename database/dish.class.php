@@ -9,21 +9,23 @@ class Dish
   public float $dishPrice;
   public int $restaurantId;
   public string $dishCategory;
+  public int $photo;
 
 
-  public function __construct(int $dishId, string $dishName, float $dishPrice, int $restaurantId, string $dishCategory)
+  public function __construct(int $dishId, string $dishName, float $dishPrice, int $restaurantId, string $dishCategory, int $photo)
   {
     $this->dishId = $dishId;
     $this->dishName = $dishName;
     $this->dishPrice = $dishPrice;
     $this->restaurantId = $restaurantId;
     $this->dishCategory = $dishCategory;
+    $this->photo = $photo;
   }
 
   static function getRestaurantDishes(PDO $db, int $restaurantId): array
   {
     $stmt = $db->prepare('
-      SELECT DishId, DishName, DishPrice, Dish.RestaurantId, CategoryName
+      SELECT DishId, DishName, DishPrice, Dish.RestaurantId, CategoryName, DishPhoto
       FROM Dish,Restaurant,Category
       WHERE Dish.RestaurantId = ?
       AND Restaurant.RestaurantId=Dish.RestaurantId
@@ -40,7 +42,8 @@ class Dish
         $dish['DishName'],
         floatval($dish['DishPrice']),
         intval($dish['RestaurantId']),
-        $dish["CategoryName"]
+        $dish["CategoryName"],
+        intval($dish['DishPhoto'])
       );
     }
     return $dishes;
@@ -49,7 +52,7 @@ class Dish
   static function getDish(PDO $db, int $dishId): Dish
   {
     $stmt = $db->prepare('
-        SELECT DishId, DishName, DishPrice, RestaurantId,CategoryName
+        SELECT DishId, DishName, DishPrice, RestaurantId,CategoryName, DishPhoto
         FROM Dish,Category
         WHERE DishId = ? 
         AND CategoryId=DishCategory
@@ -63,14 +66,15 @@ class Dish
       $dish['DishName'],
       floatval($dish['DishPrice']),
       intval($dish['RestaurantId']),
-      $dish["CategoryName"]
+      $dish["CategoryName"],
+      intval($dish['DishPhoto'])
     );
   }
 
   
 
  static function searchDishes(PDO $db, string $search, int $id) : array {
-      $stmt = $db->prepare('SELECT DishId, DishName, DishPrice, RestaurantId, CategoryName
+      $stmt = $db->prepare('SELECT DishId, DishName, DishPrice, RestaurantId, CategoryName, DishPhoto
       FROM Dish, Category WHERE DishName LIKE ? AND CategoryId=DishCategory AND RestaurantId = ?');
       $stmt->execute(array($search . '%',$id));
 
@@ -83,7 +87,8 @@ class Dish
           $dish['DishName'],
           floatval($dish['DishPrice']),
           intval($dish['RestaurantId']),
-          $dish['CategoryName']
+          $dish['CategoryName'],
+          intval($dish['DishPhoto'])
         );
       }
       return $dishes;
@@ -146,7 +151,8 @@ class Dish
       $stmt = $db->prepare('SELECT DishPhoto FROM Dish WHERE DishId=? ');
       $stmt->execute(array($dish->dishId));
       if ($dishPhoto = $stmt->fetch()) {
-        return intval($dishPhoto['DishPhoto']);
+        $photo= intval($dishPhoto['DishPhoto']);
+        return $photo;
       }else
       return -1;
     } catch (PDOException $e) {

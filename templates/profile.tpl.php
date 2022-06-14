@@ -69,6 +69,10 @@ require_once(__DIR__ . '/../database/customer.class.php');
         <p class="unedited"><?= $customer->customerPhone ?></p>
         <input type="text" name="phone" class="editing" style="display: none;" value="<?= $customer->customerPhone ?>">
       </div>
+      <div>
+        <label for="password" class="editing" style="display: none;">New Password:</label>
+        <input type="password" name="password" class="editing" style="display: none;" value="">
+      </div>
       <button class="customerInfoBtn" style="display: none;" type="submit">Save</button>
     </form>
   </section>

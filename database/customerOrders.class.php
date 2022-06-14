@@ -98,7 +98,8 @@ class CustomerOrder
         strval($dish['DishName']),
         floatval($dish['DishPrice']),
         intval($dish['RestaurantId']),
-        strval($dish['DishCategory'])
+        strval($dish['DishCategory']),
+        intval($dish['DishPhoto'])
       );
     }
     return $dishes;

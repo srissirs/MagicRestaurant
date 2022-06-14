@@ -13,13 +13,14 @@
    
   require_once(__DIR__.'/../templates/common.tpl.php');
   require_once(__DIR__.'/../templates/favorited.tpl.php');
+   if (!isset($_SESSION['userId'])) header('Location: signin.php');
 
 
   $db = getDatabaseConnection();
   
-  $restaurant = Customer::getFavoriteRestaurants($db, intval(1));
+  $restaurant = Customer::getFavoriteRestaurants($db, $_SESSION['userId']);
 
-  $dishes=Customer::getFavoriteDishes($db,1);
+  $dishes=Customer::getFavoriteDishes($db,$_SESSION['userId']);
  
   drawHeader(0);
   drawFavoritedHeader();

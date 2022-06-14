@@ -123,11 +123,19 @@ if (searchRestaurantMain) {
 }
 
 starReview()
-restaurantsAndDishes()
+
 drawStar()
 filter()
+restaurantsAndDishes()
 restaurantButtons()
+
 showTotalPrice()
+
+
+
+
+
+
 
 
 function starReview() {
@@ -143,19 +151,19 @@ function starReview() {
     zz = x.querySelector("p")
     zz.textContent = Math.round(zz.textContent)
     if (zz.textContent >= 1) {
-      yy[0].className= "fa fa-star checked full"
+      yy[0].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 2) {
-      yy[1].className= "fa fa-star checked full"
+      yy[1].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 3) {
-      yy[2].className= "fa fa-star checked full"
+      yy[2].className = "fa fa-star checked full"
     }
     if (zz.textContent >= 4) {
-      yy[3].className= "fa fa-star checked full"
+      yy[3].className = "fa fa-star checked full"
     }
     if (zz.textContent == 5) {
-      yy[4].className= "fa fa-star checked full"
+      yy[4].className = "fa fa-star checked full"
     }
   })
 }
@@ -254,7 +262,9 @@ function restaurantButtons() {
       obutton.classList.remove("selected")
       orders.remove()
       reviews.remove()
+      
       restaurant.appendChild(dishes)
+
     }
     addADish()
   })
@@ -344,7 +354,7 @@ function showTotals() {
     total += quantity * price;
   }
   const cart = document.getElementById('totalSum');
-  cart.textContent = "Total: " + total;
+  cart.textContent = "Total: " + total.toFixed(2);
 }
 
 function addDishes(a, count) {
@@ -368,7 +378,6 @@ function filter() {
 
     count++
   }
-  const restaurant = document.querySelector("restaurant")
   var dropdown = document.querySelector("select")
   if (dropdown == null) return
   dropdown.addEventListener('change', function (e) {
@@ -381,7 +390,7 @@ function filter() {
       var dish = document.querySelectorAll("div.dish")
       dish.forEach(el => {
         inf = el.querySelector("div.information")
-        category = inf.querySelector("category")
+        category = inf.querySelector("div.dishCategory")
 
         catText = category.querySelector("p").textContent
 
@@ -409,20 +418,20 @@ function drawStar() {
   z = x.querySelector("p")
 
   z.textContent = Math.round(z.textContent)
-  if (zz.textContent >= 1) {
-    y[0].className= "fa fa-star checked full"
+  if (z.textContent >= 1) {
+    y[0].className = "fa fa-star checked full"
   }
-  if (zz.textContent >= 2) {
-    y[1].className= "fa fa-star checked full"
+  if (z.textContent >= 2) {
+    y[1].className = "fa fa-star checked full"
   }
-  if (zz.textContent >= 3) {
-    y[2].className= "fa fa-star checked full"
+  if (z.textContent >= 3) {
+    y[2].className = "fa fa-star checked full"
   }
-  if (zz.textContent >= 4) {
-    y[3].className= "fa fa-star checked full"
+  if (z.textContent >= 4) {
+    y[3].className = "fa fa-star checked full"
   }
-  if (zz.textContent == 5) {
-    y[4].className= "fa fa-star checked full"
+  if (z.textContent == 5) {
+    y[4].className = "fa fa-star checked full"
   }
 }
 
@@ -597,7 +606,7 @@ function showTotalPrice() {
       totalPrice = totalPrice + quantity * price
     })
     inse = box.querySelector("#total")
-    inse.textContent += totalPrice + "$"
+    inse.textContent += totalPrice.toFixed(2) + "$"
   })
 }
 
@@ -624,5 +633,12 @@ function toggleFavorite(id, dish) {
   })
     .then(response => response.json())
     .then(json => console.log(json));
+}
 
+function clearDishes() {
+  let dishes = document.querySelectorAll(".cartDiv")
+  for (var dish of dishes) {
+    dish.remove()
+  }
+  showTotals()
 }

@@ -5,9 +5,6 @@
   require_once('database/review.class.php');
   require_once('database/reviewResponse.class.php');
   require_once('database/connection.database.php');
-
-
-
   
 ?>
 
