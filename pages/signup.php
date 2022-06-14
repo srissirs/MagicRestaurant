@@ -27,8 +27,8 @@
         <label for="ImRestaurant">I'm a restaurant owner</label>
         <input type="checkbox" id="restaurantowner" name="restaurantowner" value=1>
         </div>
-        <button type="submit"> Register </button><br>
-        <a href="signin.php">Sign in</a> <br>
+        <button type="submit"> Register </button>
+        <a href="signin.php">Sign in</a> 
         <p id="error_messages" style="color: #946B6B">
         <?php include_once('../session.php');?>
            <?php if(isset($_SESSION['ERROR'])) {echo htmlentities($_SESSION['ERROR']); unset($_SESSION['ERROR']);}?>
