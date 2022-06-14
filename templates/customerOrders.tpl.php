@@ -35,8 +35,11 @@ include_once(__DIR__.'/session.php');
 
               <?php } ?>
             </div>
-            <button type="button" class="open-button" onclick="openForm()" id="review"> Leave a review </button>
-            <div class="OrderState"> <?= $pastOrder->orderState ?></div>
+            <div class="pastOrderLabels">
+              <button type="button" class="open-button" onclick="openForm()" id="review"> Leave a review </button>
+              <div class="OrderState"> Order State: <?= $pastOrder->orderState ?></div>
+            </div>
+
           </div>
           <div class="review-popup" id="myForm" style="display: none;">
            <p id="error_messages" style="color: #946B6B"> 
@@ -44,8 +47,8 @@ include_once(__DIR__.'/session.php');
             </p>  
             <form action="../actions/action_add_review.php" class="form-container" method="post">
               <input type="text" name="reviewText" placeholder="  Write your review" required>
-              <input type="number" name="reviewRating" required>
-              <input type="number" name="restaurantId" style="display: none;" value=<?= $pastOrder->restaurantId ?>>
+              <div> Rating: <input type="number" name="reviewRating" required max="5" min="0"> </div>
+              <input type="number" name="restaurantId" hidden value=<?= $pastOrder->restaurantId ?> >
               <button type="submit" class="btn">Submit review</button>
             </form>
           </div>

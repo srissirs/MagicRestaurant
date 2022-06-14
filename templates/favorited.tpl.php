@@ -12,7 +12,7 @@ require_once(__DIR__.'/../database/dish.class.php');
 { ?>
   <section class="favoritedHeader">
     <div class="restaurantInfo">
-      <h2>Favorited</h2>
+      <h2>Favorites</h2>
     </div>
   </section>
 <?php } ?>
@@ -40,7 +40,13 @@ require_once(__DIR__.'/../database/dish.class.php');
           <div class="information">
             <div class="name">
               <p id="name"> <?= $dish->dishName ?> </p>
-              <i class="fa-regular fa-heart"></i>
+              <?php 
+                $isFavorite = Customer::isDishFavorited($db,intval($_SESSION['userId']),intval($dish->dishId));
+                if($isFavorite)
+                $star ="fa fa-star checked full"; else $star = "fa fa-star checked"; ?>
+                <button class="<?= $star ?>"  onclick="toggleFavorite(<?= $dish->dishId ?>,1)">
+                </button>
+              
             </div>
             <category>
                     <p id="category"> <?=$dish->dishCategory?> </p>
@@ -59,8 +65,15 @@ require_once(__DIR__.'/../database/dish.class.php');
                 <img src="../images/restaurant.jpg" alt="Restaurant Photo">
                 <div class="mainRestaurantsInfo">
                     <div class="mainRestaurantsName">
-                        <a> <?=$restaurant->restaurantName ?> </a>
-                        <i class="fa-regular fa-heart"></i>
+                        <a  href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?=$restaurant->restaurantName ?> </a>
+                        <?php $db = getDatabaseConnection();
+                        if (!Restaurant::isOwner($db, intval($restaurant->restaurantId), intval($_SESSION['userId']))) {
+                            $isFavorite = Customer::isRestaurantFavorited($db, intval($_SESSION['userId']), intval($restaurant->restaurantId));
+                            if ($isFavorite)
+                                $star = "fa fa-star checked full";
+                            else $star = "fa fa-star checked"; ?>
+                            <button class="<?=$star?>" onclick="toggleFavorite(<?= $restaurant->restaurantId ?>,0)"></button>
+                        <?php } ?>
                     </div>
                     <div class="mainRestaurantsRating">
                         <i class="fa-regular fa-star"></i>

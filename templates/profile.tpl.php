@@ -87,14 +87,15 @@ require_once(__DIR__ . '/../database/customer.class.php');
           <input type="number" name="id" style="display: none;" value=<?= $restaurant->restaurantId ?>>
           <div>
             <a href="restaurant.php?id=<?= $restaurant->restaurantId ?>"> <?= $restaurant->restaurantName ?> </a>
-            <input type="text" name="restaurant_name" style="display: none;" value="<?= $restaurant->restaurantName ?>">
+            <label style="display: none;"   > Restaurant Name: <input type="text" name="restaurant_name" value="<?= $restaurant->restaurantName ?>"></label>
           </div>
           <div>
             <p> <?= $restaurant->restaurantAddress ?> </p>
-            <input type="text" name="restaurant_address" style="display: none;" value="<?= $restaurant->restaurantAddress ?>">
+            <label style="display: none;"  > Restaurant Adress: <input type="text" name="restaurant_address" value="<?= $restaurant->restaurantAddress ?>"></label>
           </div>
-          <input type="text" name="restaurant_category" style="display: none;">
-          <button type="submit" style="display: none;">Save</button>
+          <label style="display: none;"  > Add a Category:  <input type="text" name="restaurant_category"> </label>
+         
+          <button id="saveResponse" type="submit" style="display: none;">Save</button>
         </form>
         <button type="submit" class="fa-solid fa-pen-to-square" onclick="toggleEditRestaurant()"> </button>
       </section>

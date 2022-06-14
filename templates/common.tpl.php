@@ -5,11 +5,11 @@ require_once(__DIR__ . '/../session.php');
 require_once(__DIR__ . '/../init.php');
 
 
-require_once(__DIR__ .'/../database/connection.database.php');
-require_once(__DIR__ .'/../database/customer.class.php');
+require_once(__DIR__ . '/../database/connection.database.php');
+require_once(__DIR__ . '/../database/customer.class.php');
 
 session_start();
-   ?>
+?>
 
 
 <?php function drawHeader($search)
@@ -39,45 +39,52 @@ session_start();
           <a href="../pages/mainRestaurants.php">Restaurants</a>
           <form action="../actions/action_logout.php" method="post" class="logout">
             <a href="../actions/action_logout.php">Logout
-            <i class="fa-solid fa-arrow-right-from-bracket" id="logoutIcon"></i>
-          </a>
+              <i class="fa-solid fa-arrow-right-from-bracket" id="logoutIcon"></i>
+            </a>
           </form>
-          
+
         </div>
       </div>
-      <a href="mainPage.php"> <h1>Magic Restaurant</h1></a>
-      <div class="searchBar">
-        <?php if($search==1) {?>
-          <input id="searchRestaurant" type="text" placeholder="Search here for a restaurant...">
-        <?php }?>
-        <?php if($search==2) {?>
-          <input id="searchDish" type="text" placeholder="Search here for a dish...">
-        <?php }?>
+      <a href="mainPage.php">
+        <h1>Magic Restaurant</h1>
+      </a>
 
-      </div>
       <div class="profile">
         <?php
         if (!isset($_SESSION['userId'])) header('Location: ../pages/signin.php');
         else {
           $db = getDatabaseConnection();
           $customer = Customer::getCustomer($db, $_SESSION['userId']);
-          drawTopInfo($customer->userName);};
+          drawTopInfo($customer->userName);
+        };
         ?>
       </div>
+      <?php if ($search !== 0) { ?>
+        <div class="searchBar">
+          <?php if ($search == 1) { ?>
+            <input id="searchRestaurant" type="text" placeholder="Search here for a restaurant...">
+          <?php } ?>
+          <?php if ($search == 2) { ?>
+            <input id="searchDish" type="text" placeholder="Search here for a dish...">
+          <?php } ?>
+
+        </div>
+      <?php } ?>
+
 
     </header>
 
-    <main>
-    <?php } ?>
 
-    <?php function drawFooter()
-    { ?>
-    </main>
+  <?php } ?>
+
+  <?php function drawFooter()
+  { ?>
+
     <footer>
-      
+
       <section class="links">
-        <a href="../restaurants.php" id="restaurants">Restaurants</a>
-        <a href="../pages/favorites.php" id="favorites">Favorites</a>
+        <a href="../pages/mainRestaurants.php" id="restaurants">Restaurants</a>
+        <a href="../pages/favorited.php" id="favorites">Favorites</a>
         <a href="../pages/pastOrders.php" id="pastOrders">Past Orders</a>
       </section>
       <p>Magic Restaurant &copy; 2022 </p>
@@ -95,8 +102,9 @@ session_start();
 <?php } ?>
 
 
-<?php function drawMainPageHeader(){ ?>
-   <!DOCTYPE html>
+<?php function drawMainPageHeader()
+{ ?>
+  <!DOCTYPE html>
   <html lang="en-US">
 
   <head>
@@ -116,4 +124,4 @@ session_start();
 
 
 
-<?php }?>
+<?php } ?>
