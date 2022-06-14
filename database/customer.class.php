@@ -269,7 +269,7 @@ static public function deleteFavRestaurant(PDO $db, int $customerId,int $restaur
         SELECT Restaurant.RestaurantId, RestaurantName, RestaurantAddress, RestaurantCity, RestaurantCountry, RestaurantPostalCode, RestaurantPhone, Rating
         FROM Restaurant, Customer,RestaurantOwner
         WHERE Customer.CustomerId = ?
-        AND Customer.RestaurantOwner = RestaurantOwner.RestaurantOwnerId
+        AND Customer.CustomerId = RestaurantOwner.RestaurantOwnerId
         AND RestaurantOwner.RestaurantId = Restaurant.RestaurantId
         Group By Restaurant.RestaurantId;
         ');

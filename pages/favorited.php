@@ -17,9 +17,9 @@
 
   $db = getDatabaseConnection();
   
-  $restaurant = Customer::getFavoriteRestaurants($db, intval(1));
+  $restaurant = Customer::getFavoriteRestaurants($db, $_SESSION['userId']);
 
-  $dishes=Customer::getFavoriteDishes($db,1);
+  $dishes=Customer::getFavoriteDishes($db,$_SESSION['userId']);
  
   drawHeader(0);
   drawFavoritedHeader();

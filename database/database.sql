@@ -754,14 +754,14 @@ INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,1);
 INSERT INTO CategoryRestaurant(RestaurantId,CategoryId) VALUES(15,2);
 
 
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,23,'received','2022-5-24');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(3,3,22,'received','2022-5-24');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(4,4,21,'received','2022-5-23');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(5,5,20,'received','2022-5-22');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(6,6,19,'received','2022-5-22');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(7,7,18,'received','2022-5-22');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(8,8,17,'received','2022-5-22');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(9,9,16,'preparing','2022-5-22');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(2,2,3,'received','2022-5-24');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(3,3,2,'received','2022-5-24');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(4,4,1,'received','2022-5-23');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(5,5,2,'received','2022-5-22');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(6,6,9,'received','2022-5-22');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(7,7,8,'received','2022-5-22');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(8,8,7,'received','2022-5-22');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(9,9,6,'preparing','2022-5-22');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(10,11,15,'preparing','2022-5-22');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(11,12,14,'preparing','2022-5-21');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(12,1,13,'preparing','2022-5-20');
@@ -790,10 +790,10 @@ INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) 
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(34,11,1,'delivered','2022-4-22');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(35,12,2,'delivered','2022-04-14');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(36,13,11,'delivered','2022-04-13');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(37,15,22,'delivered','2022-04-4');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(38,7,20,'delivered','2022-04-3');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(37,15,12,'delivered','2022-04-4');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(38,7,2,'delivered','2022-04-3');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(39,9,13,'delivered','2022-4-2');
-INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(40,2,16,'delivered','2022-4-1');
+INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(40,2,11,'delivered','2022-4-1');
 
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(41,1,2,'delivered','2022-03-1');
 INSERT INTO CustomerOrder(OrderId,RestaurantId,CustomerId,OrderState,OrderDate) VALUES(42,3,1,'delivered','2022-03-14');
